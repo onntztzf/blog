@@ -14,13 +14,13 @@
 
 ### 修改 `Today Extension` 的 `Info.plist`
 
-* Bundle display name  
+* Bundle display name
 
   Widget在通知栏显示的名称
 
-* NSExtension  
+* NSExtension
 
-  如果你是使用纯代码进行开发，请按照下面进行操作：  
+  如果你是使用纯代码进行开发，请按照下面进行操作：
 
   1. 请删除 `NSExtensionMainStoryboard` 的键值对和 `MainInterface.storyboard` 文件
   2. 请添加 `NSExtensionPrincipalClass` 这个 `key`，并将 `value` 设置为控制器（如 `TodayViewController`）

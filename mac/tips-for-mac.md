@@ -12,17 +12,16 @@
 
   可以直接通过 `command + shift + .` 控制隐藏文件的显示与隐藏。
 
-* 之前的系统
-  1. 在终端中输入如下命令，将隐藏文件隐藏或显示
+* 之前的系统 1. 在终端中输入如下命令，将隐藏文件隐藏或显示
 
-     ```text
+  ```text
       //显示隐藏文件
       defaults write com.apple.finder AppleShowAllFiles YES
       //隐藏隐藏文件
       defaults write com.apple.finder AppleShowAllFiles NO
-     ```
+  ```
 
-  2. 重启Finder
+  1. 重启Finder
 
      鼠标单击窗口左上角的苹果标志--&gt;强制退出--&gt;Finder--&gt;重新启动
 

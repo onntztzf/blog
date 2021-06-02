@@ -4,19 +4,19 @@
 
 ## 消息转发两大阶段
 
-1. 动态方法解析  
+1. 动态方法解析
 
-   检查当前接收者能否动态添加方法，处理这个`unrecognized selector`。  
+   检查当前接收者能否动态添加方法，处理这个`unrecognized selector`。
 
-2. 完整的消息转发  
+2. 完整的消息转发
 
    第一阶段执行完毕后，如接收者不能以动态新增方法处理这个`unrecognized selector`，接下来，会分两种情况：
 
-   * 有备援接收者（replacement receiver）  
+   * 有备援接收者（replacement receiver）
 
-     在运行期将消息转给备援接收者，由备援接收者完成消息的处理。  
+     在运行期将消息转给备援接收者，由备援接收者完成消息的处理。
 
-   * 无备援接收者（replacement receiver）  
+   * 无备援接收者（replacement receiver）
    * 启动一套“完整的消息转发机制”，将消息封装到NSInvocation对象中，交给接收者处理。
 
 ### 动态方法解析

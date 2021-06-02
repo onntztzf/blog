@@ -56,7 +56,7 @@
    2. 按照提示框中的提示, 在无线网设置中，将代理改为手动设置，按图中所示填写 `xxx.xx.xxx.xxx:xxxx`
    3. 使用手机浏览器访问 [chls.pro/ssl](https://github.com/gh-zhangpeng/blog/tree/322c1a6adda8dd6be880c9622823871046e6654b/mac/chls.pro/ssl/README.md)，按照提示安装证书
 
-       ![Charles](http://img.zhangpeng.site/2019/01/02/6.jpg)
+      ![Charles](http://img.zhangpeng.site/2019/01/02/6.jpg)
 
 2. **信任证书**
 

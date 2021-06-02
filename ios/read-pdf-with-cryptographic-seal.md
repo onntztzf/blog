@@ -6,9 +6,9 @@
 
 本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/gh-zhangpeng/ShowPDFDemo.git)~
 
-### 实现步骤
+## 实现步骤
 
-#### 宏
+### 宏
 
 为了方便我进行代码编写，我们提前设置几个宏：
 
@@ -19,7 +19,7 @@
 #define DOCUMENTS_DIRECTORY [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 ```
 
-#### 详细代码
+### 详细代码
 
 本文中的 `Demo` 是以 `WKWebView` 进行开发，如果您需要使用 `UIWebView`，请自行修改。
 
@@ -49,8 +49,8 @@ webView.UIDelegate = self;
 webView.navigationDelegate = self;
 [self.view addSubview:webView];
 ```
-```
 
+```text
 1. 下载PDF
 
    ```text
@@ -80,9 +80,9 @@ webView.navigationDelegate = self;
         });
     }];
     [sessionDataTask resume];
-   ```
+```
 
-2. 打开 `PDF`
+1. 打开 `PDF`
 
    ```text
     - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
@@ -106,7 +106,7 @@ webView.navigationDelegate = self;
     }
    ```
 
-3. 在 `WKWebView` 的代理中，我们可以知道 `PDF` 是否成功打开，
+2. 在 `WKWebView` 的代理中，我们可以知道 `PDF` 是否成功打开，
 
    ```text
     - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
@@ -120,7 +120,7 @@ webView.navigationDelegate = self;
    }
    ```
 
-4. `PDF` 是否读取成功是在 `customview.js` 中通知控制器的，具体可以查看下面的代码。
+3. `PDF` 是否读取成功是在 `customview.js` 中通知控制器的，具体可以查看下面的代码。
 
    ```javascript
     function handlePages(page)
