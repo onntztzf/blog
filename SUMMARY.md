@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [关于我](about.md)
 * [go](go/README.md)
-  * [Golang 中的并发](go/test.md)
   * [Go 基础](go/go.md)
   * [Go 1.13 中 Go command 修改](go/go-command.md)
 * [ubuntu](ubuntu/README.md)
