@@ -1,11 +1,11 @@
 # 类的初始化方法
 
-**原文链接：[深入了解 iOS 的初始化](https://mp.weixin.qq.com/s/Qs5JDavftrlpnGkb1BTlnw)，本文是阅读以后的摘抄。**
+**原文链接：**[**深入了解 iOS 的初始化**](https://mp.weixin.qq.com/s/Qs5JDavftrlpnGkb1BTlnw)**，本文是阅读以后的摘抄。**
 
 类（结构体、枚举）的初始化有两种初始化器（初始化方法）：
 
-- 指定初始化器（Designated Initializers ）
-- 便利初始化器（Convenience Initializers）
+* 指定初始化器（Designated Initializers ）
+* 便利初始化器（Convenience Initializers）
 
 ## 指定初始化器
 
@@ -22,7 +22,7 @@
 
 如果文字不好理解，可以根据下面的图，进行理解：
 
-![核心原则图解](https://docs.swift.org/swift-book/_images/initializerDelegation02_2x.png)
+![&#x6838;&#x5FC3;&#x539F;&#x5219;&#x56FE;&#x89E3;](https://docs.swift.org/swift-book/_images/initializerDelegation02_2x.png)
 
 ## Objective-C 和 Swift 的差异
 
@@ -30,9 +30,9 @@
 
 `Objective-C` 在初始化时，会**自动给每个属性（成员变量）赋值为 0 或者 nil**，没有强制要求额外为每个属性（成员变量）赋值，**方便的同时也缺少了代码的安全性**。
 
-`Objective-C` 中的指定初始化器会在后面被 `NS_DESIGNATED_INITIALIZER` 修饰，以下为 `NSObject`  和 `UIView` 的指定初始化器：
+`Objective-C` 中的指定初始化器会在后面被 `NS_DESIGNATED_INITIALIZER` 修饰，以下为 `NSObject` 和 `UIView` 的指定初始化器：
 
-```objc
+```text
 // NSObject
 @interface NSObject <NSObject>
 - (instancetype)init
@@ -84,9 +84,9 @@ class Student: Person {
 
 如果**子类有新的非可选类型属性，或者无法保证所有非可选类型属性都已经有默认值**，则需要新创建一个指定初始化器，或者重写父类的指定初始化器。
 
-- 新创建一个指定初始化器，会覆盖父类的指定初始化器，需要先给当前类所有非可选类型属性赋值，然后再调用父类的指定初始化器
-- 重写父类的指定初始化器，需要先给当前类所有非可选类型属性赋值，然后再调用父类的指定初始化器
-- 在保证子类有指定初始化器，才能创建便利初始化器，且在便利初始化器里面必须调用指定初始化器
+* 新创建一个指定初始化器，会覆盖父类的指定初始化器，需要先给当前类所有非可选类型属性赋值，然后再调用父类的指定初始化器
+* 重写父类的指定初始化器，需要先给当前类所有非可选类型属性赋值，然后再调用父类的指定初始化器
+* 在保证子类有指定初始化器，才能创建便利初始化器，且在便利初始化器里面必须调用指定初始化器
 
 ```swift
 class Student: Person {
@@ -113,7 +113,7 @@ class Student: Person {
 
 #### 可失败的初始化器
 
-可失败的初始化器（Failable Initializers），表示在某些情况下会创建实例失败。只有在表示创建失败的时候才有返回值，并且返回值为  `nil`。
+可失败的初始化器（Failable Initializers），表示在某些情况下会创建实例失败。只有在表示创建失败的时候才有返回值，并且返回值为 `nil`。
 
 子类可以把父类的可失败的初始化器重写为不可失败的初始化器，但不能把父类的不可失败的初始化器重写为可失败的初始化器。
 
@@ -143,12 +143,11 @@ class Dog: Animal {
 
 可以使用 `required` 修饰初始化器，来指定子类必须实现该初始化器。需要注意的是，如果子类可以直接继承父类的指定初始化器和便利初始化器，也就可以不用额外实现required修饰的初始化器。
 
----
-
 > Title: 类的初始化方法
 >
 > Date: 2019.12.05
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

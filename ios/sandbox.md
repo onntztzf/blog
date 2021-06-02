@@ -6,7 +6,7 @@
 
 保存应用运行时生成的需要持久化的数据，`iTunes` 会自动备份该目录。苹果建议将程序中建立的或在程序中浏览到的文件数据保存在该目录下，`iTunes` 备份和恢复的时候会包括此目录。
 
-```objc
+```text
 NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 ```
 
@@ -14,7 +14,7 @@ NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUse
 
 存储程序的默认设置和其他状态信息，`iTunes` 会自动备份该目录（仅`Preferences`）。
 
-```objc
+```text
 NSString *path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
 ```
 
@@ -28,7 +28,7 @@ NSString *path = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUser
 
 存放缓存文件，`iTunes` 不会备份此目录，此目录下文件不会在应用退出删除。一般存放体积比较大，不是特别重要的资源。
 
-```objc
+```text
 NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
 ```
 
@@ -36,11 +36,9 @@ NSString *path = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserD
 
 保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也有可能会清除该目录下的文件，`iTunes` 不会同步该目录。设备重启时，该目录下的文件会丢失。
 
-```objc
+```text
 NSString *path = NSTemporaryDirectory();
 ```
-
----
 
 > Title: App 沙盒
 >
@@ -48,4 +46,5 @@ NSString *path = NSTemporaryDirectory();
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

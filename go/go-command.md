@@ -8,7 +8,7 @@
 
 ### -w
 
-设置环境变量，通过此方式设置的默认值存储在 [os.UserConfigDir()](https://golang.org/pkg/os/#UserConfigDir) 中的 `go/env` 文件中。
+设置环境变量，通过此方式设置的默认值存储在 [os.UserConfigDir\(\)](https://golang.org/pkg/os/#UserConfigDir) 中的 `go/env` 文件中。
 
 ### -u
 
@@ -18,11 +18,11 @@
 
 现在 `go version` 命令的参数既可以是可执行文件又可以是项目目录。如果在 `go version` 命令中加上 `-m` 参数，则会打印可执行文件的引用模块的相关版本信息。
 
-- 可执行文件
+* 可执行文件
 
   打印用于构建该可执行文件的 `go sdk` 版本。
 
-  ```shell
+  ```text
   ➜  GoProject go version ./GoProject
   ./GoProject: go1.13.1
   ➜  GoProject go version -m ./GoProject
@@ -38,11 +38,11 @@
    dep gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
   ```
 
-- 项目目录
+* 项目目录
 
   打印目录及其子目录中包含的可执行文件的信息。
 
-  ```shell
+  ```text
   ➜  GoProject go version .
   GoProject: go1.13.1
   ➜  GoProject go version -m .
@@ -74,12 +74,11 @@
 
 [UserConfigDir](https://golang.org/pkg/os/#UserConfigDir)
 
----
-
 > Title: Go 1.13 中 Go command 修改
 >
 > Date: 2020.05.07
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

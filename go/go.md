@@ -3,12 +3,11 @@
 ## 环境配置
 
 1. [下载安装包](https://golang.google.cn/dl/)
-
 2. 配置环境变量
 
    在您所使用的 `shell` 对应的配置文件中，添加下面的内容：
 
-   ```shell
+   ```text
    export GOROOT="/usr/local/go"
    export GOPATH="$HOME/go"
    export PATH=$PATH:$GOPATH/bin
@@ -20,7 +19,7 @@
 
 完成上面的操作后，在终端输入 `go env`，输出下面内容，就表示 go 环境配置完成：
 
-```shell
+```text
 ~ go env
 GOARCH="amd64"
 GOBIN=""
@@ -64,7 +63,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmess
 
   **src:** 存放源代码。按照 `Go` 语言约定，`go run`，`go install` 等命令默认会在此路径下执行；
 
-  **pkg:** 存放编译时生成的中间文件（ *.a ）；
+  **pkg:** 存放编译时生成的中间文件（ \*.a ）；
 
   **bin:** 存放编译后生成的可执行文件 （ 在项目内执行 go install，会在 bin 目录下生成一个可执行文件）。
 
@@ -92,7 +91,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmess
 
 ## 数据类型
 
-布尔型，整型，浮点型，指针类型（Pointer）、数组类型、结构化类型(struct)、Channel 类型、函数类型、切片类型、接口类型（interface）、Map 类型
+布尔型，整型，浮点型，指针类型（Pointer）、数组类型、结构化类型\(struct\)、Channel 类型、函数类型、切片类型、接口类型（interface）、Map 类型
 
 ```go
 // 布尔型
@@ -422,12 +421,11 @@ func main() {
 }
 ```
 
----
-
 > Title: Go 基础
 >
 > Date: 2019.07.20
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

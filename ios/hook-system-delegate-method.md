@@ -4,7 +4,7 @@
 
 ## Runtime
 
-做 `iOS` 开发的同学们一定知道 `Runtime` ，这里就不讲太多了。[这个是 Runtime 文档](https://developer.apple.com/documentation/objectivec/objective_c_runtime)，有兴趣的同学，可以自己查阅一下。网上关于 `Runtime` 的博客也有很多，官方文档看不懂，可以看看其他人的博客。(๑•̀ㅂ•́)و
+做 `iOS` 开发的同学们一定知道 `Runtime` ，这里就不讲太多了。[这个是 Runtime 文档](https://developer.apple.com/documentation/objectivec/objective_c_runtime)，有兴趣的同学，可以自己查阅一下。网上关于 `Runtime` 的博客也有很多，官方文档看不懂，可以看看其他人的博客。\(๑•̀ㅂ•́\)و
 
 ## `UIScrollView` 停止滚动的类型
 
@@ -16,13 +16,13 @@
 
 第1种类型，比较简单，在 `UIScrollView` 的代理中就可以监听到。
 
-```objc
+```text
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView;
 ```
 
 而第2种类型和第3种类型，就没有方法让我们可以直接监听到了。但是只要是滑动了，就一定会触发 `UIScrollView` 的下面代理，然后通过 `UIScrollView` 部分属性的改变，我们就可以监听到滚动停止了，后面会详细介绍方法。
 
-```objc
+```text
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 ```
@@ -33,7 +33,7 @@
 
 通过翻阅文档，我们可以看到 `UIScrollView` 有三个属性: **tracking、dragging、decelerating。**
 
-```objc
+```text
 // returns YES if user has touched. may not yet have started dragging
 @property(nonatomic,readonly,getter=isTracking) BOOL tracking;
 
@@ -48,14 +48,14 @@
 
 停止类型1：
 
-```objc
+```text
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView;
 tracking:0,dragging:0,decelerating:0
 ```
 
 停止类型2：
 
-```objc
+```text
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 tracking:1,dragging:0,decelerating:1
 
@@ -65,14 +65,14 @@ tracking:0,dragging:0,decelerating:0
 
 停止类型3：
 
-```objc
+```text
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 tracking:1,dragging:0,decelerating:0
 ```
 
 通过上面的代码，可以发现，我们只需要对 `UIScrollView` 的这三个属性进行相应的组合，就可以监听到 `UIScrollView` 停止滚动的事件了。
 
-```objc
+```text
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     // 停止类型1、停止类型2
     BOOL scrollToScrollStop = !scrollView.tracking && !scrollView.dragging && !scrollView.decelerating;
@@ -97,17 +97,15 @@ tracking:1,dragging:0,decelerating:0
 }
 ```
 
-**上面的代码具体请看 [监听UIScrollView停止滚动的Demo](https://github.com/gh-zhangpeng/P_App_OC) 中的`Demo6-UIScrollView停止滚动`**
+**上面的代码具体请看** [**监听UIScrollView停止滚动的Demo**](https://github.com/gh-zhangpeng/P_App_OC) **中的`Demo6-UIScrollView停止滚动`**
 
 ### 添加停止滚动的回调
 
 #### Hook setDelegate
 
-因为我们要对 `UIScrollView` 的 `setDelegate` 进行方替换，因此我们需要创建一个创建一个 `UIScrollView` 的 `Category` ，在 `load` 中进行替换。
-使用`dispatch_once`包住替换方法的代码，保证只进行一次替换操作，不会因多次替换同一方法，产生隐患。
-我这边只想对 `UIScrollView` 添加滚动停止的监听，所以在 `hook_setDelegate` 进行了判断，如果是 `[UIScrollView class]` 才会去Hook系统的代理方法。
+因为我们要对 `UIScrollView` 的 `setDelegate` 进行方替换，因此我们需要创建一个创建一个 `UIScrollView` 的 `Category` ，在 `load` 中进行替换。 使用`dispatch_once`包住替换方法的代码，保证只进行一次替换操作，不会因多次替换同一方法，产生隐患。 我这边只想对 `UIScrollView` 添加滚动停止的监听，所以在 `hook_setDelegate` 进行了判断，如果是 `[UIScrollView class]` 才会去Hook系统的代理方法。
 
-```objc
+```text
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -139,7 +137,7 @@ tracking:1,dragging:0,decelerating:0
 * 代理对象如果没有实现 `scrollViewDidEndDecelerating:` 方法，而我们又想监听时，就需要我们动态的添加 `scrollViewDidEndDecelerating:` 方法。
 * `setDelegate:` 万一重复设置了，会导致 `scrollViewDidEndDecelerating:` 多次交换，我们需要预防这种情况。
 
-```objc
+```text
 static void Hook_Method(Class originalClass, SEL originalSel, Class replacedClass, SEL replacedSel, SEL noneSel){
     // 原实例方法
     Method originalMethod = class_getInstanceMethod(originalClass, originalSel);
@@ -173,7 +171,7 @@ static void Hook_Method(Class originalClass, SEL originalSel, Class replacedClas
 
 #### 实现我们自己方法
 
-```objc
+```text
 // 已经实现需要hook的代理方法时，调用此处方法进行替换
 #pragma mark - Replace_Method
 - (void)p_scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -232,13 +230,13 @@ static void Hook_Method(Class originalClass, SEL originalSel, Class replacedClas
 
 `UIScrollView+Category.h`文件
 
-```objc
+```text
 @property(nonatomic, copy) StopScrollBlock stopScrollBlock;
 ```
 
 `UIScrollView+Category.m`文件
 
-```objc
+```text
 static const char p_stopScrollBlock = '\0';
 - (StopScrollBlock)stopScrollBlock {
     return objc_getAssociatedObject(self, &p_stopScrollBlock);
@@ -251,7 +249,7 @@ static const char p_stopScrollBlock = '\0';
 
 最后在监听滚动停止的方法中调用这个回调，就大工告成了。
 
-```objc
+```text
 - (void)stopScroll:(UIScrollView *)scrollView {
     if (self.stopScrollBlock) {
         self.stopScrollBlock(scrollView);
@@ -261,7 +259,7 @@ static const char p_stopScrollBlock = '\0';
 
 ### 回调的使用
 
-```objc
+```text
 UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
 scrollView.contentSize = CGSizeMake(kScreenW * 8, kScreenH);
 scrollView.delegate = self;
@@ -276,12 +274,11 @@ scrollView.stopScrollBlock = ^(UIScrollView *scrollView) {
 1. [UITableView、UICollectionView 滚动结束的监测](https://www.jianshu.com/p/718862ee13b0)
 2. [Method Swizzling 实战：Hook 系统代理方法](https://www.jianshu.com/p/3fafb68b1d11)
 
----
-
 > Title: Hook 系统代理方法
 >
 > Date: 2018.01.14
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

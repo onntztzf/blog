@@ -1,6 +1,6 @@
 # WKWebView 使用及注意事项
 
-`WKWebView` 是苹果提供的用于在App中进行网页浏览的控件，不过只能在 `iOS8` 后使用，如果还需要适配 `iOS7`，那我只能摆一张无奈脸了ㄟ( ▔， ▔ )ㄏ
+`WKWebView` 是苹果提供的用于在App中进行网页浏览的控件，不过只能在 `iOS8` 后使用，如果还需要适配 `iOS7`，那我只能摆一张无奈脸了ㄟ\( ▔， ▔ \)ㄏ
 
 ## 为什么使用要用 `WKWebView`
 
@@ -20,13 +20,13 @@
 
 要想使用`WKWebView`，一定要先引入:
 
-```objc
+```text
 #import <WebKit/WebKit.h>
 ```
 
 ### 添加 `WKWebView`
 
-```objc
+```text
 // WKUserContentController 对象为 JavaScript 提供了一种方式，可以将消息发送到 web 视图，并将用户脚本注入到 web 视图中。
 WKUserContentController *userContentController = [[WKUserContentController alloc] init];
 
@@ -66,7 +66,7 @@ _webView = webView;
 
 `WKNavigationDelegate` 中基本都是生命周期相关的代理，下面会按照执行顺序进行介绍
 
-```objc
+```text
 // 1.是否允许跳转
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
     NSLog(@"%s", __func__);
@@ -107,7 +107,7 @@ _webView = webView;
 
 下面还有几个不常用但是要知道的代理
 
-```objc
+```text
 //当由服务端进行重定向时触发
 - (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
     NSLog(@"%s", __func__);
@@ -130,7 +130,7 @@ _webView = webView;
 
 `WKUIDelegate` 中我们最常用的就是这个 `- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler` 代理了。我们可以在这个代理中，将前端中的 `alert()` 替换为我们自己的弹窗。
 
-```objc
+```text
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
@@ -140,11 +140,11 @@ _webView = webView;
 }
 ```
 
-这个 `message` 就是前端通过alert()方法传递的内容。**一定要写上 `completionHandler();`**，否则在某些情况下会造成Crash，详见 [WKWebView那些坑](https://www.cnblogs.com/NSong/p/6489802.html)。
+这个 `message` 就是前端通过alert\(\)方法传递的内容。**一定要写上 `completionHandler();`**，否则在某些情况下会造成Crash，详见 [WKWebView那些坑](https://www.cnblogs.com/NSong/p/6489802.html)。
 
 下面两个方法，和上面的蕾丝，如有需要，可以看情况使用。
 
-```objc
+```text
 - (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler;
 
 - (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(nullable NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable result))completionHandler;
@@ -163,7 +163,7 @@ _webView = webView;
 
 这种方案需要我们客户端提前在端上做些准备。我们需要在 `- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message` 代理中写好路由方法，简单来讲就是什么消息体该做什么事。当前端同学通过特定方法调用功能时，我们可以在此代理中接收到消息体，然后我们根据不同的消息内容，进行不同的操作即可。
 
-```objc
+```text
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     // 打印所传过来的参数，只支持NSNumber, NSString, NSDate, NSArray, NSDictionary, NSNull类型
     if ([message.name isEqualToString:@"test1"]) {
@@ -180,16 +180,14 @@ _webView = webView;
 **举个例子：**  
 当前端同学调用 `test1` 时就会打印 `触发了test1`，而调用 `test2` 时就会打印 `触发了test2`。
 
-<!-- 需要前端同学进行一定的配合。但是如果前端忙到没有时间帮助我们，那我们也可以自己来，也就是一句话的事儿~~ -->
-
 而前端同学就简单了，当需要调用客户端中的方法时，通过下面的方式进行调用及传参：  
-**`window.webkit.messageHandlers.对象.postMessage(参数);`**  
-> **对象：**就是我们在初始化`WKWebView`时，通过`addScriptMessageHandler` 注入的 `js` 对象名称；
-> **参数：**建议用json进行参数的传递，两边约定好的规范，可以提高开发的效率
+**`window.webkit.messageHandlers.对象.postMessage(参数);`**
+
+> **对象：**就是我们在初始化`WKWebView`时，通过`addScriptMessageHandler` 注入的 `js` 对象名称； **参数：**建议用json进行参数的传递，两边约定好的规范，可以提高开发的效率
 
 **举个例子：**
 
-```js
+```javascript
 window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 ```
 
@@ -208,7 +206,7 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 
 1. 在初始化时，通过 `js` 注入添加 `cookies`
 
-    ```objc
+   ```text
     // WKUserContentController对象为JavaScript提供了一种方式，可以将消息发送到web视图，并将用户脚本注入到web视图中。
     WKUserContentController *userContentController = [[WKUserContentController alloc] init];
 
@@ -216,15 +214,15 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
     NSString *js = @"document.cookie='userId=zhangpeng'";
     WKUserScript * cookieScript = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
     [userContentController addUserScript:cookieScript];
-    ```
+   ```
 
 2. 给发出的 `request` 也添加上 `cookies`
 
-    ```objc
+   ```text
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20.0f];
     [request setValue:@"userId=zhangpeng" forHTTPHeaderField:@"Cookie"];
     [_webView loadRequest:request];
-    ```
+   ```
 
 ### WKWebView内存泄漏
 
@@ -237,7 +235,7 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 
 1.创建一个新类`WeakScriptMessageDelegate`
 
-```objc
+```text
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
 
@@ -247,7 +245,7 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 @end
 ```
 
-```objc
+```text
 @implementation WeakScriptMessageDelegate
 - (instancetype)initWithDelegate:(id<WKScriptMessageHandler>)scriptDelegate {
     self = [super init];
@@ -264,17 +262,17 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 
 2.在我们使用 `WKWebView` 的控制器中引入我们创建的那个类，将注入 `js` 对象的代码改为:
 
-```objc
+```text
 [config.userContentController addScriptMessageHandler:[[WeakScriptMessageDelegate alloc] initWithDelegate:self] name:scriptMessage];
 ```
 
 3.在 `delloc` 方法中通过下面的方式移除注入的 `js` 对象
 
-```objc
+```text
 [self.config.userContentController removeScriptMessageHandlerForName:scriptMessage];
 ```
 
-上面三步就可以解决控制器不能被释放的问题了。O(∩_∩)O~~
+上面三步就可以解决控制器不能被释放的问题了。O\(∩\_∩\)O~~
 
 ## 附
 
@@ -282,12 +280,11 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 
 本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/gh-zhangpeng/P_App_OC.git)～
 
----
-
 > Title: WKWebView 使用及注意事项
 >
 > Date: 2017.12.03
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

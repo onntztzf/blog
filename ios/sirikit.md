@@ -1,6 +1,6 @@
 # SiriKit 人机界面指南
 
-**本文为译文，原文连接：[Human Interface Guidelines-Siri](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/siri/)**
+**本文为译文，原文连接：**[**Human Interface Guidelines-Siri**](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/siri/)
 
 你的应用可以通过集成Siri，以响应用户的语音命令和问题，完成某些任务。Siri对语言进行处理并进行语义分析，将这些语音指令转换成应用程序可以处理的指令。应用程序定义它支持的任务，验证收到的信息，提供Siri提供信息，执行操作。应用程序的响应由 `Siri` 反馈，并且呈现在 `Siri` 界面中。如果可以的话，你的应用程序可以为Siri提供一个定制的用户界面来展示。例如，健身应用可能会提供定制的健身信息。
 
@@ -16,17 +16,17 @@
 
 提供以下服务的iOS应用程序可以与Siri集成。
 
-|    服务    | 支持的交互 |
-| ---------- | --- |
-| 音视频通话 | 拨打电话<br>搜索通话记录 |
-| CarPlay集成 | 激活并保存司机的设置。<br>切换汽车的音乐。<br>改变汽车的空调设置。<br>改变汽车的除霜设置。<br>改变汽车的座位设置。<br>切换汽车的收音机频道。|
+| 服务 | 支持的交互 |
+| :--- | :--- |
+| 音视频通话 | 拨打电话 搜索通话记录 |
+| CarPlay集成 | 激活并保存司机的设置。 切换汽车的音乐。 改变汽车的空调设置。 改变汽车的除霜设置。 改变汽车的座位设置。 切换汽车的收音机频道。 |
 | 健身活动 | 开始、暂停、恢复、结束、取消训练。 |
-| 待办的事和笔记 |  创建待办事项列表和项目。<br>搜索待办事项列表和项目。<br>将待办事项列表项标记为完成。<br>根据日期、时间和/或位置创建提醒。<br>创建笔记。<br>搜索笔记。<br>修改笔记。 |
-| 信息 | 发送消息。<br>读取接收到的消息。<br>搜索信息。 |
-| 支付 | 发起付款。<br>请求支付。<br>支付账单。<br>寻找账单。<br>搜索并查看账户信息，包括余额、点数和英里数。<br>账户之间的转账。 |
+| 待办的事和笔记 | 创建待办事项列表和项目。 搜索待办事项列表和项目。 将待办事项列表项标记为完成。 根据日期、时间和/或位置创建提醒。 创建笔记。 搜索笔记。 修改笔记。 |
+| 信息 | 发送消息。 读取接收到的消息。 搜索信息。 |
+| 支付 | 发起付款。 请求支付。 支付账单。 寻找账单。 搜索并查看账户信息，包括余额、点数和英里数。 账户之间的转账。 |
 | 相片管理 | 搜索照片并在应用中显示。 |
-| 出行预定 | 出行预定。<br>出行信息查询。 |
-| 汽车集成 | 启动危险信号灯或按喇叭。<br>打开关闭车门。<br>检查当前的燃料或功率。 |
+| 出行预定 | 出行预定。 出行信息查询。 |
+| 汽车集成 | 启动危险信号灯或按喇叭。 打开关闭车门。 检查当前的燃料或功率。 |
 | 显示条码 | 显示一个条码，比如二维码或条形码。 |
 
 ## 给使用者的反馈
@@ -64,12 +64,11 @@
 1. [SiriKit](https://developer.apple.com/documentation/sirikit?language=objc)
 2. [Human Interface Guidelines-Siri](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/siri/)
 
----
-
 > Title: SiriKit 人机界面指南
 >
 > Date: 2018.07.03
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

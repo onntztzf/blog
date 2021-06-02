@@ -6,25 +6,23 @@
 
 **邮箱：** zhangpeng.0304@aliyun.com
 
-**博客：** <http://blog.zhangpeng.site>
+**博客：** [http://blog.zhangpeng.site](http://blog.zhangpeng.site)
 
-**GitHub：** <https://github.com/gh-zhangpeng>
-
----
+**GitHub：** [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
 
 ### 简介
 
 主要是**面向兴趣开发**。
 
-- 服务端
+* 服务端
 
   黄金选手
 
-- 前端
-  
+* 前端
+
   黄金选手
 
-- 客户端
+* 客户端
 
   王者选手
 
@@ -37,3 +35,4 @@
 ### 致谢
 
 感谢您花时间阅读，期待能有机会和您共事。
+

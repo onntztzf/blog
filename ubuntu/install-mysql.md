@@ -2,9 +2,9 @@
 
 ## 下载安装
 
-- 获取 `mysql-apt-config` 文件下载地址
+* 获取 `mysql-apt-config` 文件下载地址
 
-  1. 进入 `MySQL` 官网，选择 **APT Repository**。 [>>>直达链接](https://dev.mysql.com/downloads/repo/apt/)
+  1. 进入 `MySQL` 官网，选择 **APT Repository**。 [&gt;&gt;&gt;直达链接](https://dev.mysql.com/downloads/repo/apt/)
   2. 点击页面底部 **Download** 按钮，进入下载页。
   3. 复制页面底部 **No thanks, just start my download.** 的链接地址
 
@@ -12,37 +12,37 @@
 
   本文发表之时的最新地址为：`https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb`
 
-- 安装 `mysql-apt-config`
+* 安装 `mysql-apt-config`
 
-    **在阅读下面的内容前，请先登录您的服务器。**
+  **在阅读下面的内容前，请先登录您的服务器。**
 
-    ```shell
+  ```text
     #1.下载 mysql-apt-config
     sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
     #2. 安装 mysql-apt-config
     sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
-    ```
+  ```
 
-    这时会有一个可视化界面出现，如下图所示。
+  这时会有一个可视化界面出现，如下图所示。
 
-    ![图1](http://img.zhangpeng.site/2019/04/03/1.jpg)
+  ![&#x56FE;1](http://img.zhangpeng.site/2019/04/03/1.jpg)
 
-    选择第一项，可以看到让我们选择 `MySQL` 的版本，我这边选择的是 5.7 版本。然后一路 `Ok` 下去就可以了。
+  选择第一项，可以看到让我们选择 `MySQL` 的版本，我这边选择的是 5.7 版本。然后一路 `Ok` 下去就可以了。
 
-- 安装其他 mysql 相关服务
+* 安装其他 mysql 相关服务
 
-    ```shell
+  ```text
     #1.升级列表中的软件包
     sudo apt-get update
     #2.安装 mysql-server mysql-common mysql-client
     sudo apt-get install mysql-server mysql-common mysql-client
-    ```
+  ```
 
-    如果出现一个要求输入数据库密码的界面的话，那么按着提示进行操作（输入密码，再次输入密码，确认）。如果没有看到这个界面，也不必惊慌（反正我也没有看到这个界面…🙄️），下一小节会讲解如何设置密码。
+  如果出现一个要求输入数据库密码的界面的话，那么按着提示进行操作（输入密码，再次输入密码，确认）。如果没有看到这个界面，也不必惊慌（反正我也没有看到这个界面…🙄️），下一小节会讲解如何设置密码。
 
 **`MySQL` 安装完成后会自动启动**，可以通过 `sudo service mysql status` 检查运行状态，控制台中输下面的内容就表示 `MySQL` 正在运行。
 
-```shell
+```text
 $ service mysql status
 
 - mysql.service - MySQL Community Server
@@ -72,7 +72,7 @@ Apr 02 23:43:54 VM-0-15-ubuntu systemd[1]: Started MySQL Community Server.
 
 其他常用命令：
 
-```shell
+```text
 #查看 MySQL 运行状态
 sudo service mysql status
 #启动 MySQL 服务
@@ -87,7 +87,7 @@ sudo service mysql restart
 
 `MySQL 5.7` 安装完成后普通用户不能进 mysql，原因：`root` 的 `plugin` 被修改成了 `auth_socket`，用密码登陆的 `plugin` 应该是 `mysql_native_password`，直接用 `root` 权限登录就不用密码,修改 `root` 密码和登录验证方式。
 
-```shell
+```text
 #切换到 root 用户，运行 MySQL 命令
 $ sudo su & mysql
 
@@ -127,7 +127,7 @@ $ sudo /etc/init.d/mysql restart
 
 通过上面的代码，就将 `MySQL` 的密码设置成了 **123456**，我们可以检查下密码是否设置成功：
 
-```shell
+```text
 #登录 MySQL
 $ mysql -uroot -p
 
@@ -156,11 +156,10 @@ mysql>
 
 执行新增用户的 `SQL` 语句
 
-```mysql
+```text
 mysql> create user 'zhangpeng'@'%' identified by '123456';
 
 Query OK, 0 rows affected (0.08 sec)
-
 ```
 
 **注：** 'zhangpeng'@'%'表示 zhangpeng 这个账号允许远程登录。 如果写成 'zhangpeng'@'localhost' ，那么只能本地登录。
@@ -171,7 +170,7 @@ Query OK, 0 rows affected (0.08 sec)
 
 编辑配置文件（`/etc/mysql/mysql.conf.d/mysqld.cnf`），将下面内容填入配置文件。
 
-```shell
+```text
 [client]
 
 port = 3306
@@ -197,7 +196,7 @@ default-character-set=utf8
 
 修改完毕后，检查字符集是否设置成功
 
-```mysql
+```text
 mysql> show variables like 'char%';
 
 +--------------------------+----------------------------+
@@ -229,7 +228,7 @@ mysql> show variables like 'char%';
 
 ## 远程登录
 
-```shell
+```text
 # 修改配置文件，注释掉 bind-address = 127.0.0.1
 $ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
@@ -256,9 +255,7 @@ $ sudo /etc/init.d/mysql restart
 
 [Linux 常用命令集合](http://www.runoob.com/w3cnote/linux-common-command.html)
 
-[Ubuntu18.04 下安装 MySQL5.7](<https://blog.csdn.net/u011026329/article/details/80835139>)
-
----
+[Ubuntu18.04 下安装 MySQL5.7](https://blog.csdn.net/u011026329/article/details/80835139>)
 
 > Title: Ubuntu 安装 MySQL
 >
@@ -266,4 +263,5 @@ $ sudo /etc/init.d/mysql restart
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

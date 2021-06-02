@@ -3,10 +3,15 @@
 ## 常见的调用方法的两种方式
 
 * performSelector: withObject:  
+
     **优点：** 可以调用运行时添加方法  
+
     **缺点：** 在编译阶段不会做校验。只有在程序运行的时候，才会知道是否存在即将调用的方法，如果方法不存在，程序会崩溃。因此为了保证程序的健壮，在调用方法前应该使用 `- (BOOL)respondsToSelector:(SEL)aSelector`，检查方法是否实现。  
+
 * 直接调用方法  
+
   **优点：** 在编译阶段就会教研方法是否存在，Xcode会有相应提示  
+
   **缺点：** 局限性大，如果想调用某个方法，必须先实现这个方法，不如 `performSelector: withObject:` 灵活。
 
 ## 使用 NSMethodSignature 和 NSInvocation 调用方法
@@ -17,7 +22,7 @@
 
 通过 `NSMethodSignature` 可以获取方法的参数类型和返回值类型。常用方法有：
 
-```objc
+```text
 //从实例中获取实例方法签名，或者从类中获取类方法签名
 + (NSMethodSignature *)instanceMethodSignatureForSelector:(SEL)aSelector
 
@@ -27,7 +32,7 @@
 
 可以通过下面的代码，更好的理解该怎么获取方法签名：
 
-```objc
+```text
 SEL initSEL = @selector(init);
 SEL allocSEL = @selector(alloc);
 
@@ -45,7 +50,7 @@ NSMethodSignature *allocSig = [NSString methodSignatureForSelector:allocSEL];
 
 ### NSMethodSignature 和 NSInvocation 搭配的使用方法
 
-```objc
+```text
 NSString *str = @"Test";
 str = [str stringByAppendingString:@" AppendingString"];
 NSLog(@"str: %@", str);
@@ -85,12 +90,11 @@ if (signature.methodReturnLength) {
 NSLog(@"returnValue: %@", returnValue);
 ```
 
----
-
 > Title: NSMethodSignature 和 NSInvocation
 >
 > Date: 2018.03.10
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

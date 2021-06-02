@@ -6,56 +6,54 @@
 
 本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/gh-zhangpeng/ShowPDFDemo.git)~
 
-## 实现步骤
+### 实现步骤
 
-### 宏
+#### 宏
 
 为了方便我进行代码编写，我们提前设置几个宏：
 
-```objc
+```text
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
 #define DOCUMENTS_DIRECTORY [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
 ```
 
-### 详细代码
+#### 详细代码
 
 本文中的 `Demo` 是以 `WKWebView` 进行开发，如果您需要使用 `UIWebView`，请自行修改。
 
 1. 添加 `WKWebView`
 
-    ```objc
-    #import <WebKit/WebKit.h>
+   \`\`\`objc
 
-    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+   **import &lt;WebKit/WebKit.h&gt;**
 
-    WKUserContentController *wkUController = [[WKUserContentController alloc]init];
+   WKWebViewConfiguration \*config = \[\[WKWebViewConfiguration alloc\] init\];
 
-    config.userContentController = wkUController;
+   WKUserContentController \*wkUController = \[\[WKUserContentController alloc\]init\];
 
-    // 注入JS对象名称AppModel，当JS通过AppModel来调用时，我们可以在WKScriptMessageHandler代理中接收到
-    // 此处是为了得到PDF加载完成或失败的反馈
-    [config.userContentController addScriptMessageHandler:self name:@"AppModel"];
+   config.userContentController = wkUController;
 
-    // 改变页面内容宽度，适配屏幕大小
-    NSString *js = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+   // 注入JS对象名称AppModel，当JS通过AppModel来调用时，我们可以在WKScriptMessageHandler代理中接收到 // 此处是为了得到PDF加载完成或失败的反馈 \[config.userContentController addScriptMessageHandler:self name:@"AppModel"\];
 
-    WKUserScript *wkUserScript = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-    [wkUController addUserScript:wkUserScript];
+   // 改变页面内容宽度，适配屏幕大小 NSString \*js = @"var meta = document.createElement\('meta'\); meta.setAttribute\('name', 'viewport'\); meta.setAttribute\('content', 'width=device-width'\); document.getElementsByTagName\('head'\)\[0\].appendChild\(meta\);";
 
+   WKUserScript \*wkUserScript = \[\[WKUserScript alloc\] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES\]; \[wkUController addUserScript:wkUserScript\];
 
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - 64)
-                                            configuration:config];
-    webView.backgroundColor = [UIColor whiteColor];
-    webView.UIDelegate = self;
-    webView.navigationDelegate = self;
-    [self.view addSubview:webView];
-    ```
+```text
+WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - 64)
+                                        configuration:config];
+webView.backgroundColor = [UIColor whiteColor];
+webView.UIDelegate = self;
+webView.navigationDelegate = self;
+[self.view addSubview:webView];
+```
+```
 
-2. 下载PDF
+1. 下载PDF
 
-    ```objc
+   ```text
     NSString *urlStr = @"http://img.zhangpeng.site/jianLi_zhangpeng.pdf";
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
@@ -82,11 +80,11 @@
         });
     }];
     [sessionDataTask resume];
-    ```
+   ```
 
-3. 打开 `PDF`
+2. 打开 `PDF`
 
-    ```objc
+   ```text
     - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
         [self loadPDF];
     }
@@ -106,11 +104,11 @@
           }
       }];
     }
-    ```
+   ```
 
-4. 在 `WKWebView` 的代理中，我们可以知道 `PDF` 是否成功打开，
+3. 在 `WKWebView` 的代理中，我们可以知道 `PDF` 是否成功打开，
 
-    ```objc
+   ```text
     - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
         if ([message.name isEqualToString:@"AppModel"]) {  
             //和customview.js文件交互，js调oc的代码
@@ -122,9 +120,9 @@
    }
    ```
 
-5. `PDF` 是否读取成功是在 `customview.js` 中通知控制器的，具体可以查看下面的代码。
+4. `PDF` 是否读取成功是在 `customview.js` 中通知控制器的，具体可以查看下面的代码。
 
-    ```js
+   ```javascript
     function handlePages(page)
     {
     //create new canvas
@@ -154,7 +152,7 @@
         }
 
     }
-    ```
+   ```
 
 到此，我们已经可以在 `iOS9` 以上的系统中，成功打开带加密印章的 `PDF`。至于 `iOS8` 为什么不行呢？下面给大家讲解及提供方案。
 
@@ -162,7 +160,7 @@
 
 解决方案：
 
-```objc
+```text
 - (NSString*)getHtmlBasePath {
     NSString *basePath = @"";
     if ([[[UIDevice currentDevice]systemVersion]floatValue]<9.0) {
@@ -226,12 +224,11 @@
 }
 ```
 
----
-
 > Title: 读取一个带有加密印章的 PDF
 >
 > Date: 2017.08.29
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

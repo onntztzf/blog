@@ -8,7 +8,7 @@
 
 ### 注册 Session
 
-```shell
+```text
 $ pod trunk register {YOURMAIL} '{YOURNAME}' --verbose
 opening connection to trunk.cocoapods.org:443...
 opened
@@ -35,13 +35,13 @@ Conn keep-alive
 
 ### 去邮箱点击验证链接
 
-此时您的邮箱中应该有一封主题是 **[CocoaPods] Confirm your session.** 的邮件，点击邮件中的链接进行验证。
+此时您的邮箱中应该有一封主题是 **\[CocoaPods\] Confirm your session.** 的邮件，点击邮件中的链接进行验证。
 
 ### 验证是否注册成功
 
 下面内容，表示您已经注册成功。
 
-```shell
+```text
 $ pod trunk me
   - Name:     YOURNAME
   - Email:    YOURMAIL
@@ -60,19 +60,14 @@ $ pod trunk me
 
 假设我们已经成功创建了一个仓库, 关键信息如下：
 
-- 仓库主页  
-  进入您创建的仓库后，地址栏中的地址:  
-  <https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}>
-
-- git 地址  
-  点击 **Clone or download** 按钮，就可以看到了。我们选择 `HTTPS` 地址，别问为什么，因为 `CocoaPods` 要求:  
-  <https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git>
+* 仓库主页 进入您创建的仓库后，地址栏中的地址: [https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}](https://github.com/{YOURGITHUBNAME}/{YOURPODNAME})
+* git 地址 点击 **Clone or download** 按钮，就可以看到了。我们选择 `HTTPS` 地址，别问为什么，因为 `CocoaPods` 要求: [https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git](https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git)
 
 ### 创建 Pod 库
 
 在终端中执行: `pod lib create {YOURPODNAME}`，接下来按照提示，根据自己的情况进行选择就可以了。
 
-```shell
+```text
 $ pod lib create {YOURPODNAME}
 Cloning `https://github.com/CocoaPods/pod-template.git` into `YOURPODNAME`.
 Configuring YOURPODNAME template.
@@ -134,7 +129,7 @@ To learn more about creating a new pod, see `https://guides.cocoapods.org/making
 
 ### 编辑 YOURPODNAME.podspec
 
-```vim
+```text
 Pod::Spec.new do |s|
   s.name             = '{YOURPODNAME}'
   s.version          = '0.1.0'
@@ -160,7 +155,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
 
   s.source_files = '{YOURPODNAME}/Classes/**/*'
-  
+
   # s.resource_bundles = {
   #   '{YOURPODNAME}' => ['{YOURPODNAME}/Assets/*.png']
   # }
@@ -182,7 +177,7 @@ end
 
 ### 验证 YOURPODNAME.podspec
 
-```shell
+```text
 $ pod lib lint
 
  -> YOURPODNAME (0.1.0)
@@ -202,7 +197,7 @@ You can use the `--no-clean` option to inspect any issue.
 
 ### 提交代码
 
-```shell
+```text
 git add .
 git commit -m "创建 pod 库"
 git push
@@ -210,7 +205,7 @@ git push
 
 ### 创建并提交 tag
 
-```shell
+```text
 git tag -a 0.1.0 -m '创建 pod 库'
 git push origin --tags
 ```
@@ -219,7 +214,7 @@ git push origin --tags
 
 ## 提交 pod
 
-```shell
+```text
 $ pod trunk push
 
 [!] Found podspec `YOURPODNAME.podspec`
@@ -248,13 +243,13 @@ Updating spec repo `master`
 
 ## 坑点 & 解决方案
 
-### Failed to open TCP connection to trunk.cocoapods.org:443 (getaddrinfo: nodename nor servname provided, or not known)
+### Failed to open TCP connection to trunk.cocoapods.org:443 \(getaddrinfo: nodename nor servname provided, or not known\)
 
 **解：** 此问题常见于 `pod trunk` 相关的命令。网络大环境不行，要么呢啥（技术都懂的），要么连接手机开热点进行操作。
 
-### Unable to accept duplicate entry for: YOURPODNAME (0.1.0)
+### Unable to accept duplicate entry for: YOURPODNAME \(0.1.0\)
 
-**解：** `pod trunk push` 时发生此错误，说明该 `pod` 库在远端已经有了 0.1.0 版本。解决方案有两个：  
+**解：** `pod trunk push` 时发生此错误，说明该 `pod` 库在远端已经有了 0.1.0 版本。解决方案有两个：
 
 1. 使用一个远端还没有的版本号
 2. 使用 `pod trunk delete YOURPODNAME 0.1.0` 删除远端的 0.1.0 版本，然后重新进行推送
@@ -265,17 +260,15 @@ Updating spec repo `master`
 
 首先删除本地缓存
 
-```shell
+```text
 rm ~/Library/Caches/CocoaPods/search_index.json
 ```
 
 然后执行:
 
-```shell
+```text
 pod update
 ```
-
----
 
 > Title: 如何创建一个公有 Pod 库
 >
@@ -283,4 +276,5 @@ pod update
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

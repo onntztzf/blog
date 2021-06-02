@@ -10,23 +10,25 @@
 
 * Resource
 
-    这边的 `Resource` 指的就是我们的资源、数据等，可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。
+  这边的 `Resource` 指的就是我们的资源、数据等，可以用一个URI（统一资源定位符）指向它，每种资源对应一个特定的URI。要获取这个资源，访问它的URI就可以，因此URI就成了每一个资源的地址或独一无二的识别符。
 
 * Representational
 
-    资源的表现形式，比如我们常见的：
+  资源的表现形式，比如我们常见的：
 
-        数据：HTML格式、XML格式、JSON格式、二进制格式等；
+  ```text
+    数据：HTML格式、XML格式、JSON格式、二进制格式等；
 
-        图片：JPG格式、PNG格式等；
+    图片：JPG格式、PNG格式等；
+  ```
 
-    具体表现形式，在 `HTTP` 请求的头信息中用 `Accept` 和 `Content-Type` 字段指定
+  具体表现形式，在 `HTTP` 请求的头信息中用 `Accept` 和 `Content-Type` 字段指定
 
 * State Transfer
 
-    客户端和服务器的一个互动过程，势必涉及到数据和状态的变化。
+  客户端和服务器的一个互动过程，势必涉及到数据和状态的变化。
 
-    互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生"状态转化"。而这种转化是建立在表现层之上的，所以就是"表现层状态转化"。
+  互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发生"状态转化"。而这种转化是建立在表现层之上的，所以就是"表现层状态转化"。
 
 ## RESTful API
 
@@ -72,12 +74,11 @@
 4. [GitHub API](https://developer.github.com/v3/#client-errors)
 5. [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md)
 
----
-
 > Title: RESTful 笔记
 >
 > Date: 2019.03.26
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

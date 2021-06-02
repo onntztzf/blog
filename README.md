@@ -47,7 +47,7 @@
   * [如何评判算法好坏](learn/judge-algorithm-quality.md)
   * [如何保持 SSH 服务不掉线](learn/keep-alive-ssh.md)
   * [Shell 入门教程](learn/introduction-to-shell.md)
-  * [AppleScript 入门与实践](learn/introduction-to-appleScript.md)
+  * [AppleScript 入门与实践](learn/introduction-to-applescript.md)
   * [搭建 Hexo Blog](learn/set-up-hexo-blog.md)
 * 基础知识
   * [常用的日期格式化格式](basicknowledge/date-formatter.md)
@@ -55,3 +55,4 @@
   * [HTTP 状态码](basicknowledge/http-status-code.md)
   * [简明扼要带你学位运算](basicknowledge/bit-operation.md)
   * [URI、URL的差异与联系](basicknowledge/uri-url-urn.md)
+

@@ -4,7 +4,7 @@
 
 ## 错误事例
 
-```json
+```javascript
 {
     "double": 79.04,
 }
@@ -12,7 +12,7 @@
 
 上面是服务端给我们返回的 `response`，我们将它转为字典.
 
-```objc
+```text
 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 [NSString stringWithFormat:@"转换错误的结果为%@", dic[@"double"]];
 ```
@@ -25,7 +25,7 @@ NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error
 
 采用苹果提供的NSDecimalNumber解决此问题。
 
-```objc
+```text
 double d = [dic[@"double"] doubleValue];
 NSString *dStr = [NSString stringWithFormat:@"%f", d];
 NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
@@ -36,12 +36,11 @@ NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
 
 本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/gh-zhangpeng/P_App_OC.git)~
 
----
-
 > Title: double 转 NSString 出现精度异常
 >
 > Date: 2017.09.08
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

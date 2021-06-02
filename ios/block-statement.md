@@ -4,42 +4,40 @@
 
 * 局部变量
 
-    ```objc
+  ```text
     returnType (^blockName)(parameterTypes) = ^returnType(parameters) {...};
-    ```
+  ```
 
 * 属性
 
-    ```objc
+  ```text
     @property (nonatomic, copy, nullability) returnType (^blockName)(parameterTypes);
-    ```
+  ```
 
 * 方法参数
 
-    ```objc
+  ```text
     - (void)someMethodThatTakesABlock:(returnType (^nullability)(parameterTypes))blockName;
-    ```
+  ```
 
 * 方法调用的参数
 
-    ```objc
+  ```text
     [someObject someMethodThatTakesABlock:^returnType (parameters) {...}];
-    ```
+  ```
 
 * C函数的参数
 
-    ```objc
+  ```text
     void SomeFunctionThatTakesABlock(returnType (^blockName)(parameterTypes));
-    ```
+  ```
 
 * 类型定义
 
-    ```objc
+  ```text
     typedef returnType (^TypeName)(parameterTypes);
     TypeName blockName = ^returnType(parameters) {...};
-    ```
-
----
+  ```
 
 > Title: Block 的声明方式
 >
@@ -47,4 +45,5 @@
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

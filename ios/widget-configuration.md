@@ -35,13 +35,12 @@
 
 ### 点击进入 `Widget Target` 的 `General` 页
 
-- 设置 `Bundle identifier`  
-- 命名规则：前缀要包括主项目的 `Bundle Identifier`。后缀不能是 `widget` 关键字  
+* 设置 `Bundle identifier`  
+* 命名规则：前缀要包括主项目的 `Bundle Identifier`。后缀不能是 `widget` 关键字  
+
   例如主项目如果是 `com.aaa.bbb`，那 `Widget` 的 `Bundle identifier` 应该是 `com.aaa.bbb.today` 或者是 `com.aaa.bbb.ccc`
 
 配置已完成，接下来请看开发篇[Widget 开发-开发篇](http://www.jianshu.com/p/9ddb712a45b4)
-
----
 
 > Title: Widget 开发-配置篇
 >
@@ -49,4 +48,5 @@
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

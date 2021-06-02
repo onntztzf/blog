@@ -12,7 +12,7 @@
 
 但是`shell`允许您做更多的事情；您可以调用计算机上的任何程序，并且命令行工具的存在就是为了完成您可能想做的任何事情。他们往往比他们的图形对手更有效率。我们这门课会讲到很多。
 
-`shell`提供交互式编程语言 ("脚本")。有很多种`shell`：
+`shell`提供交互式编程语言 \("脚本"\)。有很多种`shell`：
 
 * 您可能用过`sh`或者`bash`
 * 和语言相关的`shell`：`csh`
@@ -28,7 +28,7 @@
 
 将一个命令运行多次：
 
-```Shell
+```text
 for i in $(seq 1 5); do echo hello; done
 ```
 
@@ -41,13 +41,12 @@ for i in $(seq 1 5); do echo hello; done
   * `shell`中没有花括号，所以使用`do`+`done`
 * `$(seq 1 5)`
   * 运行`seq`命令，参数分别为1和5
-  * 使用括号内命令的输出替换 $()
+  * 使用括号内命令的输出替换 $\(\)
   * 相当于
 
-   ```Shell
+    ```text
     for i in 1 2 3 4 5
-   ```
-
+    ```
 * `echo hello`
   * `shell`脚本中的所有内容都是命令
   * 在本例中，运行`echo`命令，将打印该命令的参数`hello`
@@ -55,13 +54,13 @@ for i in $(seq 1 5); do echo hello; done
 
 我们可以举个例子：
 
-```Shell
+```text
 for f in $(ls); do echo $f; done
 ```
 
 将打印当前目录中的每个文件名。可以使用`=`设置变量的值（`=`两边不需要空格）
 
-```Shell
+```text
 foo=bar
 echo $foo
 ```
@@ -75,7 +74,7 @@ echo $foo
 
 只打印目录
 
-```Shell
+```text
 for f in $(ls); do if test -d $f; then echo dir $f; fi; done
 ```
 
@@ -137,7 +136,7 @@ Shell之所以强大，部分原因在于它的可组合性。可以将多个程
 
 `a|b`表示同时运行`a`和`b`，将`a`的所有输出，当作`b`的输入，打印`b`的输出。
 
-您启动的所有程序(“进程”)都有三个“流”:
+您启动的所有程序\(“进程”\)都有三个“流”:
 
 * `STDIN`：当程序读取输入时，它从这里开始
 * `STDOUT`：当程序打印东西时，它就在这里
@@ -154,7 +153,7 @@ Shell之所以强大，部分原因在于它的可组合性。可以将多个程
 
 * `ls | grep foo`：包含单词`foo`的所有文件
 * `ps | grep foo`：包含单词`foo`的所有进程
-* `journalctl | grep -i intel | tail -n5`：最后5条带有intel(不区分大小写)的系统日志消息
+* `journalctl | grep -i intel | tail -n5`：最后5条带有intel\(不区分大小写\)的系统日志消息
 * `who | sendmail -t me@example.com`：将登录用户列表发送到`me@example.com`
 * 形成了许多数据处理的基础，稍后我们将讨论它
 
@@ -164,7 +163,7 @@ Bash还提供了许多其他编写程序的方法。
 
 一个不太为人所知但超级有用的方法是过程替换。`b <(a)`将运行a，为输出流生成一个临时文件名，并将该文件名传递给b。举个例子：
 
-```shell
+```text
 diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 ```
 
@@ -180,8 +179,8 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
   * 注意：正在运行的程序仍将终端设置为标准输出，试一试：`server > server.log & client`
 * 通过`jobs`查看所有的进程
   * 注意现实`Running`的
-* 使用`fg %JOB`将其放到前台(没有参数是最新的)
-* 如果您想将当前的程序放入后台：`^Z`+`bg`(这里的`^Z`代表按`Ctrl+Z`)
+* 使用`fg %JOB`将其放到前台\(没有参数是最新的\)
+* 如果您想将当前的程序放入后台：`^Z`+`bg`\(这里的`^Z`代表按`Ctrl+Z`\)
   * `^Z`将当前的进程停止，并将它变成一个`job`
   * `bg`将最新的`job`在后台运行（就像使用了`&`）
 * 后台`jobs`仍然绑定到当前会话，如果注销，则退出。您可以使用`disown`或者`nohup`切断这种绑定关系。
@@ -196,12 +195,12 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
   * `pgrep -af`：通过参数搜索和显示
 * `kill`：通过ID向进程发送信号（pkill by search + -f）
   * 信号告诉进程“做什么事”
-  * 最常见:`SIGKILL`(`-9`或`-KILL`)：立刻退出，相当于`^\`
-  * 还有：`SIGTERM`(`-15`or`-TERM`)：立刻优雅的退出，相当于`^C`
+  * 最常见:`SIGKILL`\(`-9`或`-KILL`\)：立刻退出，相当于`^\`
+  * 还有：`SIGTERM`\(`-15`or`-TERM`\)：立刻优雅的退出，相当于`^C`
 
 ## 标志符
 
-大多数命令行程序都使用**标志符**接受参数。标志符通常有短形式(`-h`)和长形式(`--help`)。通常运行`CMD -h`或`man CMD`会给你展示该`CMD`可用的标识符的列表。短标志通常可以组合使用，运行`rm -r -f`相当于运行`rm -rf`或者`rm -fr`。一些常见的标识符是有约定俗成的标准的，您会发现它们在很多命令中：
+大多数命令行程序都使用**标志符**接受参数。标志符通常有短形式\(`-h`\)和长形式\(`--help`\)。通常运行`CMD -h`或`man CMD`会给你展示该`CMD`可用的标识符的列表。短标志通常可以组合使用，运行`rm -r -f`相当于运行`rm -rf`或者`rm -fr`。一些常见的标识符是有约定俗成的标准的，您会发现它们在很多命令中：
 
 * `-a`一般指所有文件（也包括那些以点开头的）
 * `-f`通常指强制做什么事情，比如说`rm -f`
@@ -209,7 +208,7 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 * `-v`通常启用详细输出
 * `-V`通常打印命令的版本
 
-此外，双破折号`--`用于内置命令和许多其他命令中，表示命令选项的结束，之后只接受位置参数。因此，如果您有一个可以使用`-v`参数的文件(文件类型支持使用)，并且想要`grep`它，`grep pattern -- -v`可以，但是`grep pattern -v`不行。事实上，创建这种文件的方法是`touch -- -v`。
+此外，双破折号`--`用于内置命令和许多其他命令中，表示命令选项的结束，之后只接受位置参数。因此，如果您有一个可以使用`-v`参数的文件\(文件类型支持使用\)，并且想要`grep`它，`grep pattern -- -v`可以，但是`grep pattern -v`不行。事实上，创建这种文件的方法是`touch -- -v`。
 
 ## 附录
 
@@ -218,12 +217,11 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 3. [Shell 中各种括号的作用](http://www.runoob.com/w3cnote/linux-shell-brackets-features.html)
 4. [Shell test 命令](http://www.runoob.com/linux/linux-shell-test.html)
 
----
-
 > Title: Shell 入门教程
 >
 > Date: 2019.02.17
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

@@ -9,8 +9,8 @@
 
 ## 服务端发送心跳包
 
-1. 登陆您的服务器后，打开 **/etc/ssh/sshd_config** 文件。
-2. 将 `ClientAliveInterval` 和 `ClientAliveCountMax` 前面的 # 去掉。（如果没有则添加这两个字段）
+1. 登陆您的服务器后，打开 **/etc/ssh/sshd\_config** 文件。
+2. 将 `ClientAliveInterval` 和 `ClientAliveCountMax` 前面的 \# 去掉。（如果没有则添加这两个字段）
 3. 将 `ClientAliveInterval` 的值修改为 60，`ClientAliveCountMax` 的值修改为 6
 4. 保存上述修改，如果提示 `'readonly' option is set (add ! to override)`，请以系统管理者的身份执行指令。
 5. 重启 `SSH` 服务
@@ -23,7 +23,9 @@
 1. 进入客户端的 `~/.ssh/` 文件夹
 2. 打开 `config` 文件，如果没有请创建
 3. 在 `config` 文件中添加以下内容，然后保存  
+
    ServerAliveInterval 20  
+
    ServerAliveCountMax 999
 
 > **ServerAliveInterval** 客户端向服务器端请求消息的时间间隔，单位为秒，默认是 0，不发送  
@@ -33,12 +35,13 @@
 
 两种方式均可以实现 `SSH` 服务不掉线，可以根据自己的情况进行选择。
 
-- 一台服务器，多台客户端  
-    可以在用服务端发送心跳包的方法。这样就不需要在每台客户端上进行修改。
-- 一台客户端，多台服务器  
-    可以在用客户端发送心跳包的方法。这样就不需要在每台服务器上进行修改。
+* 一台服务器，多台客户端  
 
----
+    可以在用服务端发送心跳包的方法。这样就不需要在每台客户端上进行修改。
+
+* 一台客户端，多台服务器  
+
+    可以在用客户端发送心跳包的方法。这样就不需要在每台服务器上进行修改。
 
 > Title: 如何保持 SSH 服务不掉线
 >
@@ -46,4 +49,5 @@
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

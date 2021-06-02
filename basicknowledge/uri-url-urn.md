@@ -1,6 +1,6 @@
 # URI、URL、URN 的差异与联系
 
-![URI、URL、URN](http://img.zhangpeng.site/2018/02/24/1.png)
+![URI&#x3001;URL&#x3001;URN](http://img.zhangpeng.site/2018/02/24/1.png)
 
 在开发过程中，经常见到有同事把链接命名为 `uri_xxx_yyy` 或者 `url_xxx_yyy`，可是`uri`和`url`分别是什么意思呢？希望在阅读这篇文章后，您可以明白～
 
@@ -8,7 +8,7 @@
 
 **`URI`**全称为 `Universal Resource Identifier`，统一资源标识符，用来唯一的标识一个资源。
 
-在电脑术语中，统一资源标识符（Uniform Resource Identifier，或URI)是一个用于**标识某一互联网资源名称**的字符串。 该种标识允许用户对任何（包括本地和互联网）的资源通过特定的协议进行交互操作。`URI` 由包括确定语法和相关协议的方案所定义。Web上可用的每种资源（HTML文档、图像、视频片段、程序等）由一个通用资源标识符（Uniform Resource Identifier, 简称"URI"）进行定位。
+在电脑术语中，统一资源标识符（Uniform Resource Identifier，或URI\)是一个用于**标识某一互联网资源名称**的字符串。 该种标识允许用户对任何（包括本地和互联网）的资源通过特定的协议进行交互操作。`URI` 由包括确定语法和相关协议的方案所定义。Web上可用的每种资源（HTML文档、图像、视频片段、程序等）由一个通用资源标识符（Uniform Resource Identifier, 简称"URI"）进行定位。
 
 通常由下面几部分组成：
 
@@ -26,8 +26,8 @@
 
 通常由下面几部分组成：
 
-1. 协议(或称为服务方式)
-2. 存有该资源的主机IP地址(有时也包括端口号)
+1. 协议\(或称为服务方式\)
+2. 存有该资源的主机IP地址\(有时也包括端口号\)
 3. 主机资源的具体地址。如目录和文件名等
 
 ## URN
@@ -38,7 +38,7 @@
 
 `URN`不仅限于识别文件，还可以识别想法和概念。当`URN`确实代表文档时，可以通过“解析器”将其翻译成URL。然后可以从`URL`下载文档。
 
-统一资源名称 (Uniform Resource Name, URN)，唯一标识一个实体的标识符，但是不能给出实体的位置。系统可以先在本地寻找一个实体，在它试着在Web上找到该实体之前。它也允许Web位置改变，然而这个实体却还是能够被找到。
+统一资源名称 \(Uniform Resource Name, URN\)，唯一标识一个实体的标识符，但是不能给出实体的位置。系统可以先在本地寻找一个实体，在它试着在Web上找到该实体之前。它也允许Web位置改变，然而这个实体却还是能够被找到。
 
 通常以前缀urn开头
 
@@ -46,7 +46,7 @@
 
 首先我们要弄清楚一件事：**`URL` 和 `URN` 都是 `URI` 的子集。** 换言之，`URL` 和 `URN`都是 `URI`，但是 `URI` 不一定是 `URL` 或者 `URN`。为了更好的理解这个概念，看下面这张图片。
 
-![URI、URL、URN](http://img.zhangpeng.site/2018/02/24/2.jpg)
+![URI&#x3001;URL&#x3001;URN](http://img.zhangpeng.site/2018/02/24/2.jpg)
 
 `URI` 负责识别，`URL` 负责定位;然而，定位符也是标识符的一种，因此每个 `URL` 都是 `URI`，但是每个 `URI` 并不全是 `URL`。
 
@@ -70,12 +70,11 @@
 
 [URL 和 URI 有什么不同?](https://www.zhihu.com/question/19557151)
 
----
-
 > Title: URI、URL、URN 的差异与联系
 >
 > Date: 2018.02.24
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+

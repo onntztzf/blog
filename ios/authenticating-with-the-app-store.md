@@ -26,12 +26,11 @@
 
 将 `~/Library/Caches` 文件中的 `com.apple.amp.itmstransporter` 完全删除。然后将上面的解压后的文件夹放入 `~/Library/Caches`，退出 Xcode 或 Transport，重新上传即可。
 
----
-
 > Title: 上传应用时，卡在 Authenticating with the App Store
 >
 > Date: 2020.05.26
 >
 > Author: zhangpeng
 >
-> Github: <https://github.com/gh-zhangpeng>
+> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+
