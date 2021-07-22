@@ -3,6 +3,8 @@
 just a repository for blogs :)
 
 * [关于我](about.md)
+* [干货](ganhuo/README.md)
+  * [如何解决端口占用问题](ganhuo/resolve-port-occupancy.md)
 * [go](go/README.md)
   * [Go 基础](go/go.md)
   * [Go 1.13 中 Go command 修改](go/go-command.md)
