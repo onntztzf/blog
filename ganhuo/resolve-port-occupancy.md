@@ -81,6 +81,8 @@
 
 到此，占⽤着我们端⼝的进程都已被终止，我们可以愉快的启动服务了。
 
+![](https://img.zhangpeng.site/wechat/qrcode.png)
+
 > Title: 如何解决端口占用问题
 >
 > Date: 2021.07.22
