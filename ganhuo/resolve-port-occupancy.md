@@ -1,6 +1,6 @@
 # 如何解决端口占用问题
 
-![图-1](https://img.zhangpeng.site/2021/07/20/1.png)
+![](https://img.zhangpeng.site/2021/07/20/1.png)
 
 当我们启动某项服务时，经常会出现 **address already in use** 这个错误。该错误是指**当前使用的端口被某个进程占用，导致本次服务无法正常启动**。通常情况下，导致端口被占用的原因有两个：
 
@@ -11,11 +11,11 @@
 
 ## 查看端口占用情况
 
-首先，需要确认当前要用的端口目前被哪个进程占用。
+首先，需要确认当前要用的端口目前被什么进程占用。
 
 - macOS
 
-  打开终端，输入 `lsof -i :port`，将 `port` 换成端口号，如:`8080`
+  打开终端，输入 `lsof -i :port`，将 `port` 换成端口号，如：`8080`
 
   ```shell
   $ lsof -i :8080
@@ -25,7 +25,7 @@
 
 - Linux
 
-  输入 `netstat -tunlp | egrep "PID|port"`，将 `port` 换成端口号，如:`8080`
+  输入 `netstat -tunlp | egrep "PID|port"`，将 `port` 换成端口号，如：`8080`
 
   ```shell
   $ netstat -tunlp | egrep "PID|8080"
@@ -39,7 +39,7 @@
 
      同时点击 `windows` 和 `r` 键，在输入框输入 `cmd`，点击回车
 
-  2. 在命令窗口中输入 `netstat -ano | findstr "PID port"`，将 `port` 换成端口号，如:`8080`
+  2. 在命令窗口中输入 `netstat -ano | findstr "PID port"`，将 `port` 换成端口号，如：`8080`
 
      ```shell
      $ netstat -ano | findstr "PID 8080"
@@ -57,7 +57,7 @@
 
 - macOS
 
-  使用 `kill -9 PID` 命令终止占用端口的进程，将  `PID` 换成要终止的进程的 `PID`
+  使用 `kill -9 PID` 命令终止占用端口的进程，将 `PID` 换成要终止的进程的 `PID`
 
   ```shell
   kill -9 6667
@@ -65,7 +65,7 @@
 
 - Linux
 
-  使用 `kill -9 PID` 命令终止占用端口的进程，将  `PID` 换成要终止的进程的 `PID`
+  使用 `kill -9 PID` 命令终止占用端口的进程，将 `PID` 换成要终止的进程的 `PID`
 
   ```shell
   kill -9 131
@@ -73,7 +73,7 @@
 
 - Windows
 
-  使用 `taskkill /PID processid /t /f` 命令终止占用端口的进程，将  `processid` 换成要终止的进程的 `PID`
+  使用 `taskkill /PID processid /t /f` 命令终止占用端口的进程，将 `processid` 换成要终止的进程的 `PID`
 
   ```shell
   taskkill /PID 16248 /t /f
