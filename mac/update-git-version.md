@@ -57,10 +57,4 @@
    
    可以看到，我们的 `git` 版本已经升级到最新版了。
    
-> Title: macOS 升级 Git 版本
->
-> Date: 2019.01.16
->
-> Author: zhangpeng
->
-> Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+![](https://img.zhangpeng.site/wechat/qrcode.jpg)
