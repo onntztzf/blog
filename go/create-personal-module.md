@@ -101,7 +101,7 @@ $ git tag v1.0.0
 $ git push --tags
 ```
 
-现在我们将 `go.mod` 中依赖的 `mymodule` 的版本改为 v1.0.0。然后执行下面的代码，这样就将项目中依赖的 `mymodule` 版本为 v1.0.0。
+现在我们将 `go.mod` 中依赖的 `mymodule` 的版本改为 `v1.0.0`。然后执行下面的代码，这样就将项目中依赖的 `mymodule` 版本设置为 `v1.0.0` 了。
 
 ```powershell
 $ go get github.com/gh-zhangpeng/mymodule
