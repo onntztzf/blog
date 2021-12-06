@@ -1,4 +1,4 @@
-# 解除 mac 系统的密码限制
+# 解除 macOS 系统的密码限制
 
 ![](https://img.zhangpeng.site/2021/12/01/1.png)
 
@@ -10,7 +10,7 @@
 
 第一步，我们需要清除当前的密码策略。打开我们的终端应用（或者随便一个您常用的命令行工具），输入下面的命令，并点击回车键。
 
-```shell
+```powershell
 pwpolicy -clearaccountpolicies
 ```
 
