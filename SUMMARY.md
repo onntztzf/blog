@@ -5,8 +5,9 @@
 * [玩转系列](wanzhuan/README.md)
 * [tips 系列](tips/README.md)
   * macOS
-    * [解除 macOS 系统的密码限制](tips/mac/remove-password-limit.md)
+    * [macOS 设置文件的默认打开程序](tips/mac/set-file-default-opening-mode.md)
     * [macOS 系统显示隐藏文件](tips/mac/show-hidden-files.md)
+    * [解除 macOS 系统的密码限制](tips/mac/remove-password-limit.md)
 * [干货](ganhuo/README.md)
   * [如何解决端口占用问题](ganhuo/resolve-port-occupancy.md)
 * [go](go/README.md)
