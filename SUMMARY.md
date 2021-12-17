@@ -8,6 +8,8 @@
     * [macOS 设置文件的默认打开程序](tips/mac/set-file-default-opening-mode.md)
     * [macOS 系统显示隐藏文件](tips/mac/show-hidden-files.md)
     * [解除 macOS 系统的密码限制](tips/mac/remove-password-limit.md)
+  * git
+    * [修改 git 配置](tips/git/modify-git-configuration.md)
 * [干货](ganhuo/README.md)
   * [如何解决端口占用问题](ganhuo/resolve-port-occupancy.md)
 * [go](go/README.md)
