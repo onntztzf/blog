@@ -1,4 +1,4 @@
-# 搞懂 Linux 文件权限管理
+# 搞懂 Linux 的文件权限
 
 ![permission denied](https://img.zhangpeng.site/2022/01/27/1.png)
 
