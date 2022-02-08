@@ -1,4 +1,4 @@
-# 修改 git 配置
+# 玩转 git 配置
 
 ![git config](https://img.zhangpeng.site/2021/12/06/1.png)
 
@@ -41,11 +41,8 @@ git config --global user.name "您的名字"
 git config --global user.email "您的邮箱"
 ```
 
-## 参考
+## 
 
-1. [git-config - Get and set repository or global options](https://git-scm.com/docs/git-config)
-2. [git-worktree - Manage multiple working trees](https://git-scm.com/docs/git-worktree)
+如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-##
-
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![关注公众号](https://img.zhangpeng.site/wechat/qrcode.jpg)
