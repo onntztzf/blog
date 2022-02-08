@@ -10,7 +10,7 @@
 * [干货](ganhuo/README.md)
   * [如何解决端口占用问题](ganhuo/resolve-port-occupancy.md)
   * [搞懂 Linux 的文件权限](ganhuo/linux-file-permissions.md)
-  * [如何修改 git 配置](tips/modify-git-configuration.md)
+  * [如何修改 git 配置](ganhuo/modify-git-configuration.md)
 * [go](go/README.md)
   * [如何创建自己 module](go/create-personal-module.md)
   * [Go 基础](go/go.md)
