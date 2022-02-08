@@ -10,7 +10,7 @@ just a repository for blogs :)
     * [macOS 系统显示隐藏文件](tips/mac/show-hidden-files.md)
     * [解除 macOS 系统的密码限制](tips/mac/remove-password-limit.md)
   * git
-    * [修改 git 配置](tips/git/modify-git-configuration.md)
+    * [如何修改 git 配置](tips/git/modify-git-configuration.md)
 * [干货](ganhuo/README.md)
   * [如何解决端口占用问题](ganhuo/resolve-port-occupancy.md)
   * [搞懂 Linux 的文件权限](ganhuo/linux-file-permissions.md)

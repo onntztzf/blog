@@ -1,4 +1,4 @@
-# 玩转 git 配置
+# 如何修改 git 配置
 
 ![git config](https://img.zhangpeng.site/2021/12/06/1.png)
 

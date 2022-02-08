@@ -4,15 +4,13 @@
 * [关于我](about.md)
 * [玩转系列](wanzhuan/README.md)
 * [tips 系列](tips/README.md)
-  * macOS
-    * [macOS 设置文件的默认打开程序](tips/mac/set-file-default-opening-mode.md)
-    * [macOS 系统显示隐藏文件](tips/mac/show-hidden-files.md)
-    * [解除 macOS 系统的密码限制](tips/mac/remove-password-limit.md)
-  * git
-    * [修改 git 配置](tips/git/modify-git-configuration.md)
+  * [macOS 设置文件的默认打开程序](tips/set-file-default-opening-mode.md)
+  * [macOS 系统显示隐藏文件](tips/show-hidden-files.md)
+  * [解除 macOS 系统的密码限制](tips/remove-password-limit.md)
 * [干货](ganhuo/README.md)
   * [如何解决端口占用问题](ganhuo/resolve-port-occupancy.md)
   * [搞懂 Linux 的文件权限](ganhuo/linux-file-permissions.md)
+  * [如何修改 git 配置](tips/modify-git-configuration.md)
 * [go](go/README.md)
   * [如何创建自己 module](go/create-personal-module.md)
   * [Go 基础](go/go.md)
@@ -20,7 +18,6 @@
 * [ubuntu](ubuntu/README.md)
   * [Ubuntu 安装 NodeJS](ubuntu/install-nodejs.md)
   * [Ubuntu 安装 MySQL](ubuntu/install-mysql.md)
-  <!-- * [mysql](mysql/README.md) -->
 * [iOS](ios/README.md)
   * [App 沙盒](ios/sandbox.md)
   * [iOS 消息转发机制](ios/message-forwarding.md)
