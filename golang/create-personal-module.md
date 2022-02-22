@@ -12,13 +12,13 @@
 1. 在 `GitHub` 中创建一个仓库  `mymodule`，然后 `clone` 到本地
 
     ```powershell
-    $ git clone git@github.com:gh-zhangpeng/mymodule.git
+    git clone git@github.com:gh-zhangpeng/mymodule.git
     ```
 
 2. 进入我们刚刚 `clone` 下来的仓库中
 
     ```powershell
-    $ cd mymodule && vim hello.go
+    cd mymodule && vim hello.go
     ```
 
 3. 编写我们需要放入 `module` 中的代码
@@ -39,13 +39,13 @@
 
     使用我们在第一步中创建的仓库，生成我们 `mymodule` 的 `go.mod`
 
-    ```go
-    $ go mod init github.com/gh-zhangpeng/mymodule
+    ```powershell
+    go mod init github.com/gh-zhangpeng/mymodule
     ```
 
     生成后的文件内容如下：
 
-    ```go
+    ```powershell
     module github.com/gh-zhangpeng/mymodule
     
     go 1.16
@@ -54,7 +54,7 @@
 5. 将我们的刚刚编写的代码提交到 `github` 中
 
     ```powershell
-    $ git add . && git commit -m "init mymodule" && git push
+    git add . && git commit -m "init mymodule" && git push
     ```
 
 代码推送成功后，`mymodule` 就已经创建完成了。
@@ -82,13 +82,13 @@
     package main
     
     import (
-    	"fmt"
+     "fmt"
     
-    	"github.com/gh-zhangpeng/mymodule"
+     "github.com/gh-zhangpeng/mymodule"
     )
     
     func main() {
-    	fmt.Println(mymodule.Hello("jack"))
+     fmt.Println(mymodule.Hello("jack"))
     }
     ```
 
@@ -97,14 +97,14 @@
 当有了稳定的或者准备长期使用的 `module` 后，我们就可以为它创建一个版本。`module` 的版本是由 `git` 的 `tag` 控制的，因此我们在代码仓库中添加 `tag`。
 
 ```powershell
-$ git tag v1.0.0
-$ git push --tags
+git tag v1.0.0
+git push --tags
 ```
 
 现在我们将 `go.mod` 中依赖的 `mymodule` 的版本改为 `v1.0.0`。然后执行下面的代码，这样就将项目中依赖的 `mymodule` 版本设置为 `v1.0.0` 了。
 
 ```powershell
-$ go get github.com/gh-zhangpeng/mymodule
+go get github.com/gh-zhangpeng/mymodule
 ```
 
 `go module` 的版本号规范可以参考 [Module version numbering](https://golang.org/doc/modules/version-numbers#pre-release-version) 这篇文章，在此就不多做赘述了。
