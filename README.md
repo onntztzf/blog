@@ -4,19 +4,11 @@ just a repository for blogs :)
 
 ![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
 
-| 文章               | 标签 | 发布时间            | 公众号链接          |
-| ------------------ | ---- | ------------------- | ------------------- |
-| [关于我](about.md) | -    | 2022.03.02 00:00:00 | 2022.03.02 00:00:00 |
-|                    |      |                     |                     |
-|                    |      |                     |                     |
-
-
-
 * [关于我](about.md)
-* [公众号文章](ganhuo/README.md)
+* [公众号文章](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkzMzE2OTQwNA==&action=getalbum&album_id=1920023786121117700#wechat_redirect)
   <!-- * [小册系列](book/README.md) -->
   <!-- * [玩转系列](manual/README.md) -->
-  * [快速生成表结构的结构体](golang/generate-table-struct.md)
+  <!-- * [快速生成表结构的结构体](golang/generate-table-struct.md)
   * [如何修改 git 配置](git/modify-git-configuration.md)
   * [搞懂 Linux 的文件权限](learn/linux-file-permissions.md)
   * [macOS 设置文件的默认打开程序](tips/set-file-default-opening-mode.md)
@@ -26,7 +18,7 @@ just a repository for blogs :)
   * [macOS 升级 git 版本](mac/update-git-version.md)
   * [如何创建自己 module](golang/create-personal-module.md)
   * [macOS 系统重装](mac/reinstall-mac-system.md)
-  * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
+  * [如何解决端口占用问题](learn/resolve-port-occupancy.md) -->
 * [golang](golang/README.md)
   * [快速生成表结构的结构体](golang/generate-table-struct.md)
   * [如何创建自己 module](golang/create-personal-module.md)
