@@ -2,28 +2,59 @@
 
 just a repository for blogs :)
 
+![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+
+| 文章               | 标签 | 发布时间            | 公众号链接          |
+| ------------------ | ---- | ------------------- | ------------------- |
+| [关于我](about.md) | -    | 2022.03.02 00:00:00 | 2022.03.02 00:00:00 |
+|                    |      |                     |                     |
+|                    |      |                     |                     |
+
+
+
 * [关于我](about.md)
 * [公众号文章](ganhuo/README.md)
   <!-- * [小册系列](book/README.md) -->
   <!-- * [玩转系列](manual/README.md) -->
-  * tips 系列
-    * [macOS 设置文件的默认打开程序](tips/set-file-default-opening-mode.md)
-    * [macOS 系统显示隐藏文件](tips/show-hidden-files.md)
-    * [解除 macOS 系统的密码限制](tips/remove-password-limit.md)
-  * Golang
-    * [如何创建自己 module](golang/create-personal-module.md)
-    * [快速生成表结构的结构体](golang/generate-table-struct.md)
-  * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
+  * [快速生成表结构的结构体](golang/generate-table-struct.md)
+  * [如何修改 git 配置](git/modify-git-configuration.md)
   * [搞懂 Linux 的文件权限](learn/linux-file-permissions.md)
+  * [macOS 设置文件的默认打开程序](tips/set-file-default-opening-mode.md)
+  * [macOS 系统显示隐藏文件](tips/show-hidden-files.md)
+  * [解除 macOS 系统的密码限制](tips/remove-password-limit.md)
   * [如何修改 git 配置](learn/modify-git-configuration.md)
-* [Golang](go/README.md)
+  * [macOS 升级 git 版本](mac/update-git-version.md)
+  * [如何创建自己 module](golang/create-personal-module.md)
+  * [macOS 系统重装](mac/reinstall-mac-system.md)
+  * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
+* [golang](golang/README.md)
   * [快速生成表结构的结构体](golang/generate-table-struct.md)
   * [如何创建自己 module](golang/create-personal-module.md)
-  * [Go 基础](golang/go.md)
-  * [Go 1.13 中 Go command 修改](golang/go-command.md)
+* [git](git/README.md)
+  * [如何修改 git 配置](git/modify-git-configuration.md)
+  * [如何清理 git 仓库](git/clean-up-git-repository.md)
 * [Ubuntu](ubuntu/README.md)
   * [Ubuntu 安装 NodeJS](ubuntu/install-nodejs.md)
   * [Ubuntu 安装 MySQL](ubuntu/install-mysql.md)
+* [learn](learn/README.md)
+  <!-- * [HTTP 状态码](learn/http-status-code.md) -->
+  * [搞懂 Linux 的文件权限](learn/linux-file-permissions.md)
+  * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
+  * [如何评判算法好坏](learn/judge-algorithm-quality.md)
+  * [搭建 Hexo Blog](learn/set-up-hexo-blog.md)
+  * [AppleScript 入门与实践](learn/introduction-to-applescript.md)
+  * [如何保持 SSH 服务不掉线](learn/keep-alive-ssh.md)
+  * [简明扼要带你学位运算](learn/bit-operation.md)
+  * [常用的日期格式化格式](learn/date-formatter.md)
+  * [RESTful 笔记](learn/introduction-to-restful.md)
+  * [URI、URL、URN 的差异与联系](learn/uri-url-urn.md)
+  * [Shell 入门教程](learn/introduction-to-shell.md)
+* [mac](mac/README.md)
+  * [Charles 安装证书](mac/install-charles-certificate.md)
+  * [macOS 升级 git 版本](mac/update-git-version.md)
+  * [macOS 系统重装](mac/reinstall-mac-system.md)
+  * [iTerm2 一个更好用的终端](mac/a-better-terminal.md)
+  * [Mac 的开机设置](mac/configure-mac.md)
 * [iOS](ios/README.md)
   * [App 沙盒](ios/sandbox.md)
   * [iOS 消息转发机制](ios/message-forwarding.md)
@@ -50,27 +81,3 @@ just a repository for blogs :)
   * [GCD 同步异步与串行并行](ios/gcd.md)
 * [Flutter](flutter/README.md)
   * [Flutter 安装和环境配置](flutter/install-flutter.md)
-* [learn](learn/README.md)
-  <!-- * [HTTP 状态码](learn/http-status-code.md) -->
-  * [搞懂 Linux 的文件权限](learn/linux-file-permissions.md)
-  * [如何修改 git 配置](learn/modify-git-configuration.md)
-  * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
-  * [如何评判算法好坏](learn/judge-algorithm-quality.md)
-  * [搭建 Hexo Blog](learn/set-up-hexo-blog.md)
-  * [AppleScript 入门与实践](learn/introduction-to-applescript.md)
-  * [如何保持 SSH 服务不掉线](learn/keep-alive-ssh.md)
-  * [简明扼要带你学位运算](learn/bit-operation.md)
-  * [常用的日期格式化格式](learn/date-formatter.md)
-  * [RESTful 笔记](learn/introduction-to-restful.md)
-  * [如何清理 Git 仓库](learn/clean-up-git-repository.md)
-  * [URI、URL、URN 的差异与联系](learn/uri-url-urn.md)
-  * [Shell 入门教程](learn/introduction-to-shell.md)
-* [mac](mac/README.md)
-  * [Charles 安装证书](mac/install-charles-certificate.md)
-  * [macOS 升级 Git 版本](mac/update-git-version.md)
-  * [macOS 系统重装](mac/reinstall-mac-system.md)
-  * [iTerm2 一个更好用的终端](mac/a-better-terminal.md)
-  * [Mac 的开机设置](mac/configure-mac.md)
-<!-- * [leetcode](leetcode/README.md) -->
-  <!-- * [两数之和](leetcode/two-sum.md) -->
-  <!-- * [有效的括号](leetcode/valid-parentheses.md) -->
