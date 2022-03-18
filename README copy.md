@@ -5,6 +5,9 @@ just a repository for blogs :)
 ![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
 
 * [关于我](about.md)
+* [公众号](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzkzMzE2OTQwNA==&action=getalbum&album_id=1920023786121117700#wechat_redirect)
+  <!-- * [小册系列](book/README.md) -->
+  <!-- * [玩转系列](manual/README.md) -->
 * [golang](golang/README.md)
   * [快速生成表结构的结构体](golang/generate-table-struct.md)
   * [如何创建自己 module](golang/create-personal-module.md)
@@ -15,6 +18,7 @@ just a repository for blogs :)
   * [Ubuntu 安装 NodeJS](ubuntu/install-nodejs.md)
   * [Ubuntu 安装 MySQL](ubuntu/install-mysql.md)
 * [learn](learn/README.md)
+  <!-- * [HTTP 状态码](learn/http-status-code.md) -->
   * [搞懂 Linux 的文件权限](learn/linux-file-permissions.md)
   * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
   * [如何评判算法好坏](learn/judge-algorithm-quality.md)
