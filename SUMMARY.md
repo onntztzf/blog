@@ -1,9 +1,4 @@
-# Introduction
-
-just a repository for blogs :)
-
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
-
+* [Introduction](README.md)
 * [关于我](about.md)
 * [golang](golang/README.md)
   * [快速生成表结构的结构体](golang/generate-table-struct.md)
