@@ -16,7 +16,7 @@
   * [搭建 Hexo Blog](learn/set-up-hexo-blog.md)
   * [AppleScript 入门与实践](learn/introduction-to-applescript.md)
   * [如何保持 SSH 服务不掉线](learn/keep-alive-ssh.md)
-  * [简明扼要带你学位运算](learn/bit-operation.md)
+  * [神奇的位运算](learn/bit-operation.md)
   * [常用的日期格式化格式](learn/date-formatter.md)
   * [RESTful 笔记](learn/introduction-to-restful.md)
   * [URI、URL、URN 的差异与联系](learn/uri-url-urn.md)
