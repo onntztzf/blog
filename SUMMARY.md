@@ -1,5 +1,14 @@
+# Introduction
+
+just a repository for blogs :)
+
+![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+
 * [Introduction](README.md)
 * [关于我](about.md)
+* Redis
+  * 数据结构与对象
+    * [简单动态字符串](redis/1.data-structures-and-objects/1.simple-dynamic-string.md)
 * [golang](golang/README.md)
   * [快速生成表结构的结构体](golang/generate-table-struct.md)
   * [如何创建自己 module](golang/create-personal-module.md)
