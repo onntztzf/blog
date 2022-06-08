@@ -15,6 +15,7 @@ just a repository for blogs :)
   * [快速生成表结构的结构体](golang/generate-table-struct.md)
   * [如何创建自己 module](golang/create-personal-module.md)
 * git
+  * [git 使用小技巧](git/tips-for-git.md)
   * [如何修改 git 配置](git/modify-git-configuration.md)
   * [如何清理 git 仓库](git/clean-up-git-repository.md)
 * Ubuntu
@@ -33,6 +34,9 @@ just a repository for blogs :)
   * [URI、URL、URN 的差异与联系](learn/uri-url-urn.md)
   * [Shell 入门教程](learn/introduction-to-shell.md)
 * mac
+  * [macOS 设置文件的默认打开程序](mac/set-file-default-opening-mode.md)
+  * [macOS 系统显示隐藏文件](mac/show-hidden-files.md)
+  * [解除 macOS 系统的密码限制](mac/remove-password-limit.md)
   * [Charles 安装证书](mac/install-charles-certificate.md)
   * [macOS 升级 git 版本](mac/update-git-version.md)
   * [macOS 系统重装](mac/reinstall-mac-system.md)

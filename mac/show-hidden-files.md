@@ -21,3 +21,9 @@
 2. 同时按下 `Command`、`Shift` 和 `.` 三个按键
 
 `deng deng deng deng~` 隐藏的文件和文件夹已经跑远了！此时应该看不到隐藏的文件或文件夹了～
+
+## 
+
+如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
+
+![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)

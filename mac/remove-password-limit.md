@@ -27,3 +27,9 @@ pwpolicy -clearaccountpolicies
 点击屏幕左上角的苹果标志，选择**系统偏好设置->用户与群组->更改密码**，然后按提示修改密码即可。可以看到此时已经没有了对于密码要求了。
 
 ![](https://img.zhangpeng.site/2021/12/01/4.png)
+
+## 
+
+如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
+
+![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
