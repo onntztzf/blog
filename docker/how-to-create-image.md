@@ -38,7 +38,7 @@
 
 基于已有容器构建镜像主要用于跟进一些异常情况，如：`cpu`或内存异常突增、异常 `bug` 现场等。这时我们就可以通过保存容器的即时镜像，方便复现问题。
 
-这里用到的是 [docker commit](https://docs.docker.com/engine/reference/commandline/commit/) 命令。为代码如下：
+这里用到的是 [docker commit](https://docs.docker.com/engine/reference/commandline/commit/) 命令。伪代码如下：
 
 ```powershell
 $ docker commit \
@@ -90,8 +90,6 @@ RUN sh .vim_runtime/install_awesome_vimrc.sh
 RUN sudo apt autoremove -y \
     && sudo apt clean -y \
     && sudo rm -rf /var/lib/apt/lists/*
-
-
 ```
 
 ## 参考文献
