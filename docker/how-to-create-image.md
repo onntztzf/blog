@@ -20,7 +20,7 @@
 
 `Dockerfile` 是一个普通的文本文件，其中包含构建镜像所需的一组[指令](https://docs.docker.com/engine/reference/builder/)。当我们编写完成后，使用 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 命令来构建镜像，这个命令会读取 `Dockerfile` 中的指令来自动构建镜像。
 
-口说无凭，这里我们以创建一个 vim 镜像举例，完成一次镜像的构建。
+口说无凭，这里我们以创建一个 `vim` 镜像举例，完成一次镜像的构建。
 
 #### 创建 Dockerfile
 
@@ -52,11 +52,7 @@ RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 RUN apt update \
     && apt full-upgrade -y 
 # 安装 vim
-# vimrc 是目前 github 上 star数量最多的 vimrc
-# 部分时候，下载过于费劲，因此提前准备好，使用时，直接复制到镜像内
 RUN apt -y install vim
-COPY vimrc /root/.vim_runtime/ 
-RUN sh /root/.vim_runtime/install_awesome_vimrc.sh
 # 清理 apt 缓存
 RUN apt autoremove -y \
     && apt clean -y \
@@ -95,17 +91,83 @@ RUN apt autoremove -y \
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
 ```
 
+看到上面的输出时，就代表我们的镜像构建完成了。
+
 ### 基于已有镜像构建镜像
 
 首先，我们需要弄清楚已有镜像是什么镜像？镜像大概可以分为两种：
 
 - 带有文件系统的镜像
-  
-  带有文件系统的镜像是指通过 [docker export](https://docs.docker.com/engine/reference/commandline/export/) 导出的容器镜像。如果想使用这类镜像构建镜像，需要使用 [docker import](https://docs.docker.com/engine/reference/commandline/import/) 命令。
-
 - 普通镜像
+
+#### 带有文件系统的镜像
   
-  普通镜像是指通过 [docker save](https://docs.docker.com/engine/reference/commandline/save/) 打包的镜像。如果想使用这类镜像构建镜像，需要使用 [docker load](https://docs.docker.com/engine/reference/commandline/load/) 命令。
+带有文件系统的镜像是指通过 [docker export](https://docs.docker.com/engine/reference/commandline/export/) 导出的容器镜像。如果想使用这类镜像构建镜像，需要使用 [docker import](https://docs.docker.com/engine/reference/commandline/import/) 命令。
+
+##### 举个例子
+
+准备一个带有文件系统的镜像。
+
+1. 运行一个容器，这里我们使用上文构建的 `vim` 镜像运行容器
+
+    ```powershell
+    ➜  vim docker run -it vim
+    root@4db72433b66d:/#
+    ```
+
+2. 打开一个新的终端，导出容器镜像
+
+    ```powershell
+    #显示容器列表
+    ➜  ~ docker container list
+    CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+    c2a7ceb30f33   vim       "bash"    36 seconds ago   Up 35 seconds             objective_heyrovsky
+    #导出容器镜像
+    ➜  vim docker export c2a7ceb30f33 -o vim_export.tar.gz | ls
+    Dockerfile           vim_export.tar.gz
+    ```
+
+使用 `docker import` 构建镜像。
+
+```powershell
+➜  vim docker import vim_export.tar.gz vim_export
+sha256:54f4b7fcf9dbb987d439c2bcd05dadbdae139729c11211340c75374c063e5cc8
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED          SIZE
+vim_export       latest    54f4b7fcf9db   25 seconds ago   136MB
+```
+
+#### 普通镜像
+  
+普通镜像是指通过 [docker save](https://docs.docker.com/engine/reference/commandline/save/) 打包的镜像。如果想使用这类镜像构建镜像，需要使用 [docker load](https://docs.docker.com/engine/reference/commandline/load/) 命令。
+
+##### 举个例子
+
+准备一个普通镜像。
+
+```powershell
+➜  vim docker save vim -o vim_save.tar.gz | ls
+Dockerfile        vim_export.tar.gz vim_save.tar.gz
+```
+
+为了方便显示效果，我们将原有的 `vim` 镜像删除掉。
+
+```powershell
+➜  vim docker image rm vim
+Untagged: vim:latest
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
+```
+
+使用 `docker load` 构建镜像。
+
+```powershell
+➜  vim docker load -i vim_save.tar.gz
+Loaded image: vim:latest
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
+vim                 latest    0350ae574b3e   About an hour ago   174MB
+```
 
 ### 基于已有容器构建镜像
 
@@ -117,10 +179,39 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 $ docker commit \
     --author "Zhang Peng <zhangpeng.0304@aliyun.com>" \
     --message "保存容器镜像" \
-    image:case1
+    容器名字 \
+    新的镜像名字:新的镜像tag
 ```
 
-然后就可以通过 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 将这个镜像运行起来了。
+#### 举个例子
+
+运行一个容器，这里我们使用上文构建的 `vim` 镜像运行容器。
+
+```powershell
+➜  vim docker run -it vim
+root@4db72433b66d:/#
+```
+
+打开一个新的终端，使用 `docker commit` 构建镜像。
+
+```powershell
+➜  vim docker container list
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+2a9daf7512f2   vim       "bash"    3 minutes ago   Up 3 minutes             serene_bardeen
+➜  vim docker commit \
+    --author "Zhang Peng <zhangpeng.0304@aliyun.com>" \
+    --message "commit vim image" \
+    serene_bardeen \
+    vim_commit:latest
+sha256:02f4e20da7c3302bf61c8d9e526ba039644ec813506cdb6029a823fc864ab97e
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
+vim_commit          latest    02f4e20da7c3   5 seconds ago       174MB
+```
+
+## 总结
+
+本片文章介绍了三种构建镜像的方式，**最推荐的还是使用 `Dockerfile` 构建镜像**。
 
 ## 参考文献
 
