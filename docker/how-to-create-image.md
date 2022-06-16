@@ -20,7 +20,80 @@
 
 `Dockerfile` 是一个普通的文本文件，其中包含构建镜像所需的一组[指令](https://docs.docker.com/engine/reference/builder/)。当我们编写完成后，使用 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 命令来构建镜像，这个命令会读取 `Dockerfile` 中的指令来自动构建镜像。
 
-下文，我们会提供一个 `Dockerfile` 的[例子](#构建一个-vim-镜像的-dockerfile)
+口说无凭，这里我们以创建一个 vim 镜像举例，完成一次镜像的构建。
+
+#### 创建 Dockerfile
+
+步骤 1、创建一个文件夹 `vim` 用于存储镜像相关的文件
+
+```powershell
+➜  Desktop mkdir vim && cd vim
+➜  vim 
+```
+
+步骤 2、创建一个名字为 `Dockerfile` 的文件，里面填充我们构建镜像所需的指令。
+
+```powershell
+➜  vim touch Dockerfile
+```
+
+下面是构建一个 `vim` 镜像的 `Dockerfile`，可以将它直接复制到我们创建的 `Dockerfile` 文件中。
+
+```powershell
+# 指定基础镜像
+FROM ubuntu:latest
+# 镜像作者及联系方式
+LABEL author="zhangpeng" \
+      mail="zhangpeng.0304@aliyun.com"
+# 更新源
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list 
+RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+# 更新可用包
+RUN apt update \
+    && apt full-upgrade -y 
+# 安装 vim
+# vimrc 是目前 github 上 star数量最多的 vimrc
+# 部分时候，下载过于费劲，因此提前准备好，使用时，直接复制到镜像内
+RUN apt -y install vim
+COPY vimrc /root/.vim_runtime/ 
+RUN sh /root/.vim_runtime/install_awesome_vimrc.sh
+# 清理 apt 缓存
+RUN apt autoremove -y \
+    && apt clean -y \
+    && rm -rf /var/lib/apt/lists/*
+```
+
+`Dockerfile` 支持的指令还有很多，例如：`CMD`、`ENV`、`ENTRYPOINT` 等，有兴趣可以去[官方文档](https://docs.docker.com/engine/reference/builder/)中学习。
+
+#### 构建镜像
+
+使用 `docker build` 命令构建镜像。
+
+```powershell
+➜  vim docker build -t vim .
+[+] Building 2.5s (13/13) FINISHED
+ => [internal] load build definition from Dockerfile                     0.0s
+ => => transferring dockerfile: 37B                                      0.0s
+ => [internal] load .dockerignore                                        0.0s
+ => => transferring context: 2B                                          0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest         0.0s
+ => [internal] load build context                                        0.2s
+ => => transferring context: 168.85kB                                    0.2s
+ => [1/8] FROM docker.io/library/ubuntu:latest                           0.0s
+ => CACHED [2/8] RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g  0.0s
+ => CACHED [3/8] RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/  0.0s
+ => CACHED [4/8] RUN apt update     && apt full-upgrade -y               0.0s
+ => CACHED [5/8] RUN apt -y install vim                                  0.0s
+ => [6/8] COPY vimrc /root/.vim_runtime/                                 0.3s
+ => [7/8] RUN sh /root/.vim_runtime/install_awesome_vimrc.sh             0.3s
+ => [8/8] RUN apt autoremove -y     && apt clean -y     && rm -rf /var/  1.3s
+ => exporting to image                                                   0.3s
+ => => exporting layers                                                  0.3s
+ => => writing image sha256:67474823a3828a6ecefa0ba6b61909e81f8d2a7de0c  0.0s
+ => => naming to docker.io/library/vim                                   0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+```
 
 ### 基于已有镜像构建镜像
 
@@ -48,49 +121,6 @@ $ docker commit \
 ```
 
 然后就可以通过 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 将这个镜像运行起来了。
-
-## 构建一个 vim 镜像的 Dockerfile
-
-```powershell
-# 指定基础镜像
-FROM ubuntu:latest
-LABEL author="zhangpeng" \
-      mail="zhangpeng.0304@aliyun.com"
-# 更新源
-RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list 
-RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
-
-# sudo
-RUN apt update \
-    && apt full-upgrade -y \
-    && apt install -y sudo 
-
-# 创建 ubuntu 用户
-RUN useradd -m ubuntu -s /bin/bash && adduser ubuntu sudo \
-    && echo "ubuntu ALL=(ALL) NOPASSWD : ALL" | tee /etc/sudoers.d/nopasswd4sudo
-
-USER ubuntu
-WORKDIR /home/ubuntu
-
-# zsh
-COPY oh-my-zsh .oh-my-zsh
-RUN sudo apt -y install zsh git \
-    && sudo cp .oh-my-zsh/templates/zshrc.zsh-template .zshrc \
-    && sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git .oh-my-zsh/plugins/zsh-autosuggestions \
-    && sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git .oh-my-zsh/plugins/zsh-syntax-highlighting \
-    && sudo sed -i "s/^plugins=(.*)$/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g" .zshrc \
-    && sudo usermod -s /bin/zsh ubuntu
-
-# vim
-RUN sudo apt -y install vim && sudo apt -y install nodejs && sudo apt -y install fzf
-COPY vimrc my_configs.vim .vim_runtime/ 
-COPY my_plugins .vim_runtime/my_plugins
-RUN sh .vim_runtime/install_awesome_vimrc.sh
-
-RUN sudo apt autoremove -y \
-    && sudo apt clean -y \
-    && sudo rm -rf /var/lib/apt/lists/*
-```
 
 ## 参考文献
 
