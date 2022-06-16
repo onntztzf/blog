@@ -211,7 +211,7 @@ vim_commit          latest    02f4e20da7c3   5 seconds ago       174MB
 
 ## 总结
 
-本片文章介绍了三种构建镜像的方式，**最推荐的还是使用 `Dockerfile` 构建镜像**。
+本片文章介绍了三种构建镜像的方式，**最推荐的是使用 `Dockerfile` 构建镜像**。如果大家学会了，那就赶紧去构建一个属于自己的镜像吧！
 
 ## 参考文献
 
@@ -219,6 +219,7 @@ vim_commit          latest    02f4e20da7c3   5 seconds ago       174MB
 2. [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 3. [docker save与docker export的区别](https://jingsam.github.io/2017/08/26/docker-save-and-docker-export.html)
 4. [Difference Between Docker Save and Export](https://www.baeldung.com/ops/docker-save-export)
+5. [Docker import/export vs. load/save](https://pspdfkit.com/blog/2019/docker-import-export-vs-load-save/)
 
 ## 
 
