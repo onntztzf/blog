@@ -67,26 +67,22 @@ RUN apt autoremove -y \
 
 ```powershell
 ➜  vim docker build -t vim .
-[+] Building 2.5s (13/13) FINISHED
- => [internal] load build definition from Dockerfile                     0.0s
- => => transferring dockerfile: 37B                                      0.0s
- => [internal] load .dockerignore                                        0.0s
- => => transferring context: 2B                                          0.0s
- => [internal] load metadata for docker.io/library/ubuntu:latest         0.0s
- => [internal] load build context                                        0.2s
- => => transferring context: 168.85kB                                    0.2s
- => [1/8] FROM docker.io/library/ubuntu:latest                           0.0s
- => CACHED [2/8] RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g  0.0s
- => CACHED [3/8] RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/  0.0s
- => CACHED [4/8] RUN apt update     && apt full-upgrade -y               0.0s
- => CACHED [5/8] RUN apt -y install vim                                  0.0s
- => [6/8] COPY vimrc /root/.vim_runtime/                                 0.3s
- => [7/8] RUN sh /root/.vim_runtime/install_awesome_vimrc.sh             0.3s
- => [8/8] RUN apt autoremove -y     && apt clean -y     && rm -rf /var/  1.3s
- => exporting to image                                                   0.3s
- => => exporting layers                                                  0.3s
- => => writing image sha256:67474823a3828a6ecefa0ba6b61909e81f8d2a7de0c  0.0s
- => => naming to docker.io/library/vim                                   0.0s
+[+] Building 0.1s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile               0.0s
+ => => transferring dockerfile: 37B                                0.0s
+ => [internal] load .dockerignore                                  0.0s
+ => => transferring context: 2B                                    0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest   0.0s
+ => [1/6] FROM docker.io/library/ubuntu:latest                     0.0s
+ => CACHED [2/6] RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.ed  0.0s
+ => CACHED [3/6] RUN sed -i 's/security.ubuntu.com/mirrors.ustc.e  0.0s
+ => CACHED [4/6] RUN apt update     && apt full-upgrade -y         0.0s
+ => CACHED [5/6] RUN apt -y install vim                            0.0s
+ => CACHED [6/6] RUN apt autoremove -y     && apt clean -y     &&  0.0s
+ => exporting to image                                             0.0s
+ => => exporting layers                                            0.0s
+ => => writing image sha256:0350ae574b3e008092a110a818d266ab1dc45  0.0s
+ => => naming to docker.io/library/vim                             0.0s
 
 Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
 ```
