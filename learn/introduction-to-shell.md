@@ -1,6 +1,6 @@
 # Shell 入门教程
 
-**本文为译文，原文链接**：[shell](https://github.com/hacker-tools/hacker-tools.github.io/blob/master/shell.md)
+**本文为译文，原文链接**：[shell](https://missing.csail.mit.edu/2019/shell/)
 
 `shell`是一个高效的、文本化的计算机接口。
 
@@ -12,7 +12,7 @@
 
 但是`shell`允许您做更多的事情；您可以调用计算机上的任何程序，并且命令行工具的存在就是为了完成您可能想做的任何事情。他们往往比他们的图形对手更有效率。我们这门课会讲到很多。
 
-`shell`提供交互式编程语言 \("脚本"\)。有很多种`shell`：
+`shell`提供交互式编程语言"脚本"。有很多种`shell`：
 
 * 您可能用过`sh`或者`bash`
 * 和语言相关的`shell`：`csh`
