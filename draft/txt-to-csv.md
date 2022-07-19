@@ -55,11 +55,15 @@
 2. 将上面找到的间隔符替换成逗号（,）
 3. 然后将文件的后缀改为 `csv`
 
+![](https://img.zhangpeng.site/2022/07/18/3.jpg)
+
 然后这个文件就可以使用 `excel` 打开了，然后就可以将它交付给 `pm` 了。
+
+![](https://img.zhangpeng.site/2022/07/18/4.jpg)
 
 一个小时过去了，望着“已读”两个字，我陷入了沉思，难道他被我的优秀迷倒了吗？
 
-![](https://img.zhangpeng.site/2022/07/18/3.jpg)
+![](https://img.zhangpeng.site/2022/07/18/5.jpg)
 
 
 ## 参考文献
