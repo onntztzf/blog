@@ -75,6 +75,3 @@
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
 ![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
-
-
-然后就有了 `txt` 转 `csv` 的故事，也许你会问导数据和 `txt`、`csv` 有什么关系？
