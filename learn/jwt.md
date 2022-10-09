@@ -155,6 +155,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXB
 
 使用公钥/私钥对，您可以确定发件人就是他们说的那个人。此外，由于签名是使用标头和有效载荷计算的，您还可以验证内容是否未被篡改。
 
+## 总结
+
+希望在阅读本篇文章后，可以让您对 `jwt` 豁然开朗！
+
 ## 参考文献
 
 1. [jwt.io](https://jwt.io)
