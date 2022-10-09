@@ -1,6 +1,7 @@
 ---
 title: 聊聊 jwt
 category: learn
+time: 2022-10-09 20:53:41
 ---
 
 # 聊聊 jwt
@@ -16,7 +17,7 @@ category: learn
 `jwt` 由三部分构成，分别是：头部（`header`）、有效载荷（`payload`）和签名（`signature`）。在生成 `jwt` 时，会对这三个部分分别进行 `base64Url` 编码，然后将得到的三个字符串使用 `.` 按顺序进行连接，最后得到一个完整的 `jwt`。如下：
 
 ```text
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9.NR2yP50e8QwNZEYH7Jqshlpk_NGJEp4k-hoICKvR06A
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9.8QhYZSONATlpO-oZtUoQOlyzjGSpeNvizPofT5ep0WQ
 ```
 
 接下来，依次介绍每一部分的构成。
@@ -99,9 +100,33 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXB
 
 `eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9`
 
-**注意：** 默认情况下 `jwt` 是未加密的，只是进行了 `base64Url` 编码，拿到 `jwt` 后可以转换回原本的 `JSON` 数据，任何人都可以解读其内容，因此不要添加隐私信息字，比如用户的密码等。
+**注意：** 默认情况下 `jwt` 是未加密的，只是进行了 `base64Url` 编码，所以任何人拿到 `jwt` 后都可以转换回原本的 `JSON` 数据。因此**不要添加隐私信息**，比如用户的密码等。
 
 ### 签名（`signature`）
+
+`signature` 是 `jwt` 的最后一部分，通过它能够验证 `jwt` 是否有效和是否被篡改。将 `header` 和 `payload` 分别进行 `base64Url` 编码，然后将它们用 `.` 连接起来，然后使用签名算法（如：`HMACSHA256`）进行加密，便可以得到 `signature`。
+
+举个例子：
+
+```text
+HMACSHA256(
+  base64UrlEncode(header) + "." +
+  base64UrlEncode(payload),
+  secret
+)
+```
+
+使用前文中的 `header` 和 `payload`，通过上面的公式，可以计算出签名为：
+
+`8QhYZSONATlpO-oZtUoQOlyzjGSpeNvizPofT5ep0WQ-hoICKvR06A`
+
+**注意：** `jwt` 的签发生成最好是在服务器端完成，这样可以有效地保护 `secret` 不被泄漏。因为 `secret` 是用来进行 `jwt` 的签发和验证的，一旦 `secret` 被泄漏，那就意味着任何人都可以自我签发 `jwt` 了。
+
+将上面的到的三部分，使用 `.` 进行连接，便得到了我们最终的 `jwt`：
+
+```text
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9.8QhYZSONATlpO-oZtUoQOlyzjGSpeNvizPofT5ep0WQ
+```
 
 ## jwt 常见的使用场景
 
