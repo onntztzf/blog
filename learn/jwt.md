@@ -16,7 +16,7 @@ category: learn
 `jwt` 由三部分构成，分别是：头部（`header`）、有效载荷（`payload`）和签名（`signature`）。在生成 `jwt` 时，会对这三个部分分别进行 `base64Url` 编码，然后将得到的三个字符串使用 `.` 按顺序进行连接，最后得到一个完整的 `jwt`。如下：
 
 ```text
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6aGFuZ3BlbmciLCJzdWIiOiJqd3QiLCJhdWQiOiJ5b3UiLCJpYXQiOjE2NjUzMDc4MDAsIm5iZiI6MTY2NTM5NDIwMCwiZXhwIjoxNjY1OTEyNjAwLCJqdGkiOjF9.4S5frHTkppvjMfaBtkdEUCUBp2lH553Ps3BJZNgrZmk
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9.NR2yP50e8QwNZEYH7Jqshlpk_NGJEp4k-hoICKvR06A
 ```
 
 接下来，依次介绍每一部分的构成。
@@ -25,11 +25,11 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6aGFuZ3BlbmciLCJzdWIiOiJqd3QiLCJ
 
 `header` 是一个描述 `jwt` 元数据的 `JSON` 对象。通常由两个元素构成：
 
-- `typ`
+- typ
   
   `type`，表示令牌的类型，统一写为 `JWT`
 
-- `alg`
+- alg
 
   `algorithm`，表示签名使用的算法，如：`HMAC SHA256`
 
@@ -44,36 +44,62 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6aGFuZ3BlbmciLCJzdWIiOiJqd3QiLCJ
 
 将上面的 `header` 进行 `base64Url` 编码，就可以得到 `jwt` 的第一部分：
 
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+`eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9`
 
 ### 有效载荷（`payload`）
 
-`payload` 是 `jwt` 的第二部分，也是一个 `JSON` 对象，其中包含需要传递的数据。[RFC7519](https://www.rfc-editor.org/rfc/rfc7519#section-4.1)中定义了几个标准字段，我们可以选择使用：
+`payload` 是 `jwt` 的第二部分，也是一个 `JSON` 对象，其中包含需要传递的数据。[RFC7519](https://www.rfc-editor.org/rfc/rfc7519#section-4.1)中定义了一组非强制性的但建议使用的预定义字段，我们可以选择使用：
 
-- `iss`
+- iss
   
-  `issuer`
+  `issuer`，签发人，可以用于确定签发 `jwt` 的人
 
-- sub：主题
-- aud：用户
-- iat：发布时间
-- nbf：在此之前不可用
-- exp：到期时间
+- sub
+  
+  `subject`，签发的主题，可以用于表示被签发的人是谁或者被签发的内容是什么
+
+- aud
+  
+  `audience`，`jwt` 的受众者，可以用于表示该 `jwt` 该被哪些主体使用
+
+- iat
+  
+  `issued at`，`jwt` 的签发时间
+
+- nbf
+
+  `not before`，`jwt` 的启用时间，在该时间前，此 `jwt` 是无效的
+
+- exp
+
+  `expiration time`，`jwt` 的过期时间，在该时间后，此 `jwt` 是无效的
+
 - jti：JWT ID用于标识该JWT
+
+  `JWT ID`，`jwt` 的唯一标识
+
+除了上面列出的预定义字段，我们还可以添加一些自定义字段。如：`name`
 
 举个例子：
 
 ```JSON
 {
-    "iss": "zhangpeng",
-    "sub": "jwt",
-    "aud": "you",
+    "iss": "jwt",
+    "sub": "1",
+    "aud": "app1",
     "iat": 1665307800,
     "nbf": 1665394200,
     "exp": 1665912600,
-    "jti": 1
+    "jti": 1,
+    "name": "zhangpeng"
 }
 ```
+
+将上面的 `payload` 进行 `base64Url` 编码，就可以得到 `jwt` 的第二部分：
+
+`eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9`
+
+**注意：** 默认情况下 `jwt` 是未加密的，只是进行了 `base64Url` 编码，拿到 `jwt` 后可以转换回原本的 `JSON` 数据，任何人都可以解读其内容，因此不要添加隐私信息字，比如用户的密码等。
 
 ### 签名（`signature`）
 
