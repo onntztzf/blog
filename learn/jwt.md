@@ -104,7 +104,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXB
 
 ### 签名（`signature`）
 
-`signature` 是 `jwt` 的最后一部分，通过它能够验证 `jwt` 是否有效和是否被篡改。将 `header` 和 `payload` 分别进行 `base64Url` 编码，然后将它们用 `.` 连接起来，然后使用签名算法（如：`HMACSHA256`）进行加密，便可以得到 `signature`。
+`signature` 是 `jwt` 的最后一部分，通过它能够验证 `jwt` 是否有效和是否被篡改。将 `header` 和 `payload` 分别进行 `base64Url` 编码，然后将它们用 `.` 连接起来，然后使用 `header` 中的签名算法（如：`HMACSHA256`）进行加密，便可以得到 `signature`。
 
 举个例子：
 
@@ -128,17 +128,32 @@ HMACSHA256(
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXBwMSIsImlhdCI6MTY2NTMwNzgwMCwibmJmIjoxNjY1Mzk0MjAwLCJleHAiOjE2NjU5MTI2MDAsImp0aSI6MSwibmFtZSI6InpoYW5ncGVuZyJ9.8QhYZSONATlpO-oZtUoQOlyzjGSpeNvizPofT5ep0WQ
 ```
 
+## jwt 的优缺点
+
+### 优点
+
+1. 因为 `json` 对象的通用性，所以 `jwt` 是可以进行跨语言支持的
+2. 因为有 `payload` 部分，所以 `jwt` 可以在存储一些其他业务逻辑需要的信息
+3. 因为是构成简单，所以便于传输
+
+### 缺点
+
+1. 服务端不保存，所以签发后，如果需要让某个 `jwt` 失效，需要补充其他逻辑
+2. `payload` 部分可解码，所以如果想更安全，在得到 `jwt` 后，需要进行二次加密
+
 ## jwt 常见的使用场景
 
 ### 授权
 
-### jwt 与 session 的区别
+**一般被用来在身份提供者和服务提供者间传递被认证的身份信息**，以便于后续操作。如：
+
+用户登录后，每个后续请求都将包含 `jwt`，允许用户访问该令牌允许的路由、服务和资源。单点登录是当今广泛使用 `jwt` 的功能，因为它的开销很小，并且能够在不同领域轻松使用。
 
 ### 信息交换
 
-**一般被用来在身份提供者和服务提供者间传递被认证的身份信息**，以便于后续操作，也可以增加一些其它业务逻辑所必须的声明信息。
+`jwt` 是在各方之间安全传输信息的好方法。因为 `jwt` 可以签名。如：
 
-## jwt 的使用方式
+使用公钥/私钥对，您可以确定发件人就是他们说的那个人。此外，由于签名是使用标头和有效载荷计算的，您还可以验证内容是否未被篡改。
 
 ## 参考文献
 
