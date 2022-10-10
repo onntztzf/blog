@@ -25,6 +25,7 @@ just a repository for blogs :)
   * [Ubuntu 安装 NodeJS](ubuntu/install-nodejs.md)
   * [Ubuntu 安装 MySQL](ubuntu/install-mysql.md)
 * learn
+  * [你好，jwt](learn/hello-jwt.md)
   * [搞懂 Linux 的文件权限](learn/linux-file-permissions.md)
   * [如何解决端口占用问题](learn/resolve-port-occupancy.md)
   * [如何评判算法好坏](learn/judge-algorithm-quality.md)
