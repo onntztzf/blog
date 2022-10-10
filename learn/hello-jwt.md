@@ -28,10 +28,10 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXB
 
 `header` 是一个描述 `jwt` 元数据的 `JSON` 对象。通常由两个字段构成：
 
-字段 | 含义 | 描述
---- | --- | ---
-typ | `type` | 表示令牌的类型，统一写为 `JWT`
-alg | `algorithm` | 表示签名使用的算法，如：`HMAC SHA256`
+字段 | 描述
+:--- | :---
+typ | `type`，表示令牌的类型，统一写为 `JWT`
+alg | `algorithm`，表示签名使用的算法，如：`HMAC SHA256`
 
 举个例子：
 
@@ -50,15 +50,15 @@ alg | `algorithm` | 表示签名使用的算法，如：`HMAC SHA256`
 
 `payload` 是 `jwt` 的第二部分，也是一个 `JSON` 对象，其中包含需要传递的数据。[RFC7519](https://www.rfc-editor.org/rfc/rfc7519#section-4.1)中定义了一组非强制性的但建议使用的预定义字段，我们可以选择使用：
 
-字段 | 含义 | 描述
---- | --- | ---
-iss | `issuer` | 签发人，可以用于确定签发 `jwt` 的人
-sub | `subject` | 签发的主题，可以用于表示被签发的人是谁或者被签发的内容是什么
-aud | `audience` | `jwt` 的受众者，可以用于表示该 `jwt` 该被哪些主体使用
-iat | `issued at` | `jwt` 的签发时间
-nbf | `not before` | `jwt` 的启用时间，在该时间前，此 `jwt` 是无效的
-exp | `expiration time` | `jwt` 的过期时间，在该时间后，此 `jwt` 是无效的
-jti | `JWT ID` | `jwt` 的唯一标识
+字段 | 描述
+:--- | :---
+iss | `issuer`，签发人，可以用于确定签发 `jwt` 的人
+sub | `subject`，签发的主题，可以用于表示被签发的人是谁或者被签发的内容是什么
+aud | `audience`，受众者，可以用于表示该 `jwt` 该被哪些主体使用
+iat | `issued at`，签发时间
+nbf | `not before`，启用时间，在该时间前，此 `jwt` 是无效的
+exp | `expiration time`，过期时间，在该时间后，此 `jwt` 是无效的
+jti | `JWT ID`，唯一标识
 
 除了上面列出的预定义字段，我们还可以添加一些自定义字段。如：`name`
 
