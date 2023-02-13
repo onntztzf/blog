@@ -172,7 +172,7 @@ EventBus是一款针对Android设计的发布/订阅事件总线，使用订阅/
         });
   ```
 
-## 附
+## 参考资料
 
 1. [Reactivecocoa](https://github.com/ReactiveCocoa/ReactiveObjC)
 2. [ReactiveCocoa 常用API整理](https://juejin.im/post/578f49fa5bbb50005b95fb80)

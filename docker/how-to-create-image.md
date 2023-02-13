@@ -209,7 +209,7 @@ vim_commit          latest    02f4e20da7c3   5 seconds ago       174MB
 
 本篇文章介绍了三种构建镜像的方式，**最推荐的是使用 `Dockerfile` 构建镜像**。如果大家学会了，那就赶紧去构建一个属于自己的镜像吧！
 
-## 参考文献
+## 参考资料
 
 1. [Create a base image](https://docs.docker.com/develop/develop-images/baseimages/)
 2. [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)

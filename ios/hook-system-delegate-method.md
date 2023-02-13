@@ -269,7 +269,7 @@ scrollView.stopScrollBlock = ^(UIScrollView *scrollView) {
 [self.view addSubview:scrollView];
 ```
 
-## 附
+## 参考资料
 
 1. [UITableView、UICollectionView 滚动结束的监测](https://www.jianshu.com/p/718862ee13b0)
 2. [Method Swizzling 实战：Hook 系统代理方法](https://www.jianshu.com/p/3fafb68b1d11)
@@ -281,4 +281,3 @@ scrollView.stopScrollBlock = ^(UIScrollView *scrollView) {
 > Author: zhangpeng
 >
 > Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
-

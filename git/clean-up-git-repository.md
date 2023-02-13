@@ -90,7 +90,7 @@
    git push -f origin master
    ```
 
-## 参考文献
+## 参考资料
 
 1. [git-rev-list](https://git-scm.com/docs/git-rev-list)
 2. [git-verify-pack](https://git-scm.com/docs/git-verify-pack)

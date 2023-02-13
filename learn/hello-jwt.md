@@ -146,7 +146,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXB
 
 希望在阅读本篇文章后，可以让您对 `jwt` 豁然开朗！
 
-## 参考文献
+## 参考资料
 
 1. [jwt.io](https://jwt.io)
 2. [JSON Web Token RFC7519](https://www.rfc-editor.org/rfc/rfc7519)

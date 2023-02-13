@@ -67,7 +67,7 @@
 2. 用尽量少的执行步骤
 3. 根据具体情况，选择空间换时间或时间换空间
 
-## 参考文献
+## 参考资料
 
 1. [大O表示法](https://baike.baidu.com/item/%E5%A4%A7O%E8%A1%A8%E7%A4%BA%E6%B3%95/1851162?fr=aladdin#3)
 2. [如何理解算法的空间复杂度？](https://www.zhihu.com/question/310964983/answer/588135727)

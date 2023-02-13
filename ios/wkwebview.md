@@ -274,7 +274,7 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 
 上面三步就可以解决控制器不能被释放的问题了。O\(∩\_∩\)O~~
 
-## 附
+## 参考资料
 
 1.[WKWebView那些坑](https://www.cnblogs.com/NSong/p/6489802.html)
 

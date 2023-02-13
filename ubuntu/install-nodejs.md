@@ -35,7 +35,7 @@
     7.0.14
    ```
 
-## 附录
+## 附
 
 目前常用的 `NodeJS` 版本以及脚本下载地址如下：
 
@@ -53,4 +53,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
-

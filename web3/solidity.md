@@ -21,7 +21,7 @@ contract HelloWorld {
 }
 ```
 
-## 参考文献
+## 参考资料
 
 [docs](https://docs.soliditylang.org/en/latest/index.html)
 [forum](https://forum.soliditylang.org/)

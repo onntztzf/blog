@@ -68,11 +68,10 @@
 
 如果传入一个目录，则会将可执行文件写入该文件夹。
 
-## 附件
+## 参考资料
 
-[Go 1.13 Release Notes](https://golang.org/doc/go1.13)
-
-[UserConfigDir](https://golang.org/pkg/os/#UserConfigDir)
+1. [Go 1.13 Release Notes](https://golang.org/doc/go1.13)
+2. [UserConfigDir](https://golang.org/pkg/os/#UserConfigDir)
 
 > Title: Go 1.13 中 Go command 修改
 >
@@ -81,4 +80,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
-

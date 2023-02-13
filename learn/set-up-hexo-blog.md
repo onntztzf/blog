@@ -128,9 +128,9 @@ hexo clean && hexo g && hexo d
 
 当新写了博客文章，或者是修改了主题，仅需通过终端，进入本地博客的根目录，执行`hexo clean && hexo g && hexo d`。然后就可以在博客中看到最新的文章或是主题了。
 
-## 附
+## 参考资料
 
-具体Hexo的命令，可以在[Hexo官网](https://github.com/gh-zhangpeng/blog/tree/322c1a6adda8dd6be880c9622823871046e6654b/learn/https：/hexo.io/zh-cn/docs/README.md)中找到
+1. [Hexo Docs](https://hexo.io/docs/)
 
 > Title: 搭建 Hexo Blog
 >

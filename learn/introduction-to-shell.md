@@ -47,6 +47,7 @@ for i in $(seq 1 5); do echo hello; done
     ```text
     for i in 1 2 3 4 5
     ```
+
 * `echo hello`
   * `shell`脚本中的所有内容都是命令
   * 在本例中，运行`echo`命令，将打印该命令的参数`hello`
@@ -210,14 +211,14 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 
 此外，双破折号`--`用于内置命令和许多其他命令中，表示命令选项的结束，之后只接受位置参数。因此，如果您有一个可以使用`-v`参数的文件\(文件类型支持使用\)，并且想要`grep`它，`grep pattern -- -v`可以，但是`grep pattern -v`不行。事实上，创建这种文件的方法是`touch -- -v`。
 
-## 附录
+## 参考资料
 
 1. [Shell](https://github.com/hacker-tools/hacker-tools.github.io/blob/master/shell.md)
 2. [Shell笔记](http://tuling56.site/ref/manual/shell.html)
 3. [Shell 中各种括号的作用](http://www.runoob.com/w3cnote/linux-shell-brackets-features.html)
 4. [Shell test 命令](http://www.runoob.com/linux/linux-shell-test.html)
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

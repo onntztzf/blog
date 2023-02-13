@@ -88,7 +88,7 @@
    source ~/.zshrc
    ```
 
-## 附
+## 参考资料
 
 1. [iTerm2](https://iterm2.com/)
 2. [利用Oh-My-Zsh打造你的超级终端](https://blog.csdn.net/czg13548930186/article/details/72858289)

@@ -81,7 +81,7 @@
     2. 进入恢复模式，将启动磁盘改为我们制作的启动盘，启动盘的修改可以看考附件 
     3. 从“实用工具”窗口中选择“安装 macOS”（或“安装 OS X”），然后点按“继续”，按照屏幕上的说明进行操作
 
-## 附
+## 参考资料
 
 1. 苹果官方提供的 `macOS` 安装文档：[如何安装 macOS](https://support.apple.com/zh-cn/HT204904)
 2. 目前 `macOS` 的版本列表：[macOS 版本列表](https://support.apple.com/zh-cn/HT201686)

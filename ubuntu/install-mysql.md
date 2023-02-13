@@ -251,11 +251,10 @@ Bye
 $ sudo /etc/init.d/mysql restart
 ```
 
-## 附
+## 参考资料
 
-[Linux 常用命令集合](http://www.runoob.com/w3cnote/linux-common-command.html)
-
-[Ubuntu18.04 下安装 MySQL5.7](https://blog.csdn.net/u011026329/article/details/80835139>)
+1. [Linux 常用命令集合](http://www.runoob.com/w3cnote/linux-common-command.html)
+2. [Ubuntu18.04 下安装 MySQL5.7](https://blog.csdn.net/u011026329/article/details/80835139>)
 
 > Title: Ubuntu 安装 MySQL
 >

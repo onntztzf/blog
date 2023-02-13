@@ -155,7 +155,7 @@
 
 Don’t add an overlay or border to your Settings icon. iOS automatically adds a 1-pixel stroke to all icons so that they look good on the white background of Settings.
 
-## 附
+## 参考资料
 
 1. [Human Interface Guidelines - App Icon](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/app-icon/)
 2. [CFBundleIcons,CFBundlePrimaryIcon,CFBundleAlternateIcons](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-SW10)
