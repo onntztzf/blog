@@ -71,3 +71,7 @@ just a repository for blogs :)
 | 2017/09 | [double 转 NSString 出现精度异常](2017/09/double-to-nsstring.md) | 2023-06-15 22:04:36 |
 | 2017/08 | [Widget 开发-配置篇](2017/08/widget-configuration.md) | 2023-06-15 22:04:36 |
 | 2017/08 | [读取一个带有加密印章的 PDF](2017/08/read-pdf-with-cryptographic-seal.md) | 2023-06-15 22:04:36 |
+
+如果觉得文章不错，可以关注公众号哟！
+
+![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
