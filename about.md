@@ -8,7 +8,7 @@
 
 **博客：** [http://blog.zhangpeng.site](http://blog.zhangpeng.site)
 
-**GitHub：** [https://github.com/gh-zhangpeng](https://github.com/gh-zhangpeng)
+**GitHub：** [https://github.com/2hangpeng](https://github.com/2hangpeng)
 
 ### 简介
 
