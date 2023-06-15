@@ -64,7 +64,7 @@ sorted_files_by_directory.update(sorted(files_by_directory.items(), key=lambda x
 
 # Print the README header
 print("# README\n")
-print("just a repository for blogs :)\n")
+print("Just a repository for blogs. :)\n")
 print("## Table of Contents\n")
 
 print("| Directory | File | Last Updated |")
