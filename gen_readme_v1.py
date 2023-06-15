@@ -1,35 +1,21 @@
 import re
 from collections import OrderedDict
 from pathlib import Path
-import subprocess
 
 def format_directory_heading(directory):
     """
     Format the directory heading by adding the Markdown format prefix '### '.
     If the directory is the current directory ('.'), return an empty string.
     """
-    return f"{directory}" if directory != "." else ""
+    return f"### {directory}" if directory != "." else ""
 
 def format_file_links(title, file_path):
     """
     Format the file link and return a Markdown-formatted file link.
     If the file path starts with './', remove the leading './'.
     """
-    formatted_path = str(file_path)[2:] if file_path.name.startswith("./") else str(file_path)
+    formatted_path = str(file_path)[2:] if str(file_path).startswith("./") else str(file_path)
     return f"[{title}]({formatted_path})"
-
-def get_file_last_commit_time(file_path):
-    """
-    Get the last commit time of a file using Git.
-    Return the last commit time in the format "YYYY-MM-DD HH:MM:SS".
-    If there's an error or the file is not under version control, return an empty string.
-    """
-    try:
-        output = subprocess.check_output(["git", "log", "-1", "--format=%cd", "--date=format-local:%Y-%m-%d %H:%M:%S", str(file_path)])
-        last_commit_time = output.decode("utf-8").strip()
-        return last_commit_time
-    except subprocess.CalledProcessError:
-        return ""
 
 def split_files_by_directory(folder_path):
     """
@@ -46,8 +32,7 @@ def split_files_by_directory(folder_path):
             if title_match:
                 title = title_match.group(1)
                 link_text = format_file_links(title, file_path)
-                last_commit_time = get_file_last_commit_time(file_path)
-                files_by_directory.setdefault(directory, []).append((link_text, last_commit_time))
+                files_by_directory.setdefault(directory, []).append(link_text)
 
     return files_by_directory
 
@@ -59,19 +44,27 @@ files_by_directory = split_files_by_directory(folder_path)
 
 # Place the '.' directory at the beginning, and sort other directories in reverse alphabetical order
 sorted_files_by_directory = OrderedDict()
-sorted_files_by_directory["."] = files_by_directory.pop(".", [])
-sorted_files_by_directory.update(sorted(files_by_directory.items(), key=lambda x: x[0], reverse=True))
+sorted_files_by_directory["."] = files_by_directory.get(".", [])
+for directory in sorted(files_by_directory.keys(), reverse=True):
+    if directory != ".":
+        sorted_files_by_directory[directory] = files_by_directory[directory]
 
 # Print the README header
 print("# README\n")
 print("just a repository for blogs :)\n")
 print("## Table of Contents\n")
 
-print("| Directory | File | Last Updated |")
-print("| --- | --- | --- |")
-
 # Print the split files
-for directory, files in sorted_files_by_directory.items():
+for i, (directory, files) in enumerate(sorted_files_by_directory.items()):
     heading_text = format_directory_heading(directory)
-    for file_link, last_commit_time in files:
-        print(f"| {heading_text} | {file_link} | {last_commit_time} |")
+    if heading_text:
+        print(f"{heading_text}\n")
+        for file_link in files:
+            print(f"- {file_link}")
+        if i < len(sorted_files_by_directory) - 1:
+            print()
+    else:
+        for j, file_link in enumerate(files):
+            print(file_link)
+            if j < len(files) - 1 or i < len(sorted_files_by_directory) - 1:
+                print()
