@@ -29,5 +29,4 @@ jobs:
         git config user.email github-actions@github.com
         git add README.md SUMMARY.md
         git commit -m "Generate README and SUMMARY"
-        git push
-        git push origin main:gitbook
+        git push origin main
