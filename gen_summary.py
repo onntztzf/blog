@@ -61,9 +61,9 @@ print("# SUMMARY\n")
 for i, (directory, files) in enumerate(sorted_files_by_directory.items()):
     heading_text = format_directory_heading(directory)
     if heading_text:
-        print(f"[{heading_text}]()\n")
+        print(f"- [{heading_text}]()\n")
         for file_link in files:
-            print(f"- {file_link}")
+            print(f"  - {file_link}")
         if i < len(sorted_files_by_directory) - 1:
             print()
     else:
