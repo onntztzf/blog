@@ -28,6 +28,8 @@ jobs:
 
     - name: Commit and Push Changes
       run: |
+        git config --global user.email "zhangpeng.0304@aliyun.com"
+        git config --global user.name "zhangpeng"
         git add .
         git commit -m "Execute Python scripts and update files"
         git push origin main:dev  # 推送到远端的dev分支，更改为你想要推送到的分支名称
