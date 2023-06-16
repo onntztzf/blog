@@ -1,9 +1,9 @@
-name: Execute Python Scripts and Push
+name: Generate README and SUMMARY
 
 on:
   push:
     branches:
-      - main  # 更改为你想要触发操作的分支
+      - main
 
 jobs:
   execute_and_push:
@@ -16,20 +16,18 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'  # 更改为你想要使用的Python版本
+        python-version: '3.x'
 
-    - name: Execute Python Script 1
+    - name: Execute Python Scripts
       run: |
-        python gen_readme.py > README.md  # 更改为repo中的脚本1路径
+        python gen_readme.py > README.md
+        python gen_summary.py > SUMMARY.md
 
-    - name: Execute Python Script 2
-      run: |
-        python gen_summary.py > SUMMARY.md  # 更改为repo中的脚本2路径
-
-    - name: Commit and Push Changes
+    - name: Commit and Push
       run: |
         git config --global user.email "zhangpeng.0304@aliyun.com"
         git config --global user.name "zhangpeng"
-        git add .
-        git commit -m "Execute Python scripts and update files"
-        git push origin main:dev  # 推送到远端的dev分支，更改为你想要推送到的分支名称
+        git add README.md SUMMARY.md
+        git commit -m "Generate README and SUMMARY"
+        git push
+        git push origin main:gitbook

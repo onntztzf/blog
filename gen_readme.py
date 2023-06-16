@@ -1,18 +1,17 @@
 import re
-from collections import OrderedDict
 from pathlib import Path
 import subprocess
 
 
 def format_directory_heading(directory):
     """
-    Format the directory heading by adding the Markdown format prefix '### '.
+    Format the directory heading by converting it to a string.
     If the directory is the current directory ('.'), return an empty string.
     """
-    return f"{directory}" if directory != "." else ""
+    return str(directory) if directory != "." else ""
 
 
-def format_file_links(title, file_path):
+def format_file_link(file_path):
     """
     Format the file link and return a Markdown-formatted file link.
     If the file path starts with './', remove the leading './'.
@@ -20,82 +19,95 @@ def format_file_links(title, file_path):
     formatted_path = (
         str(file_path)[2:] if file_path.name.startswith("./") else str(file_path)
     )
-    return f"[{title}]({formatted_path})"
+    return formatted_path
 
 
-def get_file_last_commit_time(file_path):
+def get_file_commits(file_path):
     """
-    Get the last commit time of a file using Git.
-    Return the last commit time in the format "YYYY-MM-DD HH:MM:SS".
-    If there's an error or the file is not under version control, return an empty string.
+    Retrieve the commit history for a given file path using git log.
+    Return a list of commit timestamps.
     """
     try:
-        output = subprocess.check_output(
+        result = subprocess.run(
             [
                 "git",
                 "log",
-                "-1",
                 "--format=%cd",
                 "--date=format-local:%Y-%m-%d %H:%M:%S",
                 str(file_path),
-            ]
+            ],
+            check=True,
+            capture_output=True,
+            text=True,
         )
-        last_commit_time = output.decode("utf-8").strip()
-        return last_commit_time
+        return result.stdout.strip().splitlines()
     except subprocess.CalledProcessError:
-        return ""
+        return []
 
 
-def split_files_by_directory(folder_path):
+def group_files_by_directory(folder_path: str):
     """
-    Split the files by directory.
+    Split the files in the specified folder by directory.
     Return a dictionary with directory names as keys and corresponding file lists as values.
     """
     files_by_directory = {}
 
     for file_path in Path(folder_path).rglob("*.md"):
         directory = file_path.parent.relative_to(folder_path).as_posix()
+        files_by_directory.setdefault(directory, []).append(file_path)
+
+    return files_by_directory
+
+
+folder_path = "."
+
+
+files_by_directory = group_files_by_directory(folder_path)
+
+
+formatted_files = []
+for directory, files in files_by_directory.items():
+    for file_path in files:
+        commits = get_file_commits(file_path)
+        first_commit_time = commits[-1] if commits else ""
+        last_commit_time = commits[0] if commits else ""
+        formatted_files.append(
+            [directory, file_path, first_commit_time, last_commit_time]
+        )
+
+
+sorted_files = sorted(
+    formatted_files, key=lambda x: (x[0] == ".", x[0].lower(), x[2]), reverse=True
+)
+
+
+output = "# README\n\n"
+output += "Just a repository for blogs. :)\n\n"
+output += "## Table of Contents\n\n"
+output += "| Directory | File | First Commit | Last Updated |\n"
+output += "| --- | --- | --- | --- |\n"
+
+excluded_files = ["README.md", "SUMMARY.md"]
+
+for directory, file_path, first_commit_time, last_commit_time in sorted_files:
+    # Skip output for excluded files
+    if str(file_path) in excluded_files:
+        continue
+    heading_text = format_directory_heading(directory)
+    file_link = format_file_link(file_path)
+    title = ""
+    try:
         with file_path.open() as f:
             content = f.read()
             title_match = re.search(r"^# (.+)$", content, re.MULTILINE)
             if title_match:
                 title = title_match.group(1)
-                link_text = format_file_links(title, file_path)
-                last_commit_time = get_file_last_commit_time(file_path)
-                files_by_directory.setdefault(directory, []).append(
-                    (link_text, last_commit_time)
-                )
+    except IOError:
+        pass
+    output += f"| {heading_text} | [{title}]({file_link}) | {first_commit_time} | {last_commit_time} |\n"
 
-    return files_by_directory
+output += "\n如果觉得文章不错，可以关注公众号哟！\n\n"
+output += "![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)"
 
 
-# Specify the folder path
-folder_path = "."
-
-# Split the files by directory
-files_by_directory = split_files_by_directory(folder_path)
-
-# Place the '.' directory at the beginning, and sort other directories in reverse alphabetical order
-sorted_files_by_directory = OrderedDict()
-sorted_files_by_directory["."] = files_by_directory.pop(".", [])
-sorted_files_by_directory.update(
-    sorted(files_by_directory.items(), key=lambda x: x[0], reverse=True)
-)
-
-# Print the README header
-print("# README\n")
-print("Just a repository for blogs. :)\n")
-print("## Table of Contents\n")
-
-print("| Directory | File | Last Updated |")
-print("| --- | --- | --- |")
-
-# Print the split files
-for directory, files in sorted_files_by_directory.items():
-    heading_text = format_directory_heading(directory)
-    for file_link, last_commit_time in files:
-        print(f"| {heading_text} | {file_link} | {last_commit_time} |")
-
-print()
-print("如果觉得文章不错，可以关注公众号哟！\n")
-print("![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)")
+print(output)
