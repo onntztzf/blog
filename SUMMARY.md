@@ -6,10 +6,10 @@
 
 - [draft](draft)
   - [HTTP 状态码](draft/http-status-code.md)
-  - [常用的日期格式化格式](draft/date-formatter.md)
-  - [小 z，帮我导个数据吧](draft/txt-to-csv.md)
   - [MySQL 8.0 笔记](draft/tips-for-mysql.md)
   - [快速删除重复行](draft/delete-duplicate-rows.md)
+  - [小 z，帮我导个数据吧](draft/txt-to-csv.md)
+  - [常用的日期格式化格式](draft/date-formatter.md)
 
 - [2023/03](2023/03)
   - [Shebang 是什么？](2023/03/shebang.md)
@@ -30,17 +30,17 @@
   - [web3](2022/08/web3.md)
 
 - [2022/06](2022/06)
-  - [简单动态字符串](2022/06/simple-dynamic-string.md)
   - [git 使用小技巧](2022/06/tips-for-git.md)
   - [macOS 设置文件的默认打开程序](2022/06/set-file-default-opening-mode.md)
+  - [简单动态字符串](2022/06/simple-dynamic-string.md)
 
 - [2022/03](2022/03)
   - [神奇的位运算](2022/03/bit-operation.md)
 
 - [2022/02](2022/02)
-  - [快速生成表结构的结构体](2022/02/generate-table-struct.md)
   - [如何创建自己 module](2022/02/create-personal-module.md)
   - [macOS 升级 Git 版本](2022/02/update-git-version.md)
+  - [快速生成表结构的结构体](2022/02/generate-table-struct.md)
 
 - [2022/01](2022/01)
   - [搞懂 Linux 的文件权限](2022/01/linux-file-permissions.md)
