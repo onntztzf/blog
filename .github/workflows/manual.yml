@@ -20,11 +20,11 @@ jobs:
 
     - name: Execute Python Script 1
       run: |
-        python path/to/your/repo/script1.py > README.md  # 更改为repo中的脚本1路径
+        python gen_readme.py > README.md  # 更改为repo中的脚本1路径
 
     - name: Execute Python Script 2
       run: |
-        python path/to/your/repo/script2.py > SUMMARY.md  # 更改为repo中的脚本2路径
+        python gen_summary.py > SUMMARY.md  # 更改为repo中的脚本2路径
 
     - name: Commit and Push Changes
       run: |
