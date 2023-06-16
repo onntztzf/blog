@@ -1,0 +1,33 @@
+name: Execute Python Scripts and Push
+
+on:
+  push:
+    branches:
+      - main  # 更改为你想要触发操作的分支
+
+jobs:
+  execute_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # 更改为你想要使用的Python版本
+
+    - name: Execute Python Script 1
+      run: |
+        python path/to/your/repo/script1.py > README.md  # 更改为repo中的脚本1路径
+
+    - name: Execute Python Script 2
+      run: |
+        python path/to/your/repo/script2.py > SUMMARY.md  # 更改为repo中的脚本2路径
+
+    - name: Commit and Push Changes
+      run: |
+        git add .
+        git commit -m "Execute Python scripts and update files"
+        git push origin main:dev  # 推送到远端的dev分支，更改为你想要推送到的分支名称
