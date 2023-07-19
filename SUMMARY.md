@@ -1,8 +1,8 @@
 # SUMMARY
 
-[关于我](about.md)
+- [关于我](about.md)
 
-[README](README.md)
+- [README](README.md)
 
 - [draft](draft)
   - [常用的日期格式化格式](draft/date-formatter.md)

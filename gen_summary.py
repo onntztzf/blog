@@ -61,9 +61,7 @@ def group_files_by_directory(folder_path: str):
 
 folder_path = "."
 
-
 files_by_directory = group_files_by_directory(folder_path)
-
 
 formatted_files = []
 for directory, files in files_by_directory.items():
@@ -120,6 +118,6 @@ for directory, files in directory2Files.items():
         output += "\n"
     else:
         for file in files:
-            output += f"[{file['title']}]({file['file_link']})\n\n"
+            output += f"- [{file['title']}]({file['file_link']})\n\n"
 
 print(output.strip())

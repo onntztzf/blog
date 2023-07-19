@@ -6,7 +6,7 @@ Just a repository for blogs. :)
 
 | Directory | File | First Commit | Last Updated |
 | --- | --- | --- | --- |
-|  | [关于我](about.md) | 2021-06-02 08:28:34 | 2023-06-15 22:04:36 |
+|  | [关于我](about.md) | 2021-06-02 08:28:34 | 2023-07-19 17:55:54 |
 | draft | [常用的日期格式化格式](draft/date-formatter.md) | 2023-06-15 22:04:36 | 2023-06-15 22:04:36 |
 | draft | [HTTP 状态码](draft/http-status-code.md) | 2023-06-15 22:04:36 | 2023-06-15 22:04:36 |
 | draft | [小 z，帮我导个数据吧](draft/txt-to-csv.md) | 2022-07-19 11:00:11 | 2023-07-19 15:59:18 |

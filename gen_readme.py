@@ -61,9 +61,7 @@ def group_files_by_directory(folder_path: str):
 
 folder_path = "."
 
-
 files_by_directory = group_files_by_directory(folder_path)
-
 
 formatted_files = []
 for directory, files in files_by_directory.items():
@@ -75,11 +73,9 @@ for directory, files in files_by_directory.items():
             [directory, file_path, first_commit_time, last_commit_time]
         )
 
-
 sorted_files = sorted(
     formatted_files, key=lambda x: (x[0] == ".", x[0].lower(), x[2]), reverse=True
 )
-
 
 output = "# README\n\n"
 output += "Just a repository for blogs. :)\n\n"
@@ -108,6 +104,5 @@ for directory, file_path, first_commit_time, last_commit_time in sorted_files:
 
 output += "\n如果觉得文章不错，可以关注公众号哟！\n\n"
 output += "![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)"
-
 
 print(output)
