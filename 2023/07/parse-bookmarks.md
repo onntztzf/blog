@@ -1,7 +1,5 @@
 # 解析浏览器导出的书签文件
 
-## 导言
-
 在我们日常的网络活动中，我们每天都会浏览大量的网页，为了方便管理和保存这些网址，几乎所有现代浏览器都提供了“书签”功能。而导出书签文件，是一种备份和共享书签的常见做法。本文将带您了解浏览器导出的书签文件的结构和内容，帮助您更好地理解书签文件的格式、内容和可能的应用场景。
 
 ## 书签文件的格式
@@ -58,9 +56,24 @@
 ### 解析书签文件
 
 ```go
+// parseBookmarks extracts bookmarks from the goquery document and returns a slice of bookmark entries.
 func parseBookmarks(doc *goquery.Document) []Bookmark {
-	// initialize a slice to store the extracted bookmarks.
-	bookmarks := make([]Bookmark, 0, doc.Find("H3").Length())
+	// initialize a map to store bookmarks with their titles as keys.
+	bookmarkMap := make(map[string]*Bookmark)
+
+	// helper function to parse timestamp.
+	parseTime := func(timestamp string) *time.Time {
+		if len(timestamp) == 0 {
+			return nil
+		}
+		ts, err := strconv.ParseInt(timestamp, 10, 64)
+		if err != nil {
+			fmt.Println("error parsing timestamp:", err.Error())
+			return nil
+		}
+		t := time.Unix(ts, 0)
+		return &t
+	}
 
 	// iterate over each H3 element in the document representing bookmark titles.
 	doc.Find("H3").Each(func(i int, header *goquery.Selection) {
@@ -73,22 +86,19 @@ func parseBookmarks(doc *goquery.Document) []Bookmark {
 
 		// check if the header has a sibling DL element containing bookmarks.
 		if dlNode := header.Next(); dlNode.Is("DL") {
-			// initialize a slice to store the sub-bookmarks.
-			bookmarks := make([]Bookmark, 0, dlNode.ChildrenFiltered("DT").Length())
+			// iterate over each DT element representing sub-bookmark titles.
 			dlNode.ChildrenFiltered("DT").Each(func(j int, dtNode *goquery.Selection) {
 				if aNode := dtNode.Children().First(); aNode.Is("A") {
 					// create a bookmark entry for each bookmark within the DL element.
-					bookmark := Bookmark{
+					subBookmark := Bookmark{
 						Title:    aNode.Text(),
 						URL:      aNode.AttrOr("href", ""),
 						AddAt:    parseTime(aNode.AttrOr("add_date", "")),
 						UpdateAt: parseTime(aNode.AttrOr("last_modified", "")),
 					}
-					bookmarks = append(bookmarks, bookmark)
+					bookmark.Bookmarks = append(bookmark.Bookmarks, subBookmark)
 				}
 			})
-			// set the sub-bookmarks for the current bookmark.
-			bookmark.Bookmarks = bookmarks
 		}
 
 		// check if the bookmark has a parent folder (H3 element).
@@ -97,9 +107,15 @@ func parseBookmarks(doc *goquery.Document) []Bookmark {
 			bookmark.Parent = parentDL.Prev().Text()
 		}
 
-		// add the bookmark to the bookmarks slice.
-		bookmarks = append(bookmarks, bookmark)
+		// add the bookmark to the map.
+		bookmarkMap[bookmark.Title] = &bookmark
 	})
+
+	// convert the map values to a slice and return.
+	bookmarks := make([]Bookmark, 0, len(bookmarkMap))
+	for _, bookmark := range bookmarkMap {
+		bookmarks = append(bookmarks, *bookmark)
+	}
 	return bookmarks
 }
 ```
@@ -119,25 +135,26 @@ func buildTree(bookmarks []Bookmark) Bookmark {
 		return nil
 	}
 
-	// find the root folder and build the sub-trees recursively.
 	root := findRootFolder(bookmarks)
 	if root == nil {
 		fmt.Println("root folder not found")
 		return Bookmark{}
 	}
-	buildSubTree(root, bookmarks)
 
-	return *root
-}
-
-// buildSubTree recursively builds the sub-tree under the parent bookmark.
-func buildSubTree(parent *Bookmark, bookmarks []Bookmark) {
-	for i := range bookmarks {
-		if bookmarks[i].Parent == parent.Title {
-			parent.Bookmarks = append(parent.Bookmarks, bookmarks[i])
-			buildSubTree(&parent.Bookmarks[len(parent.Bookmarks)-1], bookmarks)
+	// function to build the sub-tree recursively.
+	var buildSubTree func(parent *Bookmark)
+	buildSubTree = func(parent *Bookmark) {
+		for i := range bookmarks {
+			if bookmarks[i].Parent == parent.Title {
+				parent.Bookmarks = append(parent.Bookmarks, bookmarks[i])
+				buildSubTree(&parent.Bookmarks[len(parent.Bookmarks)-1])
+			}
 		}
 	}
+
+	// build the sub-tree for the root folder.
+	buildSubTree(root)
+	return *root
 }
 ```
 
