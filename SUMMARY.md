@@ -1,8 +1,8 @@
 # SUMMARY
 
-- [README](README.md)
-
 - [关于我](about.md)
+
+- [README](README.md)
 
 - [draft](draft)
   - [小 z，帮我导个数据吧](draft/txt-to-csv.md)
