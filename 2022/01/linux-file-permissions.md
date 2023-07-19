@@ -1,6 +1,6 @@
 # 搞懂 Linux 的文件权限
 
-![permission denied](https://img.zhangpeng.site/2022/01/27/1.png)
+![permission denied](https://file.zhangpeng.site/2022/01/27/1.png)
 
 `permission denied` 这个错误应该很多人都见到过，一般常见于执行脚本、读写文件等。它是什么原因造成的？我们又该如何解决它？本文将带给你答案。如果迫不及待地想要看解决办法，请直接翻到本文最下方。
 
@@ -14,7 +14,7 @@
 
 使用 `ll` 或 `ls -l` 命令，即可输出[文件的属性](https://www.runoob.com/linux/linux-file-attr-permission.html)。
 
-```powershell
+```shell
 ➜  temp ll
 total 32
 -rwxr-xr-x  1 zhangpeng  staff       10K 10 29 19:41 init_dotfiles.sh
@@ -97,7 +97,7 @@ total 32
 
 - 符号模式：
 
-    ```powershell
+    ```shell
     ➜  temp chmod u=rwx,g=rx,o=x reset.sh
     ➜  temp ll
     total 32
@@ -107,7 +107,7 @@ total 32
 
 - 数字模式
 
-    ```powershell
+    ```shell
     ➜  temp chmod 751 reset.sh
     ➜  temp ll
     total 32
@@ -119,15 +119,15 @@ total 32
 
 到此，对于文章开头提到的问题，大家心中应该已经有了答案。执行 `reset.sh` 文件时，提示 `permission denied`，是因为当前用户或当前用户组没有该文件的执行权限。因此解决方案也很简单：**使用 `chmod +x` 对文件添加可执行权限**，具体操作如下：
 
-```powershell
+```shell
 ➜  temp chmod +x reset.sh
 ➜  temp ./reset.sh
 macOS:
 done.
 ```
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

@@ -9,12 +9,12 @@
 2. 将 `**/.DS_Store` 写入 `~/.gitignore_global`
 3. 将上面创建的 `~/.gitignore_global` 指定为全局的忽略规则文件
 
-   ```powershell
+   ```shell
     git config --global core.excludesfile ~/.gitignore_global
    ```
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

@@ -1,6 +1,6 @@
 # 上传应用时，卡在 Authenticating with the App Store
 
-![Authenticating with the App Store](http://img.zhangpeng.site/2020/05/26/1.jpg)
+![Authenticating with the App Store](http://file.zhangpeng.site/2020/05/26/1.jpg)
 
 本文主要解决的是在上传应用时，卡在 `Authenticating with the App Store...` 的问题。
 

@@ -12,7 +12,7 @@
    ```
 
    **答案：**
-   打印 false ![1.jpeg](http://img.zhangpeng.site/2017/11/09/1.jpeg) **分析：**
+   打印 false ![1.jpeg](http://file.zhangpeng.site/2017/11/09/1.jpeg) **分析：**
    因为 `NSArray` 运用了类蔟 `(Class clusters)` 的设计模式，类簇其实是对现实的一种抽象和封装，基于抽象工厂模式 `(Abstract Factory Pattern)`。`NSNumber`、`NSString`、`NSArray`等均是如此。
    如想更深入的了解相关概念，可以查阅下面两篇文章： 1. Sunny大神写的[《从NSArray看类簇》](http://blog.sunnyxx.com/2014/12/18/class-cluster/) 2. [《Objective-C类族和工厂模式》](http://www.cocoachina.com/cms/wap.php?action=article&id=10296) 代码在请见[Demo](https://github.com/2hangpeng/P_App_OC.git)中的 `Demo2`
 
@@ -37,7 +37,7 @@
    ```
 
    **答案：**
-   ![2.png](http://img.zhangpeng.site/2017/11/09/2.jpeg) **分析：**
+   ![2.png](http://file.zhangpeng.site/2017/11/09/2.jpeg) **分析：**
 
    * 集合（NSMutableSet）和数组（NSMutableArray）有相似之处，都是存储不同的对象的地址；不过NSMutableArray是有序的集合，NSMutableSet是无序的集合。
    * 集合是一种哈希表，运用散列算法，查找集合中的元素比数组速度更快，但是它没有顺序。当插入相同的数据时，不会有任何效果。

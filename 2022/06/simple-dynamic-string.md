@@ -4,13 +4,13 @@
 
 当需要一个无须进行修改的字面量时，就会使用C语言中的传统字符串。如打印日志：
 
-```powershell
+```shell
 redisLog(REDIS_WARNING,"Redis is now ready to exit, bye bye...");
 ```
 
 当需要一个可以被修改的字符串值时， `Redis` 就会使用 `SDS` 来表示此字符串值。如 `Redis` 数据库中，包含字符串的键值对就是由 `SDS` 实现。
 
-```powershell
+```shell
 redis> SET msg "hello world"
 OK
 ```
@@ -33,7 +33,7 @@ struct sdshdr {
 
 下面用一个 `SDS` 示例来帮助大家更好的理解其结构：
 
-![SDS 示例](https://img.zhangpeng.site/2022/redis/1.png)
+![SDS 示例](https://file.zhangpeng.site/2022/redis/1.png)
 
 - `free` 的值为0，表示这个 `SDS` 没有任何未使用空间
 - `len` 的值为5，表示这个 `SDS` 保存了一个5字节长的字符串
@@ -100,4 +100,4 @@ C语言字符串中的字符必须符合某种编码（比如 `ASCII`），并�
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

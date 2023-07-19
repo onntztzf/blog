@@ -54,7 +54,7 @@ webView.navigationDelegate = self;
 1. 下载PDF
 
    ```text
-    NSString *urlStr = @"http://img.zhangpeng.site/jianLi_zhangpeng.pdf";
+    NSString *urlStr = @"http://file.zhangpeng.site/jianLi_zhangpeng.pdf";
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     NSURLSession *session = [NSURLSession sharedSession];

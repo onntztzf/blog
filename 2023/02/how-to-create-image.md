@@ -26,31 +26,31 @@
 
 步骤 1、创建一个文件夹 `vim` 用于存储镜像相关的文件
 
-```powershell
+```shell
 ➜  Desktop mkdir vim && cd vim
-➜  vim 
+➜  vim
 ```
 
 步骤 2、创建一个名字为 `Dockerfile` 的文件，里面填充我们构建镜像所需的指令。
 
-```powershell
+```shell
 ➜  vim touch Dockerfile
 ```
 
 下面是构建一个 `vim` 镜像的 `Dockerfile`，可以将它直接复制到我们创建的 `Dockerfile` 文件中。
 
-```powershell
+```shell
 # 指定基础镜像
 FROM ubuntu:latest
 # 镜像作者及联系方式
 LABEL author="zhangpeng" \
       mail="zhangpeng.0304@aliyun.com"
 # 更新源
-RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list 
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 # 更新可用包
 RUN apt update \
-    && apt full-upgrade -y 
+    && apt full-upgrade -y
 # 安装 vim
 RUN apt -y install vim
 # 清理 apt 缓存
@@ -65,7 +65,7 @@ RUN apt autoremove -y \
 
 使用 `docker build` 命令构建镜像。
 
-```powershell
+```shell
 ➜  vim docker build -t vim .
 [+] Building 0.1s (10/10) FINISHED
  => [internal] load build definition from Dockerfile               0.0s
@@ -97,7 +97,7 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 - 普通镜像
 
 #### 带有文件系统的镜像
-  
+
 带有文件系统的镜像是指通过 [docker export](https://docs.docker.com/engine/reference/commandline/export/) 导出的容器镜像。如果想使用这类镜像构建镜像，需要使用 [docker import](https://docs.docker.com/engine/reference/commandline/import/) 命令。
 
 ##### 举个例子
@@ -106,14 +106,14 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 
 1. 运行一个容器，这里我们使用上文构建的 `vim` 镜像运行容器
 
-    ```powershell
+    ```shell
     ➜  vim docker run -it vim
     root@4db72433b66d:/#
     ```
 
 2. 打开一个新的终端，导出容器镜像
 
-    ```powershell
+    ```shell
     #显示容器列表
     ➜  ~ docker container list
     CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
@@ -125,7 +125,7 @@ Use 'docker scan' to run Snyk tests against images to find vulnerabilities and l
 
 使用 `docker import` 构建镜像。
 
-```powershell
+```shell
 ➜  vim docker import vim_export.tar.gz vim_export
 sha256:54f4b7fcf9dbb987d439c2bcd05dadbdae139729c11211340c75374c063e5cc8
 ➜  vim docker image list
@@ -134,21 +134,21 @@ vim_export       latest    54f4b7fcf9db   25 seconds ago   136MB
 ```
 
 #### 普通镜像
-  
+
 普通镜像是指通过 [docker save](https://docs.docker.com/engine/reference/commandline/save/) 打包的镜像。如果想使用这类镜像构建镜像，需要使用 [docker load](https://docs.docker.com/engine/reference/commandline/load/) 命令。
 
 ##### 举个例子
 
 准备一个普通镜像。
 
-```powershell
+```shell
 ➜  vim docker save vim -o vim_save.tar.gz | ls
 Dockerfile        vim_export.tar.gz vim_save.tar.gz
 ```
 
 为了方便显示效果，我们将原有的 `vim` 镜像删除掉。
 
-```powershell
+```shell
 ➜  vim docker image rm vim
 Untagged: vim:latest
 ➜  vim docker image list
@@ -157,7 +157,7 @@ REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
 
 使用 `docker load` 构建镜像。
 
-```powershell
+```shell
 ➜  vim docker load -i vim_save.tar.gz
 Loaded image: vim:latest
 ➜  vim docker image list
@@ -171,7 +171,7 @@ vim                 latest    0350ae574b3e   About an hour ago   174MB
 
 这里用到的是 [docker commit](https://docs.docker.com/engine/reference/commandline/commit/) 命令。伪代码如下：
 
-```powershell
+```shell
 $ docker commit \
     --author "Zhang Peng <zhangpeng.0304@aliyun.com>" \
     --message "保存容器镜像" \
@@ -183,14 +183,14 @@ $ docker commit \
 
 运行一个容器，这里我们使用上文构建的 `vim` 镜像运行容器。
 
-```powershell
+```shell
 ➜  vim docker run -it vim
 root@4db72433b66d:/#
 ```
 
 打开一个新的终端，使用 `docker commit` 构建镜像。
 
-```powershell
+```shell
 ➜  vim docker container list
 CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
 2a9daf7512f2   vim       "bash"    3 minutes ago   Up 3 minutes             serene_bardeen
@@ -217,8 +217,8 @@ vim_commit          latest    02f4e20da7c3   5 seconds ago       174MB
 4. [Difference Between Docker Save and Export](https://www.baeldung.com/ops/docker-save-export)
 5. [Docker import/export vs. load/save](https://pspdfkit.com/blog/2019/docker-import-export-vs-load-save/)
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

@@ -4,7 +4,7 @@
 
 ### 申请 `GroupID`
 
-![image](http://img.zhangpeng.site/2017/08/29/1.jpeg)
+![image](http://file.zhangpeng.site/2017/08/29/1.jpeg)
 
 **`Description`** 填写这个 `App Group` 的描述；
 **`ID`** 填写这个 `App Group` 的标识，建议以 `com.{aaa}.{bbb}` 命名，填写完毕时，会默认在前面加上 `group`
@@ -13,13 +13,13 @@
 
 ### 创建完毕以后，如图所示
 
-![image](http://img.zhangpeng.site/2017/08/29/2.jpeg)
+![image](http://file.zhangpeng.site/2017/08/29/2.jpeg)
 
 ### 将 `group` 添加到 `App ID` 中
 
-![image](http://img.zhangpeng.site/2017/08/29/3.jpeg)
+![image](http://file.zhangpeng.site/2017/08/29/3.jpeg)
 
-![image](http://img.zhangpeng.site/2017/08/29/4.jpeg)
+![image](http://file.zhangpeng.site/2017/08/29/4.jpeg)
 
 ### 最后一步，重新激活下 `Provisioning Profile`
 
@@ -31,7 +31,7 @@
 
 打开 App Groups 选项，这里会显示已有的 App Groups，勾选上面创建的 App Group 即可。
 
-![image](http://img.zhangpeng.site/2017/08/29/5.jpeg)
+![image](http://file.zhangpeng.site/2017/08/29/5.jpeg)
 
 ### 点击进入 `Widget Target` 的 `General` 页
 
