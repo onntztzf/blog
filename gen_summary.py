@@ -73,9 +73,15 @@ for directory, files in files_by_directory.items():
             [directory, file_path, first_commit_time, last_commit_time]
         )
 
-
+# reverse order by first commit time
 sorted_files = sorted(
-    formatted_files, key=lambda x: (x[0] == ".", x[0].lower(), x[2]), reverse=True
+    formatted_files,  # The list of files to be sorted.
+    key=lambda x: (
+        x[0] == ".",
+        x[0].lower(),
+        x[2],
+    ),  # The lambda function defines the sorting criteria.
+    reverse=True,  # Sort the list in descending order.
 )
 
 output = "# SUMMARY\n\n"

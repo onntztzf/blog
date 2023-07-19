@@ -73,15 +73,24 @@ for directory, files in files_by_directory.items():
             [directory, file_path, first_commit_time, last_commit_time]
         )
 
+# reverse order by first commit time
 sorted_files = sorted(
-    formatted_files, key=lambda x: (x[0] == ".", x[0].lower(), x[2]), reverse=True
+    formatted_files,  # The list of files to be sorted.
+    key=lambda x: (
+        x[0] == ".",
+        x[0].lower(),
+        x[2],
+    ),  # The lambda function defines the sorting criteria.
+    reverse=True,  # Sort the list in descending order.
 )
 
 output = "# README\n\n"
 output += "Just a repository for blogs. :)\n\n"
 output += "## Table of Contents\n\n"
-output += "| Directory | File | First Commit | Last Updated |\n"
-output += "| --- | --- | --- | --- |\n"
+# output += "| Directory | File | First Commit | Last Updated |\n"
+# output += "| --- | --- | --- | --- |\n"
+output += "| Directory | File | Last Updated |\n"
+output += "| --- | --- | --- |\n"
 
 excluded_files = ["README.md", "SUMMARY.md"]
 
@@ -100,7 +109,8 @@ for directory, file_path, first_commit_time, last_commit_time in sorted_files:
                 title = title_match.group(1)
     except IOError:
         pass
-    output += f"| {heading_text} | [{title}]({file_link}) | {first_commit_time} | {last_commit_time} |\n"
+    # output += f"| {heading_text} | [{title}]({file_link}) | {first_commit_time} | {last_commit_time} |\n"
+    output += f"| {heading_text} | [{title}]({file_link}) | {last_commit_time} |\n"
 
 output += "\n如果觉得文章不错，可以关注公众号哟！\n\n"
 output += "![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)"
