@@ -5,7 +5,7 @@
 常见的保持 `SSH` 服务不掉线的方法有两种：
 
 1. 服务端发送心跳包
-2. 客户端发送心跳包  
+2. 客户端发送心跳包
 
 本篇文章将**以 `Ubuntu 18.04.4 LTS` 为例**，分别对以上两种方法进行讲解。
 
@@ -17,7 +17,7 @@
 4. 保存上述修改，如果提示 `'readonly' option is set (add ! to override)`，请以系统管理者的身份执行指令。
 5. 重启 `SSH` 服务
 
-> **ClientAliveInterval** 服务器端向客户端请求消息的时间间隔，单位为秒，默认是 0，不发送  
+> **ClientAliveInterval** 服务器端向客户端请求消息的时间间隔，单位为秒，默认是 0，不发送
 > **ClientAliveCountMax** 服务器发出请求后，客户端没有响应的重试次数，到达次数后断开
 
 ## 客户端发送心跳包
@@ -30,7 +30,7 @@
 
    ServerAliveCountMax 999
 
-> **ServerAliveInterval** 客户端向服务器端请求消息的时间间隔，单位为秒，默认是 0，不发送  
+> **ServerAliveInterval** 客户端向服务器端请求消息的时间间隔，单位为秒，默认是 0，不发送
 > **ServerAliveCountMax** 客户端发出请求后，服务器没有响应的重试次数，到达次数后断开
 
 ## 总结
@@ -45,8 +45,8 @@
 
   可以在用客户端发送心跳包的方法。这样就不需要在每台服务器上进行修改。
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

@@ -11,13 +11,13 @@
 
 1. 在 `GitHub` 中创建一个仓库  `mymodule`，然后 `clone` 到本地
 
-    ```powershell
+    ```shell
     git clone git@github.com:2hangpeng/mymodule.git
     ```
 
 2. 进入我们刚刚 `clone` 下来的仓库中
 
-    ```powershell
+    ```shell
     cd mymodule && vim hello.go
     ```
 
@@ -39,13 +39,13 @@
 
     使用我们在第一步中创建的仓库，生成我们 `mymodule` 的 `go.mod`
 
-    ```powershell
+    ```shell
     go mod init github.com/2hangpeng/mymodule
     ```
 
     生成后的文件内容如下：
 
-    ```powershell
+    ```shell
     module github.com/2hangpeng/mymodule
 
     go 1.16
@@ -53,7 +53,7 @@
 
 5. 将我们的刚刚编写的代码提交到 `github` 中
 
-    ```powershell
+    ```shell
     git add . && git commit -m "init mymodule" && git push
     ```
 
@@ -65,7 +65,7 @@
 
 1. 在项目中添加 `mymodule` 的依赖
 
-    ```powershell
+    ```shell
     $ go get github.com/2hangpeng/mymodule
     go: downloading github.com/2hangpeng/mymodule v0.0.0-20211019160614-87837bdd5f7a
     ```
@@ -96,14 +96,14 @@
 
 当有了稳定的或者准备长期使用的 `module` 后，我们就可以为它创建一个版本。`module` 的版本是由 `git` 的 `tag` 控制的，因此我们在代码仓库中添加 `tag`。
 
-```powershell
+```shell
 git tag v1.0.0
 git push --tags
 ```
 
 现在我们将 `go.mod` 中依赖的 `mymodule` 的版本改为 `v1.0.0`。然后执行下面的代码，这样就将项目中依赖的 `mymodule` 版本设置为 `v1.0.0` 了。
 
-```powershell
+```shell
 go get github.com/2hangpeng/mymodule
 ```
 
@@ -113,4 +113,4 @@ go get github.com/2hangpeng/mymodule
 
 看到文章这个位置，您应该已经使用上了自己创建的 `module` 了。如果还没有，欢迎留言~
 
-![](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![](https://file.zhangpeng.site/wechat/qrcode.jpg)

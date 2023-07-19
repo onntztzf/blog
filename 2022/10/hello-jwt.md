@@ -6,7 +6,7 @@ date: 2022-10-09
 
 # 你好，jwt
 
-![](https://img.zhangpeng.site/2022/10/09/1.jpg)
+![](https://file.zhangpeng.site/2022/10/09/1.jpg)
 
 ## jwt 是什么
 
@@ -158,4 +158,4 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJqd3QiLCJzdWIiOiIxIiwiYXVkIjoiYXB
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

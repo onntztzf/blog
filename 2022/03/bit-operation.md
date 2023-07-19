@@ -244,8 +244,8 @@ view.addLabelPosition = AddLabelTopRight | AddLabelBottomRight | AddLabelBottomL
 
 希望本篇文章的位运算介绍可以给你带来收获，在日常工作中利用它更简单的解决问题。
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

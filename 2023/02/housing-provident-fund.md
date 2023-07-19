@@ -23,18 +23,18 @@
 ## 个人变更公积金提取周期操作指南
 
 1. 打开[北京住房公积金网](http://gjj.beijing.gov.cn)，点击首页【个人网上业务平台】
-   ![](https://img.zhangpeng.site/2023/2/12/1.png)
+   ![](https://file.zhangpeng.site/2023/2/12/1.png)
 2. 选择【个人网上业务平台（北京中心）】，认真阅读登录提示后，点击【北京市统一身份认证平台登录】
-   ![](https://img.zhangpeng.site/2023/2/12/2.png)
-   ![](https://img.zhangpeng.site/2023/2/12/3.png)
+   ![](https://file.zhangpeng.site/2023/2/12/2.png)
+   ![](https://file.zhangpeng.site/2023/2/12/3.png)
 3. 输入北京通账号可直接登录，或者使用北京通APP扫码登录。
-   ![](https://img.zhangpeng.site/2023/2/12/4.png)
+   ![](https://file.zhangpeng.site/2023/2/12/4.png)
 4. 进入后，选择【我要提取】—【提取住房公积金】—【已申请提取事项管理】，进入已申请提取事项管理页面
-   ![](https://img.zhangpeng.site/2023/2/12/5.png)
+   ![](https://file.zhangpeng.site/2023/2/12/5.png)
 5. 找到需要修改提取周期的事项，点击操作区中的【约定提取管理】
-   ![](https://img.zhangpeng.site/2023/2/12/6.png)
+   ![](https://file.zhangpeng.site/2023/2/12/6.png)
 6. 进入约定提取管理页面，在“公积金约定提取信息”栏目下，按需选择“约定提取周期”和“约定提取日”，系统自动反显“约定下次支付日期”，确定没有问题后，点击【提交】即可
-   ![](https://img.zhangpeng.site/2023/2/12/7.png)
+   ![](https://file.zhangpeng.site/2023/2/12/7.png)
 
 ## 参考资料
 
@@ -46,4 +46,4 @@
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

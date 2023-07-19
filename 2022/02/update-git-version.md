@@ -8,7 +8,7 @@
 
 在将下面代码复制进终端，点击回车，然后打开零食，边吃边等就好。
 
-```powershell
+```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -16,13 +16,13 @@
 
 1. 安装最新版的 `git`
 
-   ```powershell
+   ```shell
    brew install git
    ```
 
    当看到下面输出时，说明 `git` 已经安装完成：
 
-   ```powershell
+   ```shell
    ==> Summary
    🍺  /usr/local/Cellar/git/2.20.1: 1,528 files, 41.3MB
    ```
@@ -31,7 +31,7 @@
 
    在终端中查看我们的 `git` 指向和版本信息。
 
-   ```powershell
+   ```shell
    $ which git
    /usr/bin/git
    $ git --version
@@ -40,7 +40,7 @@
 
    接下来我们通过 `brew link` 将 `git` 指向我们通过 `Homebrew` 安装的 `git`
 
-   ```powershell
+   ```shell
    $ brew link git --overwrite
    Warning: Already linked: /usr/local/Cellar/git/2.20.1
    To relink: brew unlink git && brew link git
@@ -48,7 +48,7 @@
 
    link 成功后，退出终端后，再次打开。然后查看 `git` 指向和版本信息。
 
-   ```powershell
+   ```shell
    $ which git
    /usr/local/bin/git
    $ git --version
@@ -59,4 +59,4 @@
 
 ##
 
-![](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![](https://file.zhangpeng.site/wechat/qrcode.jpg)

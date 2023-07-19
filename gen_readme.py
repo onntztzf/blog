@@ -107,7 +107,7 @@ for directory, file_path, first_commit_time, last_commit_time in sorted_files:
     output += f"| {heading_text} | [{title}]({file_link}) | {first_commit_time} | {last_commit_time} |\n"
 
 output += "\n如果觉得文章不错，可以关注公众号哟！\n\n"
-output += "![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)"
+output += "![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)"
 
 
 print(output)

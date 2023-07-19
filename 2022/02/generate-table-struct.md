@@ -4,11 +4,11 @@
 
 通过下图 [The TIOBE Programming Community](https://www.tiobe.com/tiobe-index/) 的统计可以看到 `Go` 的发展如火如荼，于是我也迈进了 `gophers` 大军之中。
 
-![TIOBE Index for February 2022](https://img.zhangpeng.site/2022/02/18/1.jpeg)
+![TIOBE Index for February 2022](https://file.zhangpeng.site/2022/02/18/1.jpeg)
 
 在 [GitHub](https://github.com/search?l=Go&o=desc&q=orm&s=stars&type=Repositories) 搜索 `Go` 语言的 `orm` 框架。可以看到 `gorm` 的 `star` 远超其他同类框架。因此我们跟随大流，选用 [gorm](https://gorm.io/zh_CN/) 框架。
 
-![orm+go](https://img.zhangpeng.site/2022/02/18/2.jpeg)
+![orm+go](https://file.zhangpeng.site/2022/02/18/2.jpeg)
 
 ## 依赖安装
 
@@ -29,7 +29,7 @@
 
 在终端进入项目根目录，使用下面命令安装 `gen`：
 
-```powershell
+```shell
 go get -u gorm.io/gen
 ```
 
@@ -130,8 +130,8 @@ func firstUpper(s string) string {
 - 写个接口，使用接口触发结构体的生成
 - 使用 [cobra](https://github.com/spf13/cobra)，生成个命令行工具，使用命令触发结构体的生成
 
-## 
+##
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 
-![干货输出机](https://img.zhangpeng.site/wechat/qrcode.jpg)
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)
