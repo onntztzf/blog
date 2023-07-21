@@ -12,7 +12,7 @@
   - [MySQL 8.0 笔记](draft/tips-for-mysql.md)
 
 - [2023/07](2023/07)
-  - [解析浏览器导出的书签文件](2023/07/parse-bookmarks.md)
+  - [掌握书签文件：高效管理收藏](2023/07/parse-bookmarks.md)
 
 - [2023/03](2023/03)
   - [Shebang 是什么？](2023/03/shebang.md)

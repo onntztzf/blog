@@ -12,7 +12,7 @@ Just a repository for blogs. :)
 | draft | [小 z，帮我导个数据吧](draft/txt-to-csv.md) | 2023-07-19 15:59:18 |
 | draft | [MySQL 8.0 笔记](draft/tips-for-mysql.md) | 2022-06-09 00:13:30 |
 | draft | [快速删除重复行](draft/delete-duplicate-rows.md) | 2022-06-09 00:13:30 |
-| 2023/07 | [解析浏览器导出的书签文件](2023/07/parse-bookmarks.md) | 2023-07-19 15:59:18 |
+| 2023/07 | [掌握书签文件：高效管理收藏](2023/07/parse-bookmarks.md) | 2023-07-21 17:20:59 |
 | 2023/03 | [Shebang 是什么？](2023/03/shebang.md) | 2023-07-19 15:59:18 |
 | 2023/02 | [Shell 入门教程](2023/02/introduction-to-shell.md) | 2023-07-19 15:59:18 |
 | 2023/02 | [如何构建 docker 镜像](2023/02/how-to-create-image.md) | 2023-07-19 15:59:18 |

@@ -2,10 +2,10 @@ name: Generate README and SUMMARY
 
 on:
   push:
-    branches-ignore:
+    # branches-ignore:
+      # - main
+    branches:
       - main
-    # branches:
-    #   - main
 
 jobs:
   execute_and_push:
