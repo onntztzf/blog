@@ -41,7 +41,7 @@
 
      ```shell
      $ netstat -ano | findstr "PID 8080"
-     	协议  本地地址          外部地址        状态           PID
+      协议  本地地址          外部地址        状态           PID
        TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       16248
        TCP    [::]:8080              [::]:0                 LISTENING       16248
        TCP    [::1]:8080             [::1]:51273            ESTABLISHED     16248
@@ -81,7 +81,7 @@
 
 到此，占⽤着我们端⼝的进程都已被终止，我们可以愉快的启动服务了。
 
-![](https://file.zhangpeng.site/wechat/qrcode.jpg)
+![图片](https://file.zhangpeng.site/wechat/qrcode.jpg)
 
 > Title: 如何解决端口占用问题
 >

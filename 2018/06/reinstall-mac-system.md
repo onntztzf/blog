@@ -4,11 +4,11 @@
 
 ### 无用的东西太多，忍不了了
 
-在日常工作中，我们难免要安装各式各样的软件，插件，环境等，随着时间的推移，我们电脑中的东西越来越多，虽然不会引起卡顿，但是想想就觉得心里膈应，像我这种强迫症就会选择开始删。 但是删的时候就很麻烦了，`App` 从 `Application` 文件夹中删除后，还会有些配置文件保留在电脑中，很难完全移除。而插件，环境等，删除的操作就更为麻烦。
+在日常工作中，我们难免要安装各式各样的软件，插件，环境等，随着时间的推移，我们电脑中的东西越来越多，虽然不会引起卡顿，但是想想就觉得心里膈应，像我这种强迫症就会选择开始删。但是删的时候就很麻烦了，`App` 从 `Application` 文件夹中删除后，还会有些配置文件保留在电脑中，很难完全移除。而插件，环境等，删除的操作就更为麻烦。
 
 最后的最后就会有一部分人选择重装系统，因为他也不确定是不是删了什么不应该删的东西。
 
-### 步入了Beta版的坑，忍不了了
+### 步入了 Beta 版的坑，忍不了了
 
 世上永远少不了想要第一个吃螃蟹的人，新版系统一发布，便毫不犹豫的进行了升级，在使用一段时间后，发现坑太多，就不想被这些坑折磨了。
 
@@ -62,22 +62,21 @@
 
     **注：** 在系统安装之前，根据具体的情况，决定是否要通过磁盘工具抹掉磁盘。
 
-### U盘安装
+### U 盘安装
 
 1. 下载系统镜像 通过上面的方式，将我们需要的系统下载到电脑中，下载完成后，我们直接关闭安装界面，不要继续安装。这时我们可以在应用程序文件夹下看到我们刚刚下载的安装程序。
-2. 通过终端创建U盘启动器
+2. 通过终端创建 U 盘启动器
     1. 首先我们要确认我们刚刚下载的安装程序的位置以及优盘的名字。
-    2. 假设安装程序仍位于“应用程序”文件夹中，并且U盘名称是 `MyVolume`。 我们要在终端中使用 `createinstallmedia` 命令，输入命令后点击回车。
+    2. 假设安装程序仍位于“应用程序”文件夹中，并且 U 盘名称是 `MyVolume`。我们要在终端中使用 `createinstallmedia` 命令，输入命令后点击回车。
 
        ```text
         sudo /Applications/Install\ macOS\ High\ Sierra.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume --applicationpath /Applications/Install\ macOS\ High\ Sierra.app
        ```
 
-   3. 然后输入密码，密码是不会显示出来的，输入后点击回车。
-   4. 接下来按着终端中的提示即可完成启动盘的制作。
-
-3. 使用U盘启动器安装新系统
-    1. 将U盘查到电脑上
+    3. 然后输入密码，密码是不会显示出来的，输入后点击回车。
+    4. 接下来按着终端中的提示即可完成启动盘的制作。
+3. 使用 U 盘启动器安装新系统
+    1. 将 U 盘查到电脑上
     2. 进入恢复模式，将启动磁盘改为我们制作的启动盘，启动盘的修改可以看考附件
     3. 从“实用工具”窗口中选择“安装 macOS”（或“安装 OS X”），然后点按“继续”，按照屏幕上的说明进行操作
 
@@ -86,11 +85,10 @@
 1. 苹果官方提供的 `macOS` 安装文档：[如何安装 macOS](https://support.apple.com/zh-cn/HT204904)
 2. 目前 `macOS` 的版本列表：[macOS 版本列表](https://support.apple.com/zh-cn/HT201686)
 3. 通过 `App Store` 安装 `macOS High Sierra`：[如何下载安装 macOS High Sierra](https://support.apple.com/zh-cn/HT201475#appstore)
-4. `macOS` U盘启动盘制作教程：[如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
+4. `macOS` U 盘启动盘制作教程：[如何创建可引导的 macOS 安装器](https://support.apple.com/zh-cn/HT201372)
 5. 通过恢复模式安装新系统：[macOS 恢复模式](https://support.apple.com/zh-cn/HT201314)
 6. 两台 `Mac` 电脑间的数据迁移方法：[如何将内容移至新 Mac](https://support.apple.com/zh-cn/HT204350)
 7. 如何修改启动盘：[如何选择其他启动磁盘](https://support.apple.com/zh-cn/HT202796)
-
 
 > Title: Mac 系统重装
 >
@@ -99,4 +97,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

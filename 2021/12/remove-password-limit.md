@@ -1,6 +1,6 @@
 # 解除 macOS 系统的密码限制
 
-![](https://file.zhangpeng.site/2021/12/01/1.png)
+![图片](https://file.zhangpeng.site/2021/12/01/1.png)
 
 在 `macOS Mojave 10.14` 以后，苹果系统升级了对账户密码的要求。强制要求用户为账户设置一个至少四个字符的密码。而很多人已经习惯了使用一位的密码，比如我就喜欢用空格当密码，键位好找且方便。
 
@@ -16,19 +16,19 @@ pwpolicy -clearaccountpolicies
 
 当执行命令后，会看到如下界面。如图中提示所示，我们需要输入我们当前的密码。此时输入的密码不会回显，当我们输入完成后，直接点击回车即可。
 
-![](https://file.zhangpeng.site/2021/12/01/2.png)
+![图片](https://file.zhangpeng.site/2021/12/01/2.png)
 
 当界面中提示 `Clearing global account policies` 时，代表我们已经成功的清除了密码策略。如下图所示：
 
-![](https://file.zhangpeng.site/2021/12/01/3.png)
+![图片](https://file.zhangpeng.site/2021/12/01/3.png)
 
 ## 设置新密码
 
 点击屏幕左上角的苹果标志，选择**系统偏好设置->用户与群组->更改密码**，然后按提示修改密码即可。可以看到此时已经没有了对于密码要求了。
 
-![](https://file.zhangpeng.site/2021/12/01/4.png)
+![图片](https://file.zhangpeng.site/2021/12/01/4.png)
 
-##
+######
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

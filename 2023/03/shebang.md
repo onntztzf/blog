@@ -1,129 +1,221 @@
-# Shebang 是什么？
+# 如何构建 docker 镜像
 
-`Shebang` 是一种在 `Unix` 和 `Linux` 系统中使用的特殊注释，通常用于指定脚本文件的解释器。在本文中，我们将详细介绍 `Shebang` 的作用、语法和示例，以帮助您更好地了解它。
+## 镜像是什么
 
-## Shebang 的作用
+要构建一个镜像，首先要清楚镜像是什么。[docker 文档](https://docs.docker.com/get-started/overview/) 对镜像的解释如下：
 
-当您在 `Unix` 或 `Linux` 系统中执行一个可执行文件时，系统会尝试使用默认解释器来执行该文件。例如，如果您运行一个以 `.sh` 结尾的脚本文件，系统会默认使用 `/bin/bash` 解释器来执行该脚本。但是，有时您可能想要使用其他解释器来执行脚本文件，例如 `Python`，这时 `Shebang` 就派上用场了。
+> An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
 
-使用 `Shebang`，您可以在脚本文件的第一行添加一条注释，告诉系统要使用哪个解释器来执行该脚本。例如，如果您想使用 `bash` 来执行脚本文件，您可以在该文件的第一行添加如下注释：
+简单来讲就是：镜像就是一个带有创建 `Docker` 容器指令的**只读模板**。镜像中可以包含着系统、应用及应用配置等。
 
-```bash
-#!/bin/bash
+## 如何构建镜像
+
+构建镜像的方法有：
+
+1. 使用 `Dockerfile` 构建镜像（推荐）
+2. 基于已有镜像构建镜像
+3. 基于已有容器构建镜像
+
+### 使用 `Dockerfile` 构建镜像（推荐）
+
+`Dockerfile` 是一个普通的文本文件，其中包含构建镜像所需的一组[指令](https://docs.docker.com/engine/reference/builder/)。当我们编写完成后，使用 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 命令来构建镜像，这个命令会读取 `Dockerfile` 中的指令来自动构建镜像。
+
+口说无凭，这里我们以创建一个 `vim` 镜像举例，完成一次镜像的构建。
+
+#### 创建 Dockerfile
+
+步骤 1、创建一个文件夹 `vim` 用于存储镜像相关的文件
+
+```shell
+➜  Desktop mkdir vim && cd vim
+➜  vim
 ```
 
-这条注释告诉 `shell` 查找 `bash` 解释器，然后使用找到的解释器执行该脚本。
+步骤 2、创建一个名字为 `Dockerfile` 的文件，里面填充我们构建镜像所需的指令。
 
-## Shebang 的语法
-
-`Shebang` 的语法非常简单。它只需要在文件的第一行添加一个井号 (#) 和一个惊叹号 (!)，紧接着是解释器的完整路径或可执行文件名。例如：
-
-```python
-#!/usr/bin/python
-
-print("公众号：干货输出机")
+```shell
+➜  vim touch Dockerfile
 ```
 
-或者：
+下面是构建一个 `vim` 镜像的 `Dockerfile`，可以将它直接复制到我们创建的 `Dockerfile` 文件中。
 
-```python
-#!/usr/bin/env python
-
-print("公众号：干货输出机")
+```shell
+# 指定基础镜像
+FROM ubuntu:latest
+# 镜像作者及联系方式
+LABEL author="zhangpeng" \
+      mail="zhangpeng.0304@aliyun.com"
+# 更新源
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+# 更新可用包
+RUN apt update \
+    && apt full-upgrade -y
+# 安装 vim
+RUN apt -y install vim
+# 清理 apt 缓存
+RUN apt autoremove -y \
+    && apt clean -y \
+    && rm -rf /var/lib/apt/lists/*
 ```
 
-在第二个例子中，我们使用 `env`。那么，使用 `env` 和不使用 `env` 的区别在哪里呢？
+`Dockerfile` 支持的指令还有很多，例如：`CMD`、`ENV`、`ENTRYPOINT` 等，有兴趣可以去[官方文档](https://docs.docker.com/engine/reference/builder/)中学习。
 
-### 使用 env
+#### 构建镜像
 
-使用 `env` 可以使**脚本更加可移植。** 因为它会使用环境变量中的 `PATH` 变量来查找解释器，而不是硬编码解释器的路径。这样，即使解释器在不同的系统上安装在不同的路径上，也可以确保脚本在任何地方都能够正常运行。
+使用 `docker build` 命令构建镜像。
 
-但是由于从环境变量中寻找解释器，会**造成一定的安全隐患。** 因为我们可以伪造一个假的命令，写入到环境变量中靠前的位置，这样，脚本就会使用我们伪造的解释器执行。
+```shell
+➜  vim docker build -t vim .
+[+] Building 0.1s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile               0.0s
+ => => transferring dockerfile: 37B                                0.0s
+ => [internal] load .dockerignore                                  0.0s
+ => => transferring context: 2B                                    0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest   0.0s
+ => [1/6] FROM docker.io/library/ubuntu:latest                     0.0s
+ => CACHED [2/6] RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.ed  0.0s
+ => CACHED [3/6] RUN sed -i 's/security.ubuntu.com/mirrors.ustc.e  0.0s
+ => CACHED [4/6] RUN apt update     && apt full-upgrade -y         0.0s
+ => CACHED [5/6] RUN apt -y install vim                            0.0s
+ => CACHED [6/6] RUN apt autoremove -y     && apt clean -y     &&  0.0s
+ => exporting to image                                             0.0s
+ => => exporting layers                                            0.0s
+ => => writing image sha256:0350ae574b3e008092a110a818d266ab1dc45  0.0s
+ => => naming to docker.io/library/vim                             0.0s
 
-### 不使用 env
-
-如果你确定脚本将在特定的系统上运行，并且已经知道了解释器的确切路径，那么可以直接在 `Shebang` 中使用解释器的路径，这样可以避免在环境变量中寻找解释器。
-
-因此，使用 `env` 还是直接使用解释器路径取决于你的需求和具体情况。
-
-## Shebang 的示例
-
-在日常工作中，我们经常需要远程登录到服务器上进行管理操作。为了方便起见，我们可以编写脚本来实现自动化操作，这样可以提高工作效率并减少错误。
-
-```bash
-#!/usr/bin/expect -f
-
-# setting the timeout period
-set timeout 30
-
-# use ssh login your jump server
-spawn ssh [lindex $argv 1]@[lindex $argv 0]
-# start expect
-expect {
-      "*yes/no*?"
-      {send "yes\r";exp_continue;}
-      "*assword:*"
-      { send "[lindex $argv 2]\r" }
-}
-interact
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
 ```
 
-上面的脚本就是一个使用 `expect` 编写的自动化远程登录脚本。在这个脚本中，我们使用了 `expect` 的自动交互功能，实现了自动化远程登录的功能。下面解释一下这个脚本内容：
+看到上面的输出时，就代表我们的镜像构建完成了。
 
-首先，我们使用 `Shebang` 指定了解释器为 `expect`，然后将执行脚本的超时时间设置为 `30` 秒。然后，我们使用 `spawn` 命令根据用户输入的内容启动 `ssh` 进程。接下来，我们使用 `expect` 命令来等待 `ssh` 进程输出的信息，并根据输出的信息来发送相应的命令。在这个脚本中，我们使用了两个 `expect` 匹配规则：
+### 基于已有镜像构建镜像
 
-1. 用于检测 `ssh` 连接时出现的询问信息，如果出现了类似 `Are you sure you want to continue connecting (yes/no)?` 的信息，就会自动发送 `yes` 命令确认连接。如果没有出现这样的信息，则继续等待。
-2. 用于检测 `ssh` 登录时出现的密码输入提示信息。如果出现了 `password:` 的提示信息，则会自动发送密码给远程服务器进行登录。如果没有出现这样的信息，则继续等待。
+首先，我们需要弄清楚已有镜像是什么镜像？镜像大概可以分为两种：
 
-最后，我们使用 `interact` 命令将控制权交还给用户，以便用户手动操作远程服务器。
+- 带有文件系统的镜像
+- 普通镜像
 
-使用方法：
+#### 带有文件系统的镜像
 
-1. 将上面的代码保存到 `ssh_login.sh` 文件中
-2. 使用 `chmod` 命令给这个文件添加执行权限
+带有文件系统的镜像是指通过 [docker export](https://docs.docker.com/engine/reference/commandline/export/) 导出的容器镜像。如果想使用这类镜像构建镜像，需要使用 [docker import](https://docs.docker.com/engine/reference/commandline/import/) 命令。
 
-   ```shell
-   chmod +x ssh_login.sh
-   ```
+##### 举个例子
 
-3. 然后执行这个文件时，在后面补上机器ip，需要登录的用户及密码
+准备一个带有文件系统的镜像。
 
-   ```shell
-   ➜  Desktop ./ssh_login.sh 1.2.3.4 ubuntu Abc12345
-   spawn ssh ubuntu@1.2.3.4
-   The authenticity of host '1.2.3.4 (1.2.3.4)' can't be established.
-   ED25519 key fingerprint is SHA256:G2QvR/KLSRunuijt2J+K5nra5to9CWL6OSHnRndwCI0.
-   This key is not known by any other names
-   Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-   Warning: Permanently added '1.2.3.4' (ED25519) to the list of known hosts.
-   ubuntu@1.2.3.4's password:
-   Welcome to Ubuntu 22.04 LTS (GNU/Linux 5.15.0-56-generic x86_64)
+1. 运行一个容器，这里我们使用上文构建的 `vim` 镜像运行容器
 
-   * Documentation:  https://help.ubuntu.com
-   * Management:    https://landscape.canonical.com
-   * Support:      https://ubuntu.com/advantage
+    ```shell
+    ➜  vim docker run -it vim
+    root@4db72433b66d:/#
+    ```
 
-   System information as of Mon Feb 27 07:47:16 PM CST 2023
+2. 打开一个新的终端，导出容器镜像
 
-   System load:  0.17822265625    Processes:          105
-   Usage of /:   7.1% of 49.10GB   Users logged in:      0
-   Memory usage: 27%            IPv4 address for eth0: 1.2.3.4
-   Swap usage:   0%
+    ```shell
+    #显示容器列表
+    ➜  ~ docker container list
+    CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+    c2a7ceb30f33   vim       "bash"    36 seconds ago   Up 35 seconds             objective_heyrovsky
+    #导出容器镜像
+    ➜  vim docker export c2a7ceb30f33 -o vim_export.tar.gz | ls
+    Dockerfile           vim_export.tar.gz
+    ```
 
-   * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
-   just raised the bar for easy, resilient and secure K8s cluster deployment.
+使用 `docker import` 构建镜像。
 
-   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+```shell
+➜  vim docker import vim_export.tar.gz vim_export
+sha256:54f4b7fcf9dbb987d439c2bcd05dadbdae139729c11211340c75374c063e5cc8
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED          SIZE
+vim_export       latest    54f4b7fcf9db   25 seconds ago   136MB
+```
 
-   To run a command as administrator (user "root"), use "sudo <command>".
-   See "man sudo_root" for details.
+#### 普通镜像
 
-   ubuntu@VM-0-15-ubuntu:~$
-   ```
+普通镜像是指通过 [docker save](https://docs.docker.com/engine/reference/commandline/save/) 打包的镜像。如果想使用这类镜像构建镜像，需要使用 [docker load](https://docs.docker.com/engine/reference/commandline/load/) 命令。
+
+##### 举个例子
+
+准备一个普通镜像。
+
+```shell
+➜  vim docker save vim -o vim_save.tar.gz | ls
+Dockerfile        vim_export.tar.gz vim_save.tar.gz
+```
+
+为了方便显示效果，我们将原有的 `vim` 镜像删除掉。
+
+```shell
+➜  vim docker image rm vim
+Untagged: vim:latest
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
+```
+
+使用 `docker load` 构建镜像。
+
+```shell
+➜  vim docker load -i vim_save.tar.gz
+Loaded image: vim:latest
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
+vim                 latest    0350ae574b3e   About an hour ago   174MB
+```
+
+### 基于已有容器构建镜像
+
+基于已有容器构建镜像主要用于跟进一些异常情况，如：`cpu`或内存异常突增、异常 `bug` 现场等。这时我们就可以通过保存容器的即时镜像，方便复现问题。
+
+这里用到的是 [docker commit](https://docs.docker.com/engine/reference/commandline/commit/) 命令。伪代码如下：
+
+```shell
+$ docker commit \
+    --author "Zhang Peng <zhangpeng.0304@aliyun.com>" \
+    --message "保存容器镜像" \
+    容器名字 \
+    新的镜像名字:新的镜像tag
+```
+
+#### 举个例子
+
+运行一个容器，这里我们使用上文构建的 `vim` 镜像运行容器。
+
+```shell
+➜  vim docker run -it vim
+root@4db72433b66d:/#
+```
+
+打开一个新的终端，使用 `docker commit` 构建镜像。
+
+```shell
+➜  vim docker container list
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+2a9daf7512f2   vim       "bash"    3 minutes ago   Up 3 minutes             serene_bardeen
+➜  vim docker commit \
+    --author "Zhang Peng <zhangpeng.0304@aliyun.com>" \
+    --message "commit vim image" \
+    serene_bardeen \
+    vim_commit:latest
+sha256:02f4e20da7c3302bf61c8d9e526ba039644ec813506cdb6029a823fc864ab97e
+➜  vim docker image list
+REPOSITORY          TAG       IMAGE ID       CREATED             SIZE
+vim_commit          latest    02f4e20da7c3   5 seconds ago       174MB
+```
 
 ## 总结
 
-`Shebang` 是一种非常有用的工具，可让您指定脚本文件的解释器。使用 `Shebang`，您可以轻松地在 `Unix` 和 `Linux` 系统中执行各种类型的脚本，例如 `Python`、`Bash` 等。希望这篇文章能够帮助您更好地理解 `Shebang` 的作用和语法，并且能够在实际使用中提供帮助。
+本篇文章介绍了三种构建镜像的方式，**最推荐的是使用 `Dockerfile` 构建镜像**。如果大家学会了，那就赶紧去构建一个属于自己的镜像吧！
+
+## 参考资料
+
+1. [Create a base image](https://docs.docker.com/develop/develop-images/baseimages/)
+2. [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+3. [docker save 与 docker export 的区别](https://jingsam.github.io/2017/08/26/docker-save-and-docker-export.html)
+4. [Difference Between Docker Save and Export](https://www.baeldung.com/ops/docker-save-export)
+5. [Docker import/export vs. load/save](https://pspdfkit.com/blog/2019/docker-import-export-vs-load-save/)
 
 ######
 

@@ -25,21 +25,21 @@
 
 1. 添加 `WKWebView`
 
-   \`\`\`objc
+   ```objc
 
    **import &lt;WebKit/WebKit.h&gt;**
 
-   WKWebViewConfiguration \*config = \[\[WKWebViewConfiguration alloc\] init\];
+   WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 
-   WKUserContentController \*wkUController = \[\[WKUserContentController alloc\]init\];
+   WKUserContentController *wkUController = [[WKUserContentController alloc]init];
 
    config.userContentController = wkUController;
 
-   // 注入JS对象名称AppModel，当JS通过AppModel来调用时，我们可以在WKScriptMessageHandler代理中接收到 // 此处是为了得到PDF加载完成或失败的反馈 \[config.userContentController addScriptMessageHandler:self name:@"AppModel"\];
+   // 注入JS对象名称AppModel，当JS通过AppModel来调用时，我们可以在WKScriptMessageHandler代理中接收到 // 此处是为了得到PDF加载完成或失败的反馈 [config.userContentController addScriptMessageHandler:self name:@"AppModel"];
 
-   // 改变页面内容宽度，适配屏幕大小 NSString \*js = @"var meta = document.createElement\('meta'\); meta.setAttribute\('name', 'viewport'\); meta.setAttribute\('content', 'width=device-width'\); document.getElementsByTagName\('head'\)\[0\].appendChild\(meta\);";
+   // 改变页面内容宽度，适配屏幕大小 NSString *js = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
 
-   WKUserScript \*wkUserScript = \[\[WKUserScript alloc\] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES\]; \[wkUController addUserScript:wkUserScript\];
+   WKUserScript *wkUserScript = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES]; [wkUController addUserScript:wkUserScript];
 
 ```text
 WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - 64)
@@ -60,8 +60,8 @@ webView.navigationDelegate = self;
     NSURLSession *session = [NSURLSession sharedSession];
 
     NSURLSessionDataTask *sessionDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"从服务器获取到pdf数据");
-        //对从服务器获取到的数据data进行相应的处理：
+        NSLog(@"从服务器获取到 pdf 数据");
+        //对从服务器获取到的数据 data 进行相应的处理：
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *path = [DOCUMENTS_DIRECTORY stringByAppendingPathComponent:@"contract.pdf"];
             NSFileManager *fm = [NSFileManager defaultManager];
@@ -100,7 +100,7 @@ webView.navigationDelegate = self;
       [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable response, NSError * _Nullable error) {
           if (error) {
               NSLog(@"%@", error);
-              NSLog(@"当前手机系统版本较低，不支持查看，请升级系统或者到PC端查看。");
+              NSLog(@"当前手机系统版本较低，不支持查看，请升级系统或者到 PC 端查看。");
           }
       }];
     }
@@ -111,8 +111,8 @@ webView.navigationDelegate = self;
    ```text
     - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
         if ([message.name isEqualToString:@"AppModel"]) {
-            //和customview.js文件交互，js调oc的代码
-            // 打印所传过来的参数，只支持NSNumber, NSString, NSDate, NSArray, NSDictionary, and NSNull类型
+            //和 customview.js 文件交互，js 调 oc 的代码
+            // 打印所传过来的参数，只支持 NSNumber, NSString, NSDate, NSArray, NSDictionary, and NSNull 类型
             if ([message.body[@"code"] isEqualToString:@"00000"]) {
                 NSLog(@"%@", message.body[@"msg"]);
             }
@@ -231,4 +231,3 @@ webView.navigationDelegate = self;
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

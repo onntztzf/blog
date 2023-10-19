@@ -25,7 +25,7 @@ sudo service mysql restart
 
   ```sql
     mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER; #修改加密规则
-    mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码'; #使用mysql_native_password重新修改密码
+    mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码'; #使用 mysql_native_password 重新修改密码
     mysql> FLUSH PRIVILEGES;
   ```
 
@@ -67,4 +67,3 @@ sudo service mysql restart
   ```sql
     show create table tbl\G;
   ```
-

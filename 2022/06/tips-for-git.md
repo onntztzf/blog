@@ -1,6 +1,6 @@
 # git 使用小技巧
 
-## 忽略所有仓库中的 .DS\_Store 文件
+## 忽略所有仓库中的 .DS_Store 文件
 
 1. 创建 `~/.gitignore_global` 文件
 
@@ -13,7 +13,7 @@
     git config --global core.excludesfile ~/.gitignore_global
    ```
 
-##
+######
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

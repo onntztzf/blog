@@ -11,7 +11,7 @@
 
 ## 服务端发送心跳包
 
-1. 登陆您的服务器后，打开 **/etc/ssh/sshd\_config** 文件。
+1. 登陆您的服务器后，打开 **/etc/ssh/sshd_config** 文件。
 2. 将 `ClientAliveInterval` 和 `ClientAliveCountMax` 前面的 \# 去掉。（如果没有则添加这两个字段）
 3. 将 `ClientAliveInterval` 的值修改为 60，`ClientAliveCountMax` 的值修改为 6
 4. 保存上述修改，如果提示 `'readonly' option is set (add ! to override)`，请以系统管理者的身份执行指令。
@@ -45,7 +45,7 @@
 
   可以在用客户端发送心跳包的方法。这样就不需要在每台服务器上进行修改。
 
-##
+######
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

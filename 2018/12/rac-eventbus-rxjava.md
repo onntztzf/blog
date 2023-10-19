@@ -49,16 +49,16 @@
 
 ### EventBus
 
-EventBus是一款针对Android设计的发布/订阅事件总线，使用订阅/发布模式让组件间的通信变得简单。主要功能是替代Intent，Handler，BroadCast在Fragment，Activity，Service，线程之间的消息传递。
+EventBus 是一款针对 Android 设计的发布/订阅事件总线，使用订阅/发布模式让组件间的通信变得简单。主要功能是替代 Intent，Handler，BroadCast 在 Fragment，Activity，Service，线程之间的消息传递。
 
-* `EventBus` 四大组成部分： 1. Publisher发布者 用于分发我们的Event事件，在EventBus中通过post方法进行分发传送。 2. Subscriber订阅者 用于接受我们的事件，我们在订阅事件中处理我们接收的数据。 3. Event事件 任何一个对象都可以作为事件，比如任何字符串，事件是发布者和订阅者之间的通信载体。 4. EventBus 类似于中转站，将我们的事件进行对应的分发处理。
+* `EventBus` 四大组成部分：1. Publisher 发布者 用于分发我们的 Event 事件，在 EventBus 中通过 post 方法进行分发传送。2. Subscriber 订阅者 用于接受我们的事件，我们在订阅事件中处理我们接收的数据。3. Event 事件 任何一个对象都可以作为事件，比如任何字符串，事件是发布者和订阅者之间的通信载体。4. EventBus 类似于中转站，将我们的事件进行对应的分发处理。
 * 优点 1. 简化了组件之间的通信
   * 将事件发送者和接收者分离
   * 在`Activities`，`Fragments`和`background threads`中表现良好
   * 避免复杂且容易出错的依赖关系和生命周期问题
     1. 使代码更简单
     2. 性能开销小
-    3. 代码量小（约50k左右）
+    3. 代码量小（约 50k 左右）
 * 缺点 消息乱飞？不方便 Debug？
 * 使用 1. 定义一个事件
 
@@ -133,7 +133,7 @@ EventBus是一款针对Android设计的发布/订阅事件总线，使用订阅/
 
 `RxJava` 在 `GitHub` 主页上的自我介绍是"a library for composing asynchronous and event-based programs using observable sequences for the Java VM"（一个在 `Java VM` 上使用可观测的序列来组成异步的、基于事件的程序的库），核心可以总结为两个字：**异步**。说到根上，它就是一个实现异步操作的库。而它的异步实现，是通过一种扩展的观察者模式来实现的。
 
-* `RxJava` 的四个基本概念 1. `Observable` \(可观察者，即被观察者\) 决定什么时候触发事件以及触发怎样的事件。 2. `Observer` \(观察者\) 决定事件触发的时候将有怎样的行为。 3. `subscribe` \(订阅\) 创建了 `Observable` 和 `Observer` 之后，再用 subscribe\(\) 方法将它们联结起来，整条链子就可以工作了 4. 事件
+* `RxJava` 的四个基本概念 1. `Observable` (可观察者，即被观察者) 决定什么时候触发事件以及触发怎样的事件。2. `Observer` (观察者) 决定事件触发的时候将有怎样的行为。3. `subscribe` (订阅) 创建了 `Observable` 和 `Observer` 之后，再用 subscribe() 方法将它们联结起来，整条链子就可以工作了 4. 事件
 * 使用
 
   ```java
@@ -159,9 +159,9 @@ EventBus是一款针对Android设计的发布/订阅事件总线，使用订阅/
                 return getBitmapFromFile(file);
             }
         })
-        <!-- 指定Observable自身在哪个调度器上执行 -->
+        <!-- 指定 Observable 自身在哪个调度器上执行 -->
         .subscribeOn(Schedulers.io())
-        <!-- 指定一个观察者在哪个调度器上观察这个Observable -->
+        <!-- 指定一个观察者在哪个调度器上观察这个 Observable -->
         .observeOn(AndroidSchedulers.mainThread())
         <!-- 事件响应？ -->
         .subscribe(new Action1<Bitmap>() {
@@ -175,17 +175,17 @@ EventBus是一款针对Android设计的发布/订阅事件总线，使用订阅/
 ## 参考资料
 
 1. [Reactivecocoa](https://github.com/ReactiveCocoa/ReactiveObjC)
-2. [ReactiveCocoa 常用API整理](https://juejin.im/post/578f49fa5bbb50005b95fb80)
+2. [ReactiveCocoa 常用 API 整理](https://juejin.im/post/578f49fa5bbb50005b95fb80)
 3. [EventBus](https://github.com/greenrobot/EventBus)
 4. [EventBus 中文文档](https://juejin.im/entry/5a91a02d6fb9a06340522ac0)
 5. [给 Android 开发者的 RxJava 详解](https://gank.io/post/560e15be2dca930e00da1083)
-6. RxJava的使用
+6. RxJava 的使用
 
-   [RxJava的使用（一）基本用法](https://www.jianshu.com/p/19cac3c5b106)
+   [RxJava 的使用（一）基本用法](https://www.jianshu.com/p/19cac3c5b106)
 
-   [RxJava的使用（二）Action](https://www.jianshu.com/p/c7a995f3763c)
+   [RxJava 的使用（二）Action](https://www.jianshu.com/p/c7a995f3763c)
 
-   [RxJava的使用（三）转换——map、flatMap](https://www.jianshu.com/p/52cd2d514528)
+   [RxJava 的使用（三）转换——map、flatMap](https://www.jianshu.com/p/52cd2d514528)
 
 > Title: 聊一聊 Rac
 >
@@ -194,4 +194,3 @@ EventBus是一款针对Android设计的发布/订阅事件总线，使用订阅/
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

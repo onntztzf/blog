@@ -10,7 +10,7 @@
 
 * 直接调用方法
 
-  **优点：** 在编译阶段就会教研方法是否存在，Xcode会有相应提示
+  **优点：** 在编译阶段就会教研方法是否存在，Xcode 会有相应提示
 
   **缺点：** 局限性大，如果想调用某个方法，必须先实现这个方法，不如 `performSelector: withObject:` 灵活。
 
@@ -36,11 +36,11 @@
 SEL initSEL = @selector(init);
 SEL allocSEL = @selector(alloc);
 
-// 从NSString类中获取实例方法(init)的方法签名
+// 从 NSString 类中获取实例方法 (init) 的方法签名
 NSMethodSignature *initSig = [NSString instanceMethodSignatureForSelector:initSEL];
-// 从test实例中获取实例方法(init)的方法签名
+// 从 test 实例中获取实例方法 (init) 的方法签名
 initSig = [@"test" methodSignatureForSelector:initSEL];
-// 从NSString类中获取类方法签名
+// 从 NSString 类中获取类方法签名
 NSMethodSignature *allocSig = [NSString methodSignatureForSelector:allocSEL];
 ```
 
@@ -66,12 +66,12 @@ invocation.target = str;
 //设置发送的消息
 invocation.selector = selector;
 
-//建议通过signature.numberOfArgument获取参数个数
+//建议通过 signature.numberOfArgument 获取参数个数
 //可以保证不多参，不少参
-//这边减2的原因是：
-//0位置的参数是 目标（self）
-//1位置的参数是 selector（_cmd）
-//所以2位置才是所需要的第一个参数
+//这边减 2 的原因是：
+//0 位置的参数是 目标（self）
+//1 位置的参数是 selector（_cmd）
+//所以 2 位置才是所需要的第一个参数
 NSInteger paramCount = signature.numberOfArguments - 2;
 NSLog(@"paramCount: %@", @(paramCount));
 
@@ -97,4 +97,3 @@ NSLog(@"returnValue: %@", returnValue);
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

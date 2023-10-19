@@ -25,7 +25,7 @@
 
   这时会有一个可视化界面出现，如下图所示。
 
-  ![&#x56FE;1](http://file.zhangpeng.site/2019/04/03/1.jpg)
+  ![1](http://file.zhangpeng.site/2019/04/03/1.jpg)
 
   选择第一项，可以看到让我们选择 `MySQL` 的版本，我这边选择的是 5.7 版本。然后一路 `Ok` 下去就可以了。
 
@@ -85,7 +85,7 @@ sudo service mysql restart
 
 ## 修改密码
 
-`MySQL 5.7` 安装完成后普通用户不能进 mysql，原因：`root` 的 `plugin` 被修改成了 `auth_socket`，用密码登陆的 `plugin` 应该是 `mysql_native_password`，直接用 `root` 权限登录就不用密码,修改 `root` 密码和登录验证方式。
+`MySQL 5.7` 安装完成后普通用户不能进 mysql，原因：`root` 的 `plugin` 被修改成了 `auth_socket`，用密码登陆的 `plugin` 应该是 `mysql_native_password`，直接用 `root` 权限登录就不用密码，修改 `root` 密码和登录验证方式。
 
 ```text
 #切换到 root 用户，运行 MySQL 命令
@@ -162,11 +162,11 @@ mysql> create user 'zhangpeng'@'%' identified by '123456';
 Query OK, 0 rows affected (0.08 sec)
 ```
 
-**注：** 'zhangpeng'@'%'表示 zhangpeng 这个账号允许远程登录。 如果写成 'zhangpeng'@'localhost' ，那么只能本地登录。
+**注：** 'zhangpeng'@'%'表示 zhangpeng 这个账号允许远程登录。如果写成 'zhangpeng'@'localhost' ，那么只能本地登录。
 
 ## 设置字符集
 
-`MySQL` 的默认字符集不是utf8，因此我们需要修改 `MySQL` 的字符集。
+`MySQL` 的默认字符集不是 utf8，因此我们需要修改 `MySQL` 的字符集。
 
 编辑配置文件（`/etc/mysql/mysql.conf.d/mysqld.cnf`），将下面内容填入配置文件。
 
@@ -232,7 +232,7 @@ mysql> show variables like 'char%';
 # 修改配置文件，注释掉 bind-address = 127.0.0.1
 $ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 
-保存退出，然后进入mysql服务，执行授权命令：
+保存退出，然后进入 mysql 服务，执行授权命令：
 
 $ mysql -uroot -p
 
@@ -263,4 +263,3 @@ $ sudo /etc/init.d/mysql restart
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

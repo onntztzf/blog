@@ -1,6 +1,6 @@
 # 动态更换 App 图标
 
-在`iOS 10.3`苹果添加了更换图标的功能，通过这个功能，我们可以在适当的时候采取特定的方式为我们的`App`更换图标。 听似很好很方便，实则并没有。原因如下：
+在`iOS 10.3`苹果添加了更换图标的功能，通过这个功能，我们可以在适当的时候采取特定的方式为我们的`App`更换图标。听似很好很方便，实则并没有。原因如下：
 
 1. 更换的图标，我们需要预置在项目中
 2. 替换图标这个功能，一定要经过用户同意（虽然有跳过这一步的方法，但是**不建议使用**）
@@ -10,15 +10,15 @@
 1. 逢年过节想换个应景的`App图标`，不用在进行发版了
 2. 公司有个重大活动需要更换图标，不用担心活动前不能成功发版上线了
 
-**注：** **我们更换的不只是APP的图标，还有通知栏的中的图标，以及设置界面中的图标等所有与我们 App 有关的图标。**
+**注：** **我们更换的不只是 APP 的图标，还有通知栏的中的图标，以及设置界面中的图标等所有与我们 App 有关的图标。**
 
 ## 准备你要更换的图标
 
-将我们需要更换的图标放到我们的**项目目录**中（因为放到.xcassets中不管用），图片的命名建议以下面的方式命名，例如：xx20x20@2x.png，xx20x20@3x.png…这样在填写`Info.plist`时也会省事很多。
+将我们需要更换的图标放到我们的**项目目录**中（因为放到.xcassets 中不管用），图片的命名建议以下面的方式命名，例如：<xx20x20@2x.png>，<xx20x20@3x.png>…这样在填写`Info.plist`时也会省事很多。
 
 ![icon&#x547D;&#x540D;](http://file.zhangpeng.site/2018/07/10/1.jpg)
 
-> **PS：** 其实对于更换的图标，我们也可以只提供一张，但命名时，我们就不要填写具体的尺寸了，只保留图片名字即可，例如：xx@2x.png，xx@3x.png， 但是效果上可能不如准备一整套的效果好。毕竟把一张桌面图标大小的图片塞到通知图标那么小的框里，图片会压缩。
+> **PS：** 其实对于更换的图标，我们也可以只提供一张，但命名时，我们就不要填写具体的尺寸了，只保留图片名字即可，例如：<xx@2x.png>，<xx@3x.png>，但是效果上可能不如准备一整套的效果好。毕竟把一张桌面图标大小的图片塞到通知图标那么小的框里，图片会压缩。
 
 ## 修改`Info.plist`
 
@@ -28,7 +28,7 @@
 
 > * `CFBundleIcons`:
 >
->   一个字典，包含所有AppIcon信息，即上图的Icon files\(iOS 5\)
+>   一个字典，包含所有 AppIcon 信息，即上图的 Icon files(iOS 5)
 >
 > * `CFBundlePrimaryIcon`:
 >
@@ -36,17 +36,17 @@
 >
 > * `CFBundleAlternateIcons`:
 >
->   一个数组，负责配置可供替换的icon信息
+>   一个数组，负责配置可供替换的 icon 信息
 >
 > * `UIPrerenderedIcon`:
 >
->   是否已经预渲染，如果不设置该项或者设为NO。系统会自动为icon进行渲染增加光泽
+>   是否已经预渲染，如果不设置该项或者设为 NO。系统会自动为 icon 进行渲染增加光泽
 
-如果想详细了解`CFBundleIcons`, `CFBundlePrimaryIcon`, `CFBundleAlternateIcons`，请查看附件2
+如果想详细了解`CFBundleIcons`, `CFBundlePrimaryIcon`, `CFBundleAlternateIcons`，请查看附件 2
 
-**如果iPad需要也需要更换图标，那么我们需要在`CFBundleIcons~ipad`进行同样的设置。**
+**如果 iPad 需要也需要更换图标，那么我们需要在`CFBundleIcons~ipad`进行同样的设置。**
 
-**注：** **不能把图片放在.xcassets里面**
+**注：** **不能把图片放在.xcassets 里面**
 
 ## 编写代码
 
@@ -76,7 +76,7 @@
 
 ## 代码示例
 
-为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。 也可以访问 [DynamicAppIconDemo](https://github.com/2hangpeng/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
+为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。也可以访问 [DynamicAppIconDemo](https://github.com/2hangpeng/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
 
 ```text
 + (NSString *)getCurrentAppIconName {
@@ -128,7 +128,7 @@
 | Attribute | Value |
 | :--- | :--- |
 | Format | PNG |
-| Color space | sRGB or P3 \(see [Color Management](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#color-management)\) |
+| Color space | sRGB or P3 (see [Color Management](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#color-management)) |
 | Layers | Flattened with no transparency |
 | Resolution | Varies. See [Image Size and Resolution](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/) |
 | Shape | Square with no rounded corners |
@@ -137,19 +137,19 @@
 
 | Device or context | Icon size |
 | :--- | :--- |
-| iPhone | 180px × 180px \(60pt × 60pt @3x\) |
-|  | 120px × 120px \(60pt × 60pt @2x\) |
-| iPad Pro | 167px × 167px \(83.5pt × 83.5pt @2x\) |
-| iPad, iPad mini | 152px × 152px \(76pt × 76pt @2x\) |
-| App Store | 1024px × 1024px \(1024pt × 1024pt @1x\) |
+| iPhone | 180px × 180px (60pt × 60pt @3x) |
+|  | 120px × 120px (60pt × 60pt @2x) |
+| iPad Pro | 167px × 167px (83.5pt × 83.5pt @2x) |
+| iPad, iPad mini | 152px × 152px (76pt × 76pt @2x) |
+| App Store | 1024px × 1024px (1024pt × 1024pt @1x) |
 
 ### Spotlight, Settings, and Notification Icons
 
 | Device or context | Spotlight icon size | Settings icon size | Notification icon size |
 | :--- | :--- | :--- | :--- |
-| iPhone | 120px × 120px \(40pt × 40pt @3x\) | 87px × 87px \(29pt × 29pt @3x\) | 60px × 60px \(20pt × 20pt @3x\) |
-|  | 80px × 80px \(40pt × 40pt @2x\) | 58px × 58px \(29pt × 29pt @2x\) | 40px × 40px \(20pt × 20pt @2x\) |
-| iPad Pro, iPad, iPad mini | 80px × 80px \(40pt × 40pt @2x\) | 58px × 58px \(29pt × 29pt @2x\) | 40px × 40px \(20pt × 20pt @2x\) |
+| iPhone | 120px × 120px (40pt × 40pt @3x) | 87px × 87px (29pt × 29pt @3x) | 60px × 60px (20pt × 20pt @3x) |
+|  | 80px × 80px (40pt × 40pt @2x) | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
+| iPad Pro, iPad, iPad mini | 80px × 80px (40pt × 40pt @2x) | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
 
 ### Notice
 
@@ -167,4 +167,3 @@ Don’t add an overlay or border to your Settings icon. iOS automatically adds a
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

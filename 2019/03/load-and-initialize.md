@@ -2,7 +2,7 @@
 
 |  | +load | +initialize |
 | :--- | :--- | :--- |
-| 调用方式 | 根据函数地址直接调用 | 通过objc\_msgSend调用 |
+| 调用方式 | 根据函数地址直接调用 | 通过 objc_msgSend 调用 |
 | 调用时刻 | 类、分类加载时调用 | 类第一次接收到消息的时候调用 |
 
 ## +load
@@ -15,7 +15,7 @@
 
 ## +initialize
 
-1. 先调用父类的 `+initialize`，再调用子类的 `+initialize`；\(先初始化父类，再初始化子类，每个类只会初始化1次）
+1. 先调用父类的 `+initialize`，再调用子类的 `+initialize`；(先初始化父类，再初始化子类，每个类只会初始化 1 次）
 2. 子类内部 `+initialize` 会主动调用父类的 `+initialize`
 
 **调用方式：** 通过 `objc_msgSend` 调用。
@@ -27,4 +27,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

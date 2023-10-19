@@ -1,19 +1,19 @@
 # iTerm2 一个更好用的终端
 
-本文意图是给终端小白提供一个 **效\(fang\)率\(bian\)更\(zhuang\)高\(bi\)** 的终端使用方式。
+本文意图是给终端小白提供一个 **效 (fang) 率 (bian) 更 (zhuang) 高 (bi)** 的终端使用方式。
 
 ## 安装 iTerm2
 
 1. 下载 [iTerm2](https://iterm2.com/downloads.html)
 2. 进行常规安装
 
-## 提\(kai\)高\(shi\)效\(zhuang\)率\(bi\)的方式
+## 提 (kai) 高 (shi) 效 (zhuang) 率 (bi) 的方式
 
 ### 命令行工具 `oh-my-zsh`
 
 * `oh-my-zsh` 是什么
 
-  `oh-my-zsh` 是一款**社区驱动的命令行工具**，正如它的主页上说的，`oh-my-zsh` 是一种生活方式。它基于 `zsh` 命令行，提供了主题配置，插件机制，已经内置的便捷操作。给我们一种全新的方式使用命令行。 `oh-my-zsh` 这个名字听起来就很有意思，它是基于 `zsh` 命令行的一个扩展工具集，提供了丰富的扩展功能。 `oh-my-zsh` 只是一个对 `zsh` 命令行环境的配置包装框架，但它不提供命令行窗口，更不是一个独立的 APP。 详细介绍可以看它的主页 [oh-my-zsh](https://ohmyz.sh/)。
+  `oh-my-zsh` 是一款**社区驱动的命令行工具**，正如它的主页上说的，`oh-my-zsh` 是一种生活方式。它基于 `zsh` 命令行，提供了主题配置，插件机制，已经内置的便捷操作。给我们一种全新的方式使用命令行。 `oh-my-zsh` 这个名字听起来就很有意思，它是基于 `zsh` 命令行的一个扩展工具集，提供了丰富的扩展功能。 `oh-my-zsh` 只是一个对 `zsh` 命令行环境的配置包装框架，但它不提供命令行窗口，更不是一个独立的 APP。详细介绍可以看它的主页 [oh-my-zsh](https://ohmyz.sh/)。
 
 * `oh-my-zsh` 怎么安装
 
@@ -26,8 +26,8 @@
 
 * `oh-my-zsh` 个性化配置
 
-    1. 更换自己喜欢主题，可以百度找配置也可以使用[官方提供的主题1](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)、[官方提供的主题2](https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes)
-    2. 安装插件，通过安装插件使 `oh-my-zsh` 更加强大。插件种类可以查阅这两个文档：[官方插件1](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins)、[官方插件2](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)
+    1. 更换自己喜欢主题，可以百度找配置也可以使用[官方提供的主题 1](https://github.com/robbyrussell/oh-my-zsh/wiki/themes)、[官方提供的主题 2](https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes)
+    2. 安装插件，通过安装插件使 `oh-my-zsh` 更加强大。插件种类可以查阅这两个文档：[官方插件 1](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins)、[官方插件 2](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview)
 
 ### 命令高亮
 
@@ -61,7 +61,7 @@
 1. **安装 `coreutils`**
 
    ```bash
-   // 通过brew安装 `coreutils`
+   // 通过 brew 安装 `coreutils`
    brew install xz coreutils
    ```
 
@@ -91,8 +91,8 @@
 ## 参考资料
 
 1. [iTerm2](https://iterm2.com/)
-2. [利用Oh-My-Zsh打造你的超级终端](https://blog.csdn.net/czg13548930186/article/details/72858289)
-3. [让Mac OS X的终端多姿多彩](http://linfan.info/blog/2012/02/27/colorful-terminal-in-mac/)
+2. [利用 Oh-My-Zsh 打造你的超级终端](https://blog.csdn.net/czg13548930186/article/details/72858289)
+3. [让 Mac OS X 的终端多姿多彩](http://linfan.info/blog/2012/02/27/colorful-terminal-in-mac/)
 
 > Title: iTerm2 一个更好用的终端
 >
@@ -101,4 +101,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

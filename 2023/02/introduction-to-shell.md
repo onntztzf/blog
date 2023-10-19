@@ -16,13 +16,13 @@
 
 * 您可能用过`sh`或者`bash`
 * 和语言相关的`shell`：`csh`
-* 或者更好用的shell：`fish`，`zsh`，`ksh`
+* 或者更好用的 shell：`fish`，`zsh`，`ksh`
 
 在这个课堂上，我们将关注无处不在的`sh`和`bash`，但是使用其他的`shell`感觉更好。我喜欢`fish`。
 
 在您的工具箱中，`shell`程序是一个非常有用的工具。可以直接在提示符下编写程序，也可以将程序写入文件。
 
-通过`#!/bin/sh`+`chmod +x`将shell程序变成可以执行的
+通过`#!/bin/sh`+`chmod +x`将 shell 程序变成可以执行的
 
 ## 使用`shell`工作
 
@@ -40,8 +40,8 @@ for i in $(seq 1 5); do echo hello; done
   * 分割标志符是“空格”，我们稍后会讲到
   * `shell`中没有花括号，所以使用`do`+`done`
 * `$(seq 1 5)`
-  * 运行`seq`命令，参数分别为1和5
-  * 使用括号内命令的输出替换 $\(\)
+  * 运行`seq`命令，参数分别为 1 和 5
+  * 使用括号内命令的输出替换 $()
   * 相当于
 
     ```text
@@ -82,10 +82,10 @@ for f in $(ls); do if test -d $f; then echo dir $f; fi; done
 这里展开来讲：
 
 * `if CONDITION; then BODY; fi`
-  * `CONDITION`是一个命令，如果返回时为0`(success)`，就会执行`BODY`
+  * `CONDITION`是一个命令，如果返回时为 0`(success)`，就会执行`BODY`
   * 也可以继续执行`else`或者`elif`
   * 同样，没有花括号，所以使用`then`和`fi`
-* `test`是另外一个命令，提供各式各样的检查与对比功能，退出时会返回对比结果，如果为真，则返回0`($?)`
+* `test`是另外一个命令，提供各式各样的检查与对比功能，退出时会返回对比结果，如果为真，则返回 0`($?)`
   * `man COMMAND`会对您有很大的帮助，比如：`man test`
   * 也可以使用`[`+`]`执行，比如：`[ -d $f ]`
     * 查看一下`man test`和`which [`的执行结果
@@ -109,7 +109,7 @@ for f in $(ls); do if test -d $f; then echo dir $f; fi; done
 
 答案是通配符！
 
-* Bash知道如何使用模板查找文件：
+* Bash 知道如何使用模板查找文件：
   * `*` 任意字符串
   * `?` 任意字符
   * `{a,b,c}` 这些字符中的任意一个
@@ -131,13 +131,13 @@ for f in $(ls); do if test -d $f; then echo dir $f; fi; done
 
 ## 可组合性
 
-Shell之所以强大，部分原因在于它的可组合性。可以将多个程序链接在一起，而不是让一个程序做每一件事情。
+Shell 之所以强大，部分原因在于它的可组合性。可以将多个程序链接在一起，而不是让一个程序做每一件事情。
 
 关键字是`|`。
 
 `a|b`表示同时运行`a`和`b`，将`a`的所有输出，当作`b`的输入，打印`b`的输出。
 
-您启动的所有程序\(“进程”\)都有三个“流”:
+您启动的所有程序 (“进程”) 都有三个“流”:
 
 * `STDIN`：当程序读取输入时，它从这里开始
 * `STDOUT`：当程序打印东西时，它就在这里
@@ -154,21 +154,21 @@ Shell之所以强大，部分原因在于它的可组合性。可以将多个程
 
 * `ls | grep foo`：包含单词`foo`的所有文件
 * `ps | grep foo`：包含单词`foo`的所有进程
-* `journalctl | grep -i intel | tail -n5`：最后5条带有intel\(不区分大小写\)的系统日志消息
+* `journalctl | grep -i intel | tail -n5`：最后 5 条带有 intel(不区分大小写) 的系统日志消息
 * `who | sendmail -t me@example.com`：将登录用户列表发送到`me@example.com`
 * 形成了许多数据处理的基础，稍后我们将讨论它
 
-Bash还提供了许多其他编写程序的方法。
+Bash 还提供了许多其他编写程序的方法。
 
 您可以组合形成一个命令`(a; b) | tac`：先运行`a`，然后运行`b`，然后把他们的所有输出当作`tac`命令的输入，`tac`是一个将输入反序的命令。
 
-一个不太为人所知但超级有用的方法是过程替换。`b <(a)`将运行a，为输出流生成一个临时文件名，并将该文件名传递给b。举个例子：
+一个不太为人所知但超级有用的方法是过程替换。`b <(a)`将运行 a，为输出流生成一个临时文件名，并将该文件名传递给 b。举个例子：
 
 ```text
 diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 ```
 
-将向您展示前一个引导日志的前20行与更前一个引导日志的前20行之间的区别。
+将向您展示前一个引导日志的前 20 行与更前一个引导日志的前 20 行之间的区别。
 
 ## 任务和进程控制
 
@@ -180,28 +180,28 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
   * 注意：正在运行的程序仍将终端设置为标准输出，试一试：`server > server.log & client`
 * 通过`jobs`查看所有的进程
   * 注意现实`Running`的
-* 使用`fg %JOB`将其放到前台\(没有参数是最新的\)
-* 如果您想将当前的程序放入后台：`^Z`+`bg`\(这里的`^Z`代表按`Ctrl+Z`\)
+* 使用`fg %JOB`将其放到前台 (没有参数是最新的)
+* 如果您想将当前的程序放入后台：`^Z`+`bg`(这里的`^Z`代表按`Ctrl+Z`)
   * `^Z`将当前的进程停止，并将它变成一个`job`
   * `bg`将最新的`job`在后台运行（就像使用了`&`）
 * 后台`jobs`仍然绑定到当前会话，如果注销，则退出。您可以使用`disown`或者`nohup`切断这种绑定关系。
-* `$!`是最后一个后台进程的pid
+* `$!`是最后一个后台进程的 pid
 
-在你的电脑上运行的其他东西呢?
+在你的电脑上运行的其他东西呢？
 
 * `ps`很好用：列出正在运行的进程
-  * `ps -A`：打印所有用户的进程（也包括ps ax）
+  * `ps -A`：打印所有用户的进程（也包括 ps ax）
   * `ps`有很多参数：可以通过`man ps`查看
 * `pgrep`：搜索进程（和`ps -A | grep`类似）
   * `pgrep -af`：通过参数搜索和显示
-* `kill`：通过ID向进程发送信号（pkill by search + -f）
+* `kill`：通过 ID 向进程发送信号（pkill by search + -f）
   * 信号告诉进程“做什么事”
-  * 最常见:`SIGKILL`\(`-9`或`-KILL`\)：立刻退出，相当于`^\`
-  * 还有：`SIGTERM`\(`-15`or`-TERM`\)：立刻优雅的退出，相当于`^C`
+  * 最常见：`SIGKILL`(`-9`或`-KILL`)：立刻退出，相当于`^`
+  * 还有：`SIGTERM`(`-15`or`-TERM`)：立刻优雅的退出，相当于`^C`
 
 ## 标志符
 
-大多数命令行程序都使用**标志符**接受参数。标志符通常有短形式\(`-h`\)和长形式\(`--help`\)。通常运行`CMD -h`或`man CMD`会给你展示该`CMD`可用的标识符的列表。短标志通常可以组合使用，运行`rm -r -f`相当于运行`rm -rf`或者`rm -fr`。一些常见的标识符是有约定俗成的标准的，您会发现它们在很多命令中：
+大多数命令行程序都使用**标志符**接受参数。标志符通常有短形式 (`-h`) 和长形式 (`--help`)。通常运行`CMD -h`或`man CMD`会给你展示该`CMD`可用的标识符的列表。短标志通常可以组合使用，运行`rm -r -f`相当于运行`rm -rf`或者`rm -fr`。一些常见的标识符是有约定俗成的标准的，您会发现它们在很多命令中：
 
 * `-a`一般指所有文件（也包括那些以点开头的）
 * `-f`通常指强制做什么事情，比如说`rm -f`
@@ -209,16 +209,16 @@ diff <(journalctl -b -1 | head -n20) <(journalctl -b -2 | head -n20)
 * `-v`通常启用详细输出
 * `-V`通常打印命令的版本
 
-此外，双破折号`--`用于内置命令和许多其他命令中，表示命令选项的结束，之后只接受位置参数。因此，如果您有一个可以使用`-v`参数的文件\(文件类型支持使用\)，并且想要`grep`它，`grep pattern -- -v`可以，但是`grep pattern -v`不行。事实上，创建这种文件的方法是`touch -- -v`。
+此外，双破折号`--`用于内置命令和许多其他命令中，表示命令选项的结束，之后只接受位置参数。因此，如果您有一个可以使用`-v`参数的文件 (文件类型支持使用)，并且想要`grep`它，`grep pattern -- -v`可以，但是`grep pattern -v`不行。事实上，创建这种文件的方法是`touch -- -v`。
 
 ## 参考资料
 
 1. [Shell](https://github.com/hacker-tools/hacker-tools.github.io/blob/master/shell.md)
-2. [Shell笔记](http://tuling56.site/ref/manual/shell.html)
+2. [Shell 笔记](http://tuling56.site/ref/manual/shell.html)
 3. [Shell 中各种括号的作用](http://www.runoob.com/w3cnote/linux-shell-brackets-features.html)
 4. [Shell test 命令](http://www.runoob.com/linux/linux-shell-test.html)
 
-##
+######
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

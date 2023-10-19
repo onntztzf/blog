@@ -8,15 +8,15 @@
 
 ### 方法一
 
-方法一的核心是清理大文件或者不再需要的文件\(后文统称为冗余文件\)，以及他们所产生的提交记录。**下面的操作一定要三思而行，真的会把文件删除的哟！**
+方法一的核心是清理大文件或者不再需要的文件 (后文统称为冗余文件)，以及他们所产生的提交记录。**下面的操作一定要三思而行，真的会把文件删除的哟！**
 
-1. 找到所有冗余文件的git记录
+1. 找到所有冗余文件的 git 记录
 
    ```text
    git rev-list --objects --all | grep "$(git verify-pack -v .git/objects/pack/*.idx | sort -k 3 -n | tail -5 | awk '{print $1}')"
    ```
 
-   解释一下上面的代码： 1. 倒序列出的提交引用的任何对象的对象id 2. 读取 git 归档后的idx文件，列出所有的对象列表，然后根据列表中的第三项\(size\)进行升序排序，然后取最后 5 项，截取第一列（SHA-1） 3. 取操作一和操作二的交集，便是当前仓库中占用空间最大的5个文件或提交记录
+   解释一下上面的代码：1. 倒序列出的提交引用的任何对象的对象 id 2. 读取 git 归档后的 idx 文件，列出所有的对象列表，然后根据列表中的第三项 (size) 进行升序排序，然后取最后 5 项，截取第一列（SHA-1）3. 取操作一和操作二的交集，便是当前仓库中占用空间最大的 5 个文件或提交记录
 
 2. 删除冗余文件以及相关提交记录
 
@@ -56,7 +56,7 @@
 
 ### 方法二
 
-方法二比较暴力，直接**将整个仓库的历史全部删掉**，以达到对git仓库瘦身的目的。
+方法二比较暴力，直接**将整个仓库的历史全部删掉**，以达到对 git 仓库瘦身的目的。
 
 1. 删除所有的远程分支
 
@@ -64,13 +64,13 @@
     git branch -r | grep origin | grep -v '>' | grep -v master | xargs -L1 | awk '{sub(/origin\//,"");print}'| xargs git push origin --delete
    ```
 
-2. 删除本地的.git文件夹
+2. 删除本地的.git 文件夹
 
    ```text
     rm -rf .git
    ```
 
-3. 初始化本地的git仓库
+3. 初始化本地的 git 仓库
 
    ```text
     git init
@@ -78,10 +78,10 @@
     git commit -m "init"
    ```
 
-4. 将本地的git仓库与已有的远程仓库进行关联
+4. 将本地的 git 仓库与已有的远程仓库进行关联
 
    ```text
-   git remote add origin 远程仓库地址(https://xxx.git 或 git@xxx.git 均可)
+   git remote add origin 远程仓库地址 (https://xxx.git 或 git@xxx.git 均可)
    ```
 
 5. 强制推送到远程仓库
@@ -96,7 +96,7 @@
 2. [git-verify-pack](https://git-scm.com/docs/git-verify-pack)
 3. [git-filter-branch](https://git-scm.com/docs/git-filter-branch)
 4. [为什么你的 Git 仓库变得如此臃肿](https://www.jianshu.com/p/7231b509c279)
-5. [为什么.git/objects/pack文件夹变得非常大，处理git仓库臃肿](https://www.jianshu.com/p/4f2ccb48da77)
+5. [为什么.git/objects/pack 文件夹变得非常大，处理 git 仓库臃肿](https://www.jianshu.com/p/4f2ccb48da77)
 
 > Title: 如何清理 git 仓库
 >
@@ -105,4 +105,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

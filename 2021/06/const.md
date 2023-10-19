@@ -26,4 +26,3 @@ void Foo( int * ptr,
     constPtrToConst  = NULL; // Error! Cannot modify the pointer
 }
 ```
-

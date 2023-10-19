@@ -17,7 +17,7 @@
      在运行期将消息转给备援接收者，由备援接收者完成消息的处理。
 
    * 无备援接收者（replacement receiver）
-   * 启动一套“完整的消息转发机制”，将消息封装到NSInvocation对象中，交给接收者处理。
+   * 启动一套“完整的消息转发机制”，将消息封装到 NSInvocation 对象中，交给接收者处理。
 
 ### 动态方法解析
 
@@ -41,18 +41,18 @@
 
 ```text
 /**
- 没有找到SEL的实现时会执行下方的方法
- @param sel 当前对象调用并且找不到IML的SEL
- @return 是否可以处理这个方法，并返回yes
+ 没有找到 SEL 的实现时会执行下方的方法
+ @param sel 当前对象调用并且找不到 IML 的 SEL
+ @return 是否可以处理这个方法，并返回 yes
  */
 + (BOOL)resolveInstanceMethod:(SEL)sel
 {
-// 当返回YES时
-// 在这里通过Runtime在将已经写好实现的代码插入到类中。
+// 当返回 YES 时
+// 在这里通过 Runtime 在将已经写好实现的代码插入到类中。
 // ...
     return YES;
-// 当返回NO时
-// 会接着执行forwordingTargetForSelector:方法
+// 当返回 NO 时
+// 会接着执行 forwordingTargetForSelector:方法
 //    return NO;
 }
 ```
@@ -62,23 +62,23 @@
 #### 有备援接收者
 
 在方法 `- (id)forwardingTargetForSelector:(SEL)aSelector` 中返回可以处理该消息的对象，交由该对象去处理这个消息。
-如果此处返回nil，则表示没有其他对象可以处理这个消息，然后通过完整的消息转发机制来处理。
+如果此处返回 nil，则表示没有其他对象可以处理这个消息，然后通过完整的消息转发机制来处理。
 
 ```text
 /**
- 将当前对象不存在的SEL传给其他存在该SEL的对象
- @param aSelector 当前类中不存在的SEL
- @return 存在该SEL的对象
+ 将当前对象不存在的 SEL 传给其他存在该 SEL 的对象
+ @param aSelector 当前类中不存在的 SEL
+ @return 存在该 SEL 的对象
  */
 - (id)forwardingTargetForSelector:(SEL)aSelector
 {
 // 不传递给其他对象
-// 将会执行- (void)forwardInvocation:(NSInvocation *)anInvocation;
+// 将会执行 - (void)forwardInvocation:(NSInvocation *)anInvocation;
     return nil;
 
 // 传递给一个其他对象，处理这个方法。
 // 可以做相应的错误处理等
-// 让OtherClass中相应的SEL去执行该方法
+// 让 OtherClass 中相应的 SEL 去执行该方法
 //    return [[OtherClass alloc] init];
 }
 ```
@@ -87,7 +87,7 @@
 
 如果接收者不能处理消息，并且没有备援接收者，最终只能采取一个完整的消息转发来处理消息。
 
-通过NSInvocation包装方法的目标、参数等，然后通过 `- (void)forwardInvocation:(NSInvocation *)invocation` 将消息指派给目标对象。
+通过 NSInvocation 包装方法的目标、参数等，然后通过 `- (void)forwardInvocation:(NSInvocation *)invocation` 将消息指派给目标对象。
 
 ```text
 - (void)forwardInvocation:(NSInvocation *)invocation
@@ -109,4 +109,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

@@ -6,13 +6,13 @@ date: 2022-10-09
 
 # 你好，jwt
 
-![](https://file.zhangpeng.site/2022/10/09/1.jpg)
+![图片](https://file.zhangpeng.site/2022/10/09/1.jpg)
 
 ## jwt 是什么
 
 `jwt` 的完整拼写是 `JSON Web Token`。见名知意，`jwt` 就是一种用于在各方之间安全地传输信息的令牌，令牌中的信息是以 `JSON` 对象的形式进行存储。
 
-`jwt` 也是一种[开放标准](https://www.rfc-editor.org/rfc/rfc7519)。它定义了一种紧凑且安全的方法，用于在各方之间传递信息。在 `jwt` 中，信息会被编码为 `JSON` 对象，然后把这个 `JSON` 对象作为一个 `JSON Web Signature(JWS)` 结构的有效载荷或作为一个 `JSON Web Encryption(JWE)` 结构的明文，使信息能够被签名或者通过消息验证码(`MAC`)进行进行完整性和真实性校验。
+`jwt` 也是一种[开放标准](https://www.rfc-editor.org/rfc/rfc7519)。它定义了一种紧凑且安全的方法，用于在各方之间传递信息。在 `jwt` 中，信息会被编码为 `JSON` 对象，然后把这个 `JSON` 对象作为一个 `JSON Web Signature(JWS)` 结构的有效载荷或作为一个 `JSON Web Encryption(JWE)` 结构的明文，使信息能够被签名或者通过消息验证码 (`MAC`) 进行进行完整性和真实性校验。
 
 ## jwt 的构成
 

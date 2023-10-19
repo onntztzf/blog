@@ -11,7 +11,7 @@
 ## AppleScript 例子
 
 1. 发送邮件：sendMail.scpt
-2. 发送iMessage：sendMessage.scpt
+2. 发送 iMessage：sendMessage.scpt
 
 本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/2hangpeng/AppleScript)~
 
@@ -22,4 +22,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

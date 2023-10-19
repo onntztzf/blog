@@ -14,7 +14,7 @@
 
 ### 下载所需的文件
 
-链接: [com.apple.amp.itmstransporter.zip](https://pan.baidu.com/s/19AEdaWU8gOiIvFOhe_hyJA) 提取码: vx8z
+链接：[com.apple.amp.itmstransporter.zip](https://pan.baidu.com/s/19AEdaWU8gOiIvFOhe_hyJA) 提取码：vx8z
 
 ### 修改文件中的内容
 
@@ -33,4 +33,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

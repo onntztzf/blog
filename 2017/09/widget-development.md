@@ -1,8 +1,8 @@
-# Widget 开发-开发篇
+# Widget 开发 - 开发篇
 
 ## 开发步骤
 
-建议先阅读[Widget 开发-配置篇](widget-configuration.md)，再开始开发，因为开发的过程中需要提前准备一些东西
+建议先阅读[Widget 开发 - 配置篇](widget-configuration.md)，再开始开发，因为开发的过程中需要提前准备一些东西
 
 ### 创建新的 `Target`，选择 `Today Extension`
 
@@ -16,7 +16,7 @@
 
 * Bundle display name
 
-  Widget在通知栏显示的名称
+  Widget 在通知栏显示的名称
 
 * NSExtension
 
@@ -39,7 +39,7 @@
 self.preferredContentSize = CGSizeMake(kScreenW, 100);
 ```
 
-`iOS8` 下所有组件**默认右移30单位**，可以通过下面的方法修改上下左右的距离
+`iOS8` 下所有组件**默认右移 30 单位**，可以通过下面的方法修改上下左右的距离
 
 ```text
 - (UIEdgeInsets)widgetMarginInsetsForProposedMarginInsets:(UIEdgeInsets)defaultMarginInsets {
@@ -49,19 +49,19 @@ self.preferredContentSize = CGSizeMake(kScreenW, 100);
 
 #### iOS10
 
-`iOS10` 以后，`Widget` 可玩性变得更高了，有了两种显示模式:
+`iOS10` 以后，`Widget` 可玩性变得更高了，有了两种显示模式：
 
-1. NCWidgetDisplayModeCompact // Fixed height，高度固定，最低高度为110
+1. NCWidgetDisplayModeCompact // Fixed height，高度固定，最低高度为 110
 2. NCWidgetDisplayModeExpanded // Variable height，高度可变
 
 ```text
- // 5s模拟器下:
- // NCWidgetDisplayModeCompact模式下:{304, 110}
- // NCWidgetDisplayModeExpanded模式下:{304, 528}
+ // 5s 模拟器下：
+ // NCWidgetDisplayModeCompact 模式下:{304, 110}
+ // NCWidgetDisplayModeExpanded 模式下:{304, 528}
 
- // 6s模拟器下：
- // NCWidgetDisplayModeCompact模式下:{359, 110}
- // NCWidgetDisplayModeExpanded模式下:{359, 616}
+ // 6s 模拟器下：
+ // NCWidgetDisplayModeCompact 模式下:{359, 110}
+ // NCWidgetDisplayModeExpanded 模式下:{359, 616}
 ```
 
 **设定显示模式，需要在设定 `Size` 前设定这个属性**，代码如下：
@@ -155,7 +155,7 @@ self.preferredContentSize = CGSizeMake(kScreenW, 100);
 
 ### 数据刷新
 
-当widget从屏幕上消失2s左右，再次出现在屏幕中时，都会重新调用viewDidLoad方法。所以每次出现都请求最新数据，进行刷新操作，widget都会闪一下，根据产品需求，可以做一下控制；
+当 widget 从屏幕上消失 2s 左右，再次出现在屏幕中时，都会重新调用 viewDidLoad 方法。所以每次出现都请求最新数据，进行刷新操作，widget 都会闪一下，根据产品需求，可以做一下控制；
 
 ```text
 - (void)viewDidLoad {
@@ -163,7 +163,7 @@ self.preferredContentSize = CGSizeMake(kScreenW, 100);
 }
 ```
 
-如果短时间内让Widget频繁地消失显示，那只会执行viewWillAppear方法；
+如果短时间内让 Widget 频繁地消失显示，那只会执行 viewWillAppear 方法；
 
 ```text
 - (void)viewWillAppear:(BOOL)animated {
@@ -173,7 +173,7 @@ self.preferredContentSize = CGSizeMake(kScreenW, 100);
 
 ### 打开 `App`
 
-1. 设置 `App` 的 `URLSchemes`，打开 `APP` 主要通过 `URLScheme` 打开和传递参数值。 设置 `URLSchemes` 时，要独特一些，避免与其他 `App` 重复 ![image](http://file.zhangpeng.site/2017/09/07/5.jpeg)
+1. 设置 `App` 的 `URLSchemes`，打开 `APP` 主要通过 `URLScheme` 打开和传递参数值。设置 `URLSchemes` 时，要独特一些，避免与其他 `App` 重复 ![image](http://file.zhangpeng.site/2017/09/07/5.jpeg)
 2. 在 `Widget` 中添加点击事件，用于触发打开 `App` 的操作和传递参数
 
    ```text
@@ -207,15 +207,14 @@ self.preferredContentSize = CGSizeMake(kScreenW, 100);
 
     - (void)appCallbackWithOpenUrl:(NSURL *)url{
         NSLog(@"url: %@", url.host);
-        // 针对url进行不同的操作
+        // 针对 url 进行不同的操作
     }
    ```
 
-> Title: Widget 开发-开发篇
+> Title: Widget 开发 - 开发篇
 >
 > Date: 2017.09.07
 >
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-
