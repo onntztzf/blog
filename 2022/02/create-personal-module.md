@@ -113,4 +113,4 @@ go get github.com/2hangpeng/mymodule
 
 看到文章这个位置，您应该已经使用上了自己创建的 `module` 了。如果还没有，欢迎留言~
 
-![](https://file.zhangpeng.site/wechat/qrcode.jpg)
+![图片](https://file.zhangpeng.site/wechat/qrcode.jpg)

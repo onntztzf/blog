@@ -16,14 +16,14 @@
 
 这边使用的是 [gen](https://github.com/go-gorm/gen) 完成表结构体的生成。
 
-`gen` 是字节无恒实验室之前发布的一个 `gorm` 相关的开源工具 。其主要功能有：
+`gen` 是字节无恒实验室之前发布的一个 `gorm` 相关的开源工具。其主要功能有：
 
 - ⚡️ 自动同步库表，省去繁琐复制
 - 🔗 代码一键生成，专注业务逻辑
 - 🐞 字段类型安全，执行 SQL 也安全
 - 😉 查询优雅返回，完美兼容 GORM
 
-其他相关资料可以从 [无恒实验室联合GORM推出安全好用的ORM框架-GEN](https://mp.weixin.qq.com/s/SfLIkU8E2b3sAO1qSUkyXA) 或者 [README](https://github.com/go-gorm/gen/blob/master/README.ZH_CN.md) 了解。
+其他相关资料可以从 [无恒实验室联合 GORM 推出安全好用的 ORM 框架-GEN](https://mp.weixin.qq.com/s/SfLIkU8E2b3sAO1qSUkyXA) 或者 [README](https://github.com/go-gorm/gen/blob/master/README.ZH_CN.md) 了解。
 
 ### 安装
 
@@ -130,7 +130,7 @@ func firstUpper(s string) string {
 - 写个接口，使用接口触发结构体的生成
 - 使用 [cobra](https://github.com/spf13/cobra)，生成个命令行工具，使用命令触发结构体的生成
 
-##
+######
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

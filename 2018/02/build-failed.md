@@ -14,7 +14,7 @@
     gem list xcodeproj
    ```
 
-3. 安装 `xcodeproj` 最新版本 可以在 [rubygems.org](https://rubygems.org/gems/xcodeproj)查看到最新的版本，目前应该是1.5.6。
+3. 安装 `xcodeproj` 最新版本 可以在 [rubygems.org](https://rubygems.org/gems/xcodeproj)查看到最新的版本，目前应该是 1.5.6。
 
    ```text
    gem install xcodeproj -v 1.5.6
@@ -41,4 +41,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

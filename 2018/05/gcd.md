@@ -25,15 +25,15 @@
     NSLog(@"---start---%@", [NSThread currentThread]);
     dispatch_sync(queue, ^{
         sleep(5);
-        NSLog(@"任务1---%@", [NSThread currentThread]);
+        NSLog(@"任务 1---%@", [NSThread currentThread]);
     });
     dispatch_sync(queue, ^{
         sleep(3);
-        NSLog(@"任务2---%@", [NSThread currentThread]);
+        NSLog(@"任务 2---%@", [NSThread currentThread]);
     });
     dispatch_sync(queue, ^{
         sleep(1);
-        NSLog(@"任务3---%@", [NSThread currentThread]);
+        NSLog(@"任务 3---%@", [NSThread currentThread]);
     });
     NSLog(@"---end---%@", [NSThread currentThread]);
 
@@ -57,15 +57,15 @@
     //使用同步函数封装三个任务
     dispatch_sync(queue, ^{
         sleep(5);
-        NSLog(@"任务1---%@", [NSThread currentThread]);
+        NSLog(@"任务 1---%@", [NSThread currentThread]);
     });
     dispatch_sync(queue, ^{
         sleep(3);
-        NSLog(@"任务2---%@", [NSThread currentThread]);
+        NSLog(@"任务 2---%@", [NSThread currentThread]);
     });
     dispatch_sync(queue, ^{
         sleep(1);
-        NSLog(@"任务3---%@", [NSThread currentThread]);
+        NSLog(@"任务 3---%@", [NSThread currentThread]);
     });
     NSLog(@"---end---%@", [NSThread currentThread]);
 
@@ -87,15 +87,15 @@
     NSLog(@"---start---%@", [NSThread currentThread]);
     dispatch_async(queue, ^{
         sleep(5);
-        NSLog(@"任务1---%@", [NSThread currentThread]);
+        NSLog(@"任务 1---%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
         sleep(3);
-        NSLog(@"任务2---%@", [NSThread currentThread]);
+        NSLog(@"任务 2---%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
         sleep(1);
-        NSLog(@"任务3---%@", [NSThread currentThread]);
+        NSLog(@"任务 3---%@", [NSThread currentThread]);
     });
     NSLog(@"---end---%@", [NSThread currentThread]);
 
@@ -117,15 +117,15 @@
     NSLog(@"---start---%@", [NSThread currentThread]);
     dispatch_async(queue, ^{
         sleep(5);
-        NSLog(@"任务1---%@", [NSThread currentThread]);
+        NSLog(@"任务 1---%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
         sleep(3);
-        NSLog(@"任务2---%@", [NSThread currentThread]);
+        NSLog(@"任务 2---%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
         sleep(1);
-        NSLog(@"任务3---%@", [NSThread currentThread]);
+        NSLog(@"任务 3---%@", [NSThread currentThread]);
     });
     NSLog(@"---end---%@", [NSThread currentThread]);
 
@@ -140,22 +140,22 @@
 
 * **同步执行 + 主队列**
 
-  **死锁**。任务1需要等待主队列中所有的任务都执行完毕才可以执行，但是因为是同步执行，要执行完任务1才能执行主队列中的其他任务，最后互相等待，造成了死锁。这边其实与任务2和任务3并没有什么关系。QAQ，不知道为什么其他人的博客都说和任务2和3有关。
+  **死锁**。任务 1 需要等待主队列中所有的任务都执行完毕才可以执行，但是因为是同步执行，要执行完任务 1 才能执行主队列中的其他任务，最后互相等待，造成了死锁。这边其实与任务 2 和任务 3 并没有什么关系。QAQ，不知道为什么其他人的博客都说和任务 2 和 3 有关。
 
   ```text
     dispatch_queue_t queue = dispatch_get_main_queue();
     NSLog(@"---start---%@", [NSThread currentThread]);
     dispatch_sync(queue, ^{
         sleep(5);
-        NSLog(@"任务1---%@", [NSThread currentThread]);
+        NSLog(@"任务 1---%@", [NSThread currentThread]);
     });
     dispatch_sync(queue, ^{
         sleep(3);
-        NSLog(@"任务2---%@", [NSThread currentThread]);
+        NSLog(@"任务 2---%@", [NSThread currentThread]);
     });
     dispatch_sync(queue, ^{
         sleep(1);
-        NSLog(@"任务3---%@", [NSThread currentThread]);
+        NSLog(@"任务 3---%@", [NSThread currentThread]);
     });
     NSLog(@"---end---%@", [NSThread currentThread]);
 
@@ -173,15 +173,15 @@
     NSLog(@"---start---%@", [NSThread currentThread]);
     dispatch_async(queue, ^{
         sleep(5);
-        NSLog(@"任务1---%@", [NSThread currentThread]);
+        NSLog(@"任务 1---%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
         sleep(3);
-        NSLog(@"任务2---%@", [NSThread currentThread]);
+        NSLog(@"任务 2---%@", [NSThread currentThread]);
     });
     dispatch_async(queue, ^{
         sleep(1);
-        NSLog(@"任务3---%@", [NSThread currentThread]);
+        NSLog(@"任务 3---%@", [NSThread currentThread]);
     });
     NSLog(@"---end---%@", [NSThread currentThread]);
 
@@ -205,4 +205,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

@@ -25,14 +25,14 @@ $ sudo gem install cocoapods
 
 绝大多数人在执行安装 `cocoapods` 后，会发现半天没有反应，没错，你猜的没错，正是因为那堵至高无上的墙~
 
-因此我们通过下面的方式换个ruby源：
+因此我们通过下面的方式换个 ruby 源：
 
 ```text
-// 移除现有sources
+// 移除现有 sources
 $ gem sources --remove https://rubygems.org/
-// 添加ruby-china sources
+// 添加 ruby-china sources
 $ gem sources --add https://gems.ruby-china.com/
-// 检查ruby源是否更换成功
+// 检查 ruby 源是否更换成功
 $ gem sources -l
 *** CURRENT SOURCES ***
 
@@ -54,7 +54,7 @@ Unable to resolve dependencies: cocoapods requires cocoapods-core (= 1.2.0), coc
 更新 `Ruby` 环境即可
 
 ```text
-// 更新 gem版本
+// 更新 gem 版本
 $ sudo gem update --system
 ```
 
@@ -99,4 +99,3 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

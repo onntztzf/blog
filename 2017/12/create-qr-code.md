@@ -1,19 +1,19 @@
 # 二维码生成及定制
 
 目前比较常见的二维码库有[ZXing](https://github.com/zxing/zxing)，[ZBar](https://github.com/ZBar/ZBar)等，网上对于这些知名库的使用及分析已经很多了，在这就不做赘述了。
-我们本篇文章的目标是采用 **CIQRCodeGenerator** 来完成二维码的生成及定制化。 `CIQRCodeGenerator` 在iOS7之后，苹果自身提供的 `API`，用于方便快捷的集成二维码的生成和读取功能。使用苹果提供的方法好处就在于不用额外引入其他的第三方库，可以减少打包后的 `App` 大小。
+我们本篇文章的目标是采用 **CIQRCodeGenerator** 来完成二维码的生成及定制化。 `CIQRCodeGenerator` 在 iOS7 之后，苹果自身提供的 `API`，用于方便快捷的集成二维码的生成和读取功能。使用苹果提供的方法好处就在于不用额外引入其他的第三方库，可以减少打包后的 `App` 大小。
 
-写博客不给[Demo](https://github.com/2hangpeng/QRCodeDemo)的博主都不是好博主，没[Demo](https://github.com/2hangpeng/QRCodeDemo)没 XX。 授人予鱼，不如授人与渔。鱼在上面的Demo中，渔在下面的文章中。 下面开始我的表演。&lt;\(￣ ﹌ ￣\)&gt;
+写博客不给[Demo](https://github.com/2hangpeng/QRCodeDemo)的博主都不是好博主，没[Demo](https://github.com/2hangpeng/QRCodeDemo)没 XX。授人予鱼，不如授人与渔。鱼在上面的 Demo 中，渔在下面的文章中。下面开始我的表演。&lt;(￣ ﹌ ￣)&gt;
 
 ## 需求
 
 最近产品看支付宝红包的二维码分享功能不错，于是乎提出了需求：
 
 * 一个用于分享的二维码，用于跳转到相关页面
-* 添加logo
+* 添加 logo
 * 拼接一个背景图
 
-以上就是写出这篇文章的原因。\(๑•̀ㅂ•́\)و✧
+以上就是写出这篇文章的原因。(๑•̀ㅂ•́)و✧
 
 ## 生成二维码
 
@@ -30,12 +30,12 @@
 通过 `CIFilter` 创建一个二维码图片
 
 ```text
-//创建名为"CIQRCodeGenerator"的CIFilter
+//创建名为"CIQRCodeGenerator"的 CIFilter
 CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-//将filter所有属性设置为默认值
+//将 filter 所有属性设置为默认值
 [filter setDefaults];
 
-//将所需尽心转为UTF8的数据，并设置给filter
+//将所需尽心转为 UTF8 的数据，并设置给 filter
 NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
 [filter setValue:data forKey:@"inputMessage"];
 
@@ -211,7 +211,7 @@ CIImage *outPutImage = [filter outputImage];
 }
 ```
 
-![qrCode\_pink.png](http://file.zhangpeng.site/2017/12/15/2.jpeg)
+![qrCode_pink.png](http://file.zhangpeng.site/2017/12/15/2.jpeg)
 
 ### 添加水印图片（Logo）
 
@@ -228,19 +228,19 @@ CIImage *outPutImage = [filter outputImage];
     CGRect extent = CGRectIntegral(img.extent);
     CGFloat scale = MIN(size.width/CGRectGetWidth(extent), size.height/CGRectGetHeight(extent));
 
-    //1.创建bitmap;
+    //1.创建 bitmap;
     size_t width = CGRectGetWidth(extent) * scale;
     size_t height = CGRectGetHeight(extent) * scale;
-    //创建一个DeviceGray颜色空间
+    //创建一个 DeviceGray 颜色空间
     CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
     //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
     //width：图片宽度像素
     //height：图片高度像素
-    //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
-    //bitmapInfo：指定的位图应该包含一个alpha通道。
+    //bitsPerComponent：每个颜色的比特值，例如在 rgba-32 模式下为 8
+    //bitmapInfo：指定的位图应该包含一个 alpha 通道。
     CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
     CIContext *context = [CIContext contextWithOptions:nil];
-    //创建CoreGraphics image
+    //创建 CoreGraphics image
     CGImageRef bitmapImage = [context createCGImage:img fromRect:extent];
     CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
     CGContextScaleCTM(bitmapRef, scale, scale);
@@ -271,9 +271,9 @@ CIImage *outPutImage = [filter outputImage];
 /**
  拼接图片
 
- @param img1 图片1
- @param img2 图片2
- @param location 图片2相对于图片1的左上角位置
+ @param img1 图片 1
+ @param img2 图片 2
+ @param location 图片 2 相对于图片 1 的左上角位置
  @return 拼接后的图片
  */
 + (UIImage *)spliceImg1:(UIImage *)img1 img2:(UIImage *)img2 img2Location:(CGPoint)location {
@@ -293,11 +293,11 @@ CIImage *outPutImage = [filter outputImage];
 }
 ```
 
-![qrCode\_splice.png](http://file.zhangpeng.site/2017/12/15/3.jpeg)
+![qrCode_splice.png](http://file.zhangpeng.site/2017/12/15/3.jpeg)
 
 ## 附
 
-1. [官方对于CIQRCodeGenerator的介绍](https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/#//apple_ref/doc/filter/ci/CIQRCodeGenerator)
+1. [官方对于 CIQRCodeGenerator 的介绍](https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/#//apple_ref/doc/filter/ci/CIQRCodeGenerator)
 
 > Title: 二维码生成及定制
 >
@@ -306,4 +306,3 @@ CIImage *outPutImage = [filter outputImage];
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

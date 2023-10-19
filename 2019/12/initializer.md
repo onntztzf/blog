@@ -4,7 +4,7 @@
 
 类（结构体、枚举）的初始化有两种初始化器（初始化方法）：
 
-* 指定初始化器（Designated Initializers ）
+* 指定初始化器（Designated Initializers）
 * 便利初始化器（Convenience Initializers）
 
 ## 指定初始化器
@@ -53,11 +53,11 @@
 
 #### 举例
 
-由于UIView拥有新的指定初始化器 `-initWithFrame:`，导致父类 `NSObject` 的指定初始化器 `-init` 退化成便利初始化器。所以当调用 `[[UIView alloc] init]` 时，`-init` 里面必然调用了 `-initWithFrame:`。
+由于 UIView 拥有新的指定初始化器 `-initWithFrame:`，导致父类 `NSObject` 的指定初始化器 `-init` 退化成便利初始化器。所以当调用 `[[UIView alloc] init]` 时，`-init` 里面必然调用了 `-initWithFrame:`。
 
 #### 建议
 
-当存在一个新的指定初始化器的时候，推荐在方法名后面加上 `NS_DESIGNATED_INITIALIZER`，主动告诉编译器有一个新的指定初始化器，这样就可以使用 Xcode 自带的Analysis功能分析，找出初始化过程中可能存在的漏洞。
+当存在一个新的指定初始化器的时候，推荐在方法名后面加上 `NS_DESIGNATED_INITIALIZER`，主动告诉编译器有一个新的指定初始化器，这样就可以使用 Xcode 自带的 Analysis 功能分析，找出初始化过程中可能存在的漏洞。
 
 如果不想去重写旧的指定初始化器，但又不想存在漏洞和隐患，那么可以使用 `NS_UNAVAILABLE` 把旧的指定初始化器都废弃，外界就无法调用旧的指定初始化器。
 
@@ -66,7 +66,7 @@
 相对于 `Objective-C`，`Swift` 多了一些规则：
 
 1. 初始化的时候需要保证类（结构体、枚举）的所有非可选类型属性都会有值，否则会报错
-2. 在没有给所有非可选类型属性赋值（初始化完成）之前，不能调用self相关的任何东西，例如：调用实例属性，调用实例方法
+2. 在没有给所有非可选类型属性赋值（初始化完成）之前，不能调用 self 相关的任何东西，例如：调用实例属性，调用实例方法
 
 #### 不存在继承
 
@@ -141,7 +141,7 @@ class Dog: Animal {
 
 #### 必须的初始化器
 
-可以使用 `required` 修饰初始化器，来指定子类必须实现该初始化器。需要注意的是，如果子类可以直接继承父类的指定初始化器和便利初始化器，也就可以不用额外实现required修饰的初始化器。
+可以使用 `required` 修饰初始化器，来指定子类必须实现该初始化器。需要注意的是，如果子类可以直接继承父类的指定初始化器和便利初始化器，也就可以不用额外实现 required 修饰的初始化器。
 
 > Title: 类的初始化方法
 >
@@ -150,4 +150,3 @@ class Dog: Animal {
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

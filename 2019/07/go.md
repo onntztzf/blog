@@ -63,15 +63,15 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmess
 
   **src:** 存放源代码。按照 `Go` 语言约定，`go run`，`go install` 等命令默认会在此路径下执行；
 
-  **pkg:** 存放编译时生成的中间文件（ \*.a ）；
+  **pkg:** 存放编译时生成的中间文件（ *.a ）；
 
-  **bin:** 存放编译后生成的可执行文件 （ 在项目内执行 go install，会在 bin 目录下生成一个可执行文件）。
+  **bin:** 存放编译后生成的可执行文件（在项目内执行 go install，会在 bin 目录下生成一个可执行文件）。
 
 ## 常用命令
 
 * **go run**
 
-  编译并执行，只能作用于命令源码文件，一般用于开发中快速测试。上文我们通过执行 go run test.go ，完成了程序的编译运行。
+  编译并执行，只能作用于命令源码文件，一般用于开发中快速测试。上文我们通过执行 go run test.go，完成了程序的编译运行。
 
 * **go build**
 
@@ -79,7 +79,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmess
 
 * **go get**
 
-  下载第三方代码包并编译安装 ，需要注意的是，它会下载安装到 GOPATH 环境变量配置的第一个工作区中。
+  下载第三方代码包并编译安装，需要注意的是，它会下载安装到 GOPATH 环境变量配置的第一个工作区中。
 
 * **go install**
 
@@ -91,7 +91,7 @@ GOGCCFLAGS="-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmess
 
 ## 数据类型
 
-布尔型，整型，浮点型，指针类型（Pointer）、数组类型、结构化类型\(struct\)、Channel 类型、函数类型、切片类型、接口类型（interface）、Map 类型
+布尔型，整型，浮点型，指针类型（Pointer）、数组类型、结构化类型 (struct)、Channel 类型、函数类型、切片类型、接口类型（interface）、Map 类型
 
 ```go
 // 布尔型
@@ -160,9 +160,9 @@ type Person struct {
   height float32  // 身高
   weight float32  // 体重
 }
-// 方式1，变量 t 是一个指向 Person 的指针，此时结构体字段的值是它们所属类型的零值
+// 方式 1，变量 t 是一个指向 Person 的指针，此时结构体字段的值是它们所属类型的零值
 t := new(Person)
-// 方式2，底层仍然会调用 new ()，这里值的顺序必须按照字段顺序来写
+// 方式 2，底层仍然会调用 new ()，这里值的顺序必须按照字段顺序来写
 person : &Person {name : "juejin", age : 12}
 //----------------------------------
 // 初始化数组
@@ -213,9 +213,9 @@ if a := 1  ;  a < 10 {
 
 ```go
 /*
- * init： 一般为赋值表达式，给控制变量赋初值；
- * condition： 关系表达式或逻辑表达式，循环控制条件；
- * post： 一般为赋值表达式，给控制变量增量或减量。
+ * init：一般为赋值表达式，给控制变量赋初值；
+ * condition：关系表达式或逻辑表达式，循环控制条件；
+ * post：一般为赋值表达式，给控制变量增量或减量。
  */
 for init; condition; post {
 
@@ -227,11 +227,11 @@ for i :=1 ; i < 10 ; i ++ {
 }
 ```
 
-方式2
+方式 2
 
 ```go
 /*
- * condition： 关系表达式或逻辑表达式，循环控制条件
+ * condition：关系表达式或逻辑表达式，循环控制条件
  */
 for condition { }
 
@@ -240,7 +240,7 @@ for 0 == 0 {}
 for true {}
 ```
 
-方式3
+方式 3
 
 ```go
 for { }
@@ -375,9 +375,9 @@ func (i *inner) testMethod () {
 }
 func main()  {
   oo1 := new(oo)
-  fmt.Println("ss4无值："+oo1.ss4)
+  fmt.Println("ss4 无值："+oo1.ss4)
   oo1.ss4 = "abc"
-  fmt.Println("ss4已赋值"+oo1.ss4)
+  fmt.Println("ss4 已赋值"+oo1.ss4)
   oo1.testMethod()//继承调用
   oo1.inner.testMethod()//继承调用 这里也可以重写
 }
@@ -428,4 +428,3 @@ func main() {
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

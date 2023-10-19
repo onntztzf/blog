@@ -2,9 +2,9 @@
 
 大家好，今天讲一个技术之外的话题：**住房公积金**。
 
-在2023年1月1日，北京住房公积金管理中心发布了一则**关于进一步优化住房公积金提取业务**的[通知](http://gjj.beijing.gov.cn/web/zwgk61/_300587/_300704/zfgjjgjzc/326009444/index.html)。
+在 2023 年 1 月 1 日，北京住房公积金管理中心发布了一则**关于进一步优化住房公积金提取业务**的[通知](http://gjj.beijing.gov.cn/web/zwgk61/_300587/_300704/zfgjjgjzc/326009444/index.html)。
 
-本文章主要是针对上述通知中的**7类提取事项增加按月约定提取周期**，给出一个操作指南，方便大家进行操作。
+本文章主要是针对上述通知中的**7 类提取事项增加按月约定提取周期**，给出一个操作指南，方便大家进行操作。
 
 ## 可办理按月提取的事项
 
@@ -23,26 +23,26 @@
 ## 个人变更公积金提取周期操作指南
 
 1. 打开[北京住房公积金网](http://gjj.beijing.gov.cn)，点击首页【个人网上业务平台】
-   ![](https://file.zhangpeng.site/2023/2/12/1.png)
+   ![图片](https://file.zhangpeng.site/2023/2/12/1.png)
 2. 选择【个人网上业务平台（北京中心）】，认真阅读登录提示后，点击【北京市统一身份认证平台登录】
-   ![](https://file.zhangpeng.site/2023/2/12/2.png)
-   ![](https://file.zhangpeng.site/2023/2/12/3.png)
-3. 输入北京通账号可直接登录，或者使用北京通APP扫码登录。
-   ![](https://file.zhangpeng.site/2023/2/12/4.png)
+   ![图片](https://file.zhangpeng.site/2023/2/12/2.png)
+   ![图片](https://file.zhangpeng.site/2023/2/12/3.png)
+3. 输入北京通账号可直接登录，或者使用北京通 APP 扫码登录。
+   ![图片](https://file.zhangpeng.site/2023/2/12/4.png)
 4. 进入后，选择【我要提取】—【提取住房公积金】—【已申请提取事项管理】，进入已申请提取事项管理页面
-   ![](https://file.zhangpeng.site/2023/2/12/5.png)
+   ![图片](https://file.zhangpeng.site/2023/2/12/5.png)
 5. 找到需要修改提取周期的事项，点击操作区中的【约定提取管理】
-   ![](https://file.zhangpeng.site/2023/2/12/6.png)
+   ![图片](https://file.zhangpeng.site/2023/2/12/6.png)
 6. 进入约定提取管理页面，在“公积金约定提取信息”栏目下，按需选择“约定提取周期”和“约定提取日”，系统自动反显“约定下次支付日期”，确定没有问题后，点击【提交】即可
-   ![](https://file.zhangpeng.site/2023/2/12/7.png)
+   ![图片](https://file.zhangpeng.site/2023/2/12/7.png)
 
 ## 参考资料
 
 1. [关于进一步优化住房公积金提取业务的通知](http://gjj.beijing.gov.cn/web/zwgk61/_300587/_300704/zfgjjgjzc/326009444/index.html)
-2. [北京住房公积金加大对保租房支持力度针对7类提取事项增加“按月”的约定提取周期](http://gjj.beijing.gov.cn/web/zwgk61/xwdt/_300662/326009455/index.html)
+2. [北京住房公积金加大对保租房支持力度针对 7 类提取事项增加“按月”的约定提取周期](http://gjj.beijing.gov.cn/web/zwgk61/xwdt/_300662/326009455/index.html)
 3. [住房公积金提取业务问答](http://gjj.beijing.gov.cn/web/zwfw5/1747335/1747336/10903657/index.html)
 
-##
+######
 
 如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
 

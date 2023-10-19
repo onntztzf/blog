@@ -26,7 +26,7 @@
     [someObject someMethodThatTakesABlock:^returnType (parameters) {...}];
   ```
 
-* C函数的参数
+* C 函数的参数
 
   ```text
     void SomeFunctionThatTakesABlock(returnType (^blockName)(parameterTypes));
@@ -46,4 +46,3 @@
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

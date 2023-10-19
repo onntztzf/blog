@@ -36,11 +36,11 @@ function traverse_directory() {
 
         # 移动文件到相应的文件夹，前提是不在屏蔽的文件夹中
         # if ! is_excluded_folder "$(dirname "$file")"; then
-          mv "$file" "$folder/"
+        mv "$file" "$folder/"
         # fi
       fi
     elif [ -d "$file" ] && [[ ! "$(basename "$file")" == .* ]]; then
-        # echo "$(basename "$file")"
+      # echo "$(basename "$file")"
       # 递归遍历子目录，前提是不进入屏蔽的文件夹
       if ! is_excluded_folder "$(basename "$file")"; then
         echo "$file"

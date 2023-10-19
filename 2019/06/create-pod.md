@@ -35,7 +35,7 @@ Conn keep-alive
 
 ### 去邮箱点击验证链接
 
-此时您的邮箱中应该有一封主题是 **\[CocoaPods\] Confirm your session.** 的邮件，点击邮件中的链接进行验证。
+此时您的邮箱中应该有一封主题是 **[CocoaPods] Confirm your session.** 的邮件，点击邮件中的链接进行验证。
 
 ### 验证是否注册成功
 
@@ -58,14 +58,14 @@ $ pod trunk me
 
 创建过程请自行百度，谢谢！！！如果是在搜不到，那就私信我吧！😓
 
-假设我们已经成功创建了一个仓库, 关键信息如下：
+假设我们已经成功创建了一个仓库，关键信息如下：
 
-* 仓库主页 进入您创建的仓库后，地址栏中的地址: [https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}](https://github.com/{YOURGITHUBNAME}/{YOURPODNAME})
-* git 地址 点击 **Clone or download** 按钮，就可以看到了。我们选择 `HTTPS` 地址，别问为什么，因为 `CocoaPods` 要求: [https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git](https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git)
+* 仓库主页 进入您创建的仓库后，地址栏中的地址：[https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}](https://github.com/{YOURGITHUBNAME}/{YOURPODNAME})
+* git 地址 点击 **Clone or download** 按钮，就可以看到了。我们选择 `HTTPS` 地址，别问为什么，因为 `CocoaPods` 要求：[https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git](https://github.com/{YOURGITHUBNAME}/{YOURPODNAME}.git)
 
 ### 创建 Pod 库
 
-在终端中执行: `pod lib create {YOURPODNAME}`，接下来按照提示，根据自己的情况进行选择就可以了。
+在终端中执行：`pod lib create {YOURPODNAME}`，接下来按照提示，根据自己的情况进行选择就可以了。
 
 ```text
 $ pod lib create {YOURPODNAME}
@@ -243,11 +243,11 @@ Updating spec repo `master`
 
 ## 坑点 & 解决方案
 
-### Failed to open TCP connection to trunk.cocoapods.org:443 \(getaddrinfo: nodename nor servname provided, or not known\)
+### Failed to open TCP connection to trunk.cocoapods.org:443 (getaddrinfo: nodename nor servname provided, or not known)
 
 **解：** 此问题常见于 `pod trunk` 相关的命令。网络大环境不行，要么呢啥（技术都懂的），要么连接手机开热点进行操作。
 
-### Unable to accept duplicate entry for: YOURPODNAME \(0.1.0\)
+### Unable to accept duplicate entry for: YOURPODNAME (0.1.0)
 
 **解：** `pod trunk push` 时发生此错误，说明该 `pod` 库在远端已经有了 0.1.0 版本。解决方案有两个：
 
@@ -264,7 +264,7 @@ Updating spec repo `master`
 rm ~/Library/Caches/CocoaPods/search_index.json
 ```
 
-然后执行:
+然后执行：
 
 ```text
 pod update
@@ -277,4 +277,3 @@ pod update
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

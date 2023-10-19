@@ -1,4 +1,4 @@
-# Widget 开发-配置篇
+# Widget 开发 - 配置篇
 
 ## 前期准备
 
@@ -9,7 +9,7 @@
 **`Description`** 填写这个 `App Group` 的描述；
 **`ID`** 填写这个 `App Group` 的标识，建议以 `com.{aaa}.{bbb}` 命名，填写完毕时，会默认在前面加上 `group`
 **`{aaa}`:** 公司名字
-**`{bbb}`:** App名字
+**`{bbb}`:** App 名字
 
 ### 创建完毕以后，如图所示
 
@@ -40,13 +40,12 @@
 
   例如主项目如果是 `com.aaa.bbb`，那 `Widget` 的 `Bundle identifier` 应该是 `com.aaa.bbb.today` 或者是 `com.aaa.bbb.ccc`
 
-配置已完成，接下来请看开发篇[Widget 开发-开发篇](http://www.jianshu.com/p/9ddb712a45b4)
+配置已完成，接下来请看开发篇[Widget 开发 - 开发篇](http://www.jianshu.com/p/9ddb712a45b4)
 
-> Title: Widget 开发-配置篇
+> Title: Widget 开发 - 配置篇
 >
 > Date: 2017.08.29
 >
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

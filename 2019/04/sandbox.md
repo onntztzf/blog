@@ -1,6 +1,6 @@
 # App 沙盒
 
-**从 `iOS8` 以后，每次App重新运行后，沙盒路径都会变化。**
+**从 `iOS8` 以后，每次 App 重新运行后，沙盒路径都会变化。**
 
 ## Documents 目录
 
@@ -47,4 +47,3 @@ NSString *path = NSTemporaryDirectory();
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-

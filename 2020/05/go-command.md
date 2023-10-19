@@ -8,7 +8,7 @@
 
 ### -w
 
-设置环境变量，通过此方式设置的默认值存储在 [os.UserConfigDir\(\)](https://golang.org/pkg/os/#UserConfigDir) 中的 `go/env` 文件中。
+设置环境变量，通过此方式设置的默认值存储在 [os.UserConfigDir()](https://golang.org/pkg/os/#UserConfigDir) 中的 `go/env` 文件中。
 
 ### -u
 

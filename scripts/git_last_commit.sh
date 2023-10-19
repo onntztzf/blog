@@ -23,4 +23,3 @@ function traverse_directory() {
 
 # 调用遍历函数，传入当前目录
 traverse_directory "."
-

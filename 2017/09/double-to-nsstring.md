@@ -10,7 +10,7 @@
 }
 ```
 
-上面是服务端给我们返回的 `response`，我们将它转为字典.
+上面是服务端给我们返回的 `response`，我们将它转为字典。
 
 ```text
 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -23,7 +23,7 @@ NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error
 
 ## 解决办法
 
-采用苹果提供的NSDecimalNumber解决此问题。
+采用苹果提供的 `NSDecimalNumber` 解决此问题。
 
 ```text
 double d = [dic[@"double"] doubleValue];
@@ -43,4 +43,3 @@ NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
 > Author: zhangpeng
 >
 > Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
-
