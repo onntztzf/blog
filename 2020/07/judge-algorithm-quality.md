@@ -34,17 +34,17 @@
 
 简单举几个推倒大 O 表达式的例子：
 
-* $9$ =&gt; $O(1)$
-* $2n + 3$ =&gt; $O(n)$
-* $n^2 + 2n + 3$ =&gt; $O(n^2)$
-* $4n^3 + 3n^2 + 22n + 100$ =&gt; $O(n^3)$
-* $5log_2n+20$ =&gt; $O(logn)$
-* $2n+3nlog_2n+19$ =&gt; $O(nlogn)$
-* $2n$ =&gt; $O(2^n)$
+* $9$ => $O(1)$
+* $2n + 3$ => $O(n)$
+* $n^2 + 2n + 3$ => $O(n^2)$
+* $4n^3 + 3n^2 + 22n + 100$ => $O(n^3)$
+* $5log_2n+20$ => $O(logn)$
+* $2n+3nlog_2n+19$ => $O(nlogn)$
+* $2n$ => $O(2^n)$
 
 #### 常见的算法时间复杂度
 
-**由小到大**依次为：常量阶 $O(1)$ &lt; 对数阶 $O(logn)$ &lt; 线性阶 $O(n)$ &lt; 线性对数阶 $O(nlogn)$ &lt; 平方阶 $O(n^2)$ &lt; 立方阶 $O(n^3)$ &lt; k 方阶... &lt; 指数阶 $O(2^n)$ &lt; 阶乘阶 $O(n!)$
+**由小到大**依次为：常量阶 $O(1)$ < 对数阶 $O(logn)$ < 线性阶 $O(n)$ < 线性对数阶 $O(nlogn)$ < 平方阶 $O(n^2)$ < 立方阶 $O(n^3)$ < k 方阶... < 指数阶 $O(2^n)$ < 阶乘阶 $O(n!)$
 
 ### 空间复杂度
 
@@ -78,4 +78,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

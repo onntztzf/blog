@@ -13,11 +13,11 @@ added 67 packages from 317 contributors in 6.685s
 
 如果因为权限问题安装失败的，那么在命令前添加 `sudo`，输入密码后就可以安装了
 
-![&#x56FE;1&#xFF0C;&#x5B89;&#x88C5;hexo-cli](http://file.zhangpeng.site/2017/11/26/1.png)
+![图片](https://file.zhangpeng.site/2017/11/26/1.png)
 
 通过 `hexo -v` 可以检查 `hexo-cli` 是否安装成功
 
-```text
+```shell
 ➜  ~ hexo -v
 hexo-cli: 3.1.0
 os: Darwin 19.0.0 darwin x64
@@ -43,19 +43,19 @@ unicode: 12.1
 
 通过终端进入您想要创建博客的文件夹中，执行初始化命令：
 
-```text
+```shell
 hexo init
 ```
 
-![&#x56FE;2](http://file.zhangpeng.site/2017/11/26/2.png)
+![图片](https://file.zhangpeng.site/2017/11/26/2.png)
 
 创建完毕后，我们可以看到生成了很多的文件及文件夹，如下：
 
-![&#x56FE;3](http://file.zhangpeng.site/2017/11/26/3.png)
+![图片](https://file.zhangpeng.site/2017/11/26/3.png)
 
 其中比较主要的有：
 
-```text
+```shell
 .
 ├── source          //用于存放博客的 markdown 文件，以及静态文件
 │   └── _posts      //博客的 markdown 文件
@@ -69,7 +69,7 @@ hexo init
 
 在终端中，执行 `hexo s` 启动服务器，我们就可以在浏览器中看到我们博客了。默认情况下，访问网址为 `http：//localhost：4000/`。
 
-![&#x56FE;4](http://file.zhangpeng.site/2017/11/26/4.png)
+![图片](https://file.zhangpeng.site/2017/11/26/4.png)
 
 ## 发布博客
 
@@ -83,7 +83,7 @@ hexo init
 
 2. 创建一个用于存放博客的仓库
 
-   ![5](http://file.zhangpeng.site/2017/11/26/5.png)
+   ![图片](https://file.zhangpeng.site/2017/11/26/5.png)
 
    网上大多数的人都建议创建一个如图所示的项目，即`xxx.github.io`，红框中的内容与账户名保持一致。PS.忽略图中红色的报错，我这边报错是因为我已经创建了相同名字的项目✧(≖ ◡ ≖✿)
 
@@ -96,11 +96,13 @@ hexo init
 
 1. 安装插件
 
-   在博客的根目录执行 `npm install hexo-deployer-git --save` ![&#x56FE;6](http://file.zhangpeng.site/2017/11/26/6.png)
+   在博客的根目录执行 `npm install hexo-deployer-git --save`
+
+   ![图片](https://file.zhangpeng.site/2017/11/26/6.png)
 
 2. 修改配置文件
 
-   发布工具安装完毕后，我们还需要在`_config.yml`文件中配置一下我们的 `GitHub` 的地址，否则我们上传到哪去呢，是不是？&lt;(￣︶￣)&gt;
+   发布工具安装完毕后，我们还需要在`_config.yml`文件中配置一下我们的 `GitHub` 的地址，否则我们上传到哪去呢，是不是？<(￣︶￣)>
 
    打开`_config.yml`文件，搜索`deploy`，这个就是我们要配置的地方了，如果没有就在文件的最后添加下面的代码。
 
@@ -112,7 +114,9 @@ hexo init
 
    **注：**
    1.上面的配置中，冒号和你填写的内容间一定要有个空格，这是标准的格式，没得谈！！！
-   2.有的同学可能会问可不可以发布到某个分支上，答案是不能。原因请看下图，箭头所指处，明确说明`User pages must be built from the master branch.` ![&#x56FE;7](http://file.zhangpeng.site/2017/11/26/7.png)
+   2.有的同学可能会问可不可以发布到某个分支上，答案是不能。原因请看下图，箭头所指处，明确说明`User pages must be built from the master branch.`
+
+   ![图片](https://file.zhangpeng.site/2017/11/26/7.png)
 
 ### 编译&部署博客
 
@@ -122,7 +126,7 @@ hexo init
 hexo clean && hexo g && hexo d
 ```
 
-当您看到 `INFO Deploy done： git` 时，就说明您的博客成功发布到 `GitHub` 上了，通过访问 `http：//xxx.github.io/`，就可以访问到您的博客了，记得把 `xxx` 换成您的项目名。 ![&#x56FE;8](http://file.zhangpeng.site/2017/11/26/8.png)
+当您看到 `INFO Deploy done： git` 时，就说明您的博客成功发布到 `GitHub` 上了，通过访问 `http：//xxx.github.io/`，就可以访问到您的博客了，记得把 `xxx` 换成您的项目名。 ![图 8](https://file.zhangpeng.site/2017/11/26/8.png)
 
 ### 日常更新博客
 
@@ -138,4 +142,4 @@ hexo clean && hexo g && hexo d
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

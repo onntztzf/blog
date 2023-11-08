@@ -1,6 +1,6 @@
 # macOS 系统显示隐藏文件
 
-![Finder](https://file.zhangpeng.site/2021/12/05/1.png)
+![图片](https://file.zhangpeng.site/2021/12/05/1.png)
 
 话不多说，上**干货**。
 

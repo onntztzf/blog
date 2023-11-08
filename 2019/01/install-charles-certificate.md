@@ -18,51 +18,57 @@
 
 通过菜单拦中的选项，我们可以安装整数：
 
-![Charles](http://file.zhangpeng.site/2019/01/02/1.jpg)
+![图片](https://file.zhangpeng.site/2019/01/02/1.jpg)
 
 ### 给 `PC` 安装证书
 
 1. **安装证书**
 
-   > Help -&gt; SSL Proxying -&gt; Install Charles Root Certificate
+   > Help -> SSL Proxying -> Install Charles Root Certificate
 
-   在弹框中，根据自己的情况选择对应的钥匙串 ![Charles](http://file.zhangpeng.site/2019/01/02/2.jpg)
+   在弹框中，根据自己的情况选择对应的钥匙串
+
+   ![图片](https://file.zhangpeng.site/2019/01/02/2.jpg)
 
 2. **信任证书**
 
-   进入菜单，选择钥匙串访问，在搜索框中搜索 `Charles` ，找到 `Charles Proxy CA`。双击打开证书的信息界面，将红框中的选项改为始终信任。 ![Charles](http://file.zhangpeng.site/2019/01/02/3.jpg)
+   进入菜单，选择钥匙串访问，在搜索框中搜索 `Charles` ，找到 `Charles Proxy CA`。双击打开证书的信息界面，将红框中的选项改为始终信任。
+
+   ![图片](https://file.zhangpeng.site/2019/01/02/3.jpg)
 
 ### 给 `iOS` 模拟器安装证书
 
 1. **安装证书**
 
-   > Help -&gt; SSL Proxying -&gt; Install Charles Root Certificate in iOS Simulators
+   > Help -> SSL Proxying -> Install Charles Root Certificate in iOS Simulators
 
 2. **信任证书**
 
-   > Settings -&gt; General -&gt; About -&gt; Certificate Trust Settings
+   > Settings -> General -> About -> Certificate Trust Settings
 
-   打开 `iOS Simulators` 的证书信任选项 ![Charles](http://file.zhangpeng.site/2019/01/02/4.jpg)
+   打开 `iOS Simulators` 的证书信任选项
+
+   ![图片](https://file.zhangpeng.site/2019/01/02/4.jpg)
 
 ### 给手机安装证书
 
 1. **安装证书**
 
-   > Help -&gt; SSL Proxying -&gt; Install Charles Root Certificate on a Mobile Device or Remote Broswer
+   > Help -> SSL Proxying -> Install Charles Root Certificate on a Mobile Device or Remote Broswer
 
-   ![Charles](http://file.zhangpeng.site/2019/01/02/5.jpg)
+   ![图片](https://file.zhangpeng.site/2019/01/02/5.jpg)
 
    1. 将手机和电脑都连接到同一无线局域网，进入无线局域网设置，手动设置代理
    2. 按照提示框中的提示，在无线网设置中，将代理改为手动设置，按图中所示填写 `xxx.xx.xxx.xxx:xxxx`
-   3. 使用手机浏览器访问 [chls.pro/ssl](https://github.com/2hangpeng/blog/tree/322c1a6adda8dd6be880c9622823871046e6654b/mac/chls.pro/ssl/README.md)，按照提示安装证书
+   3. 使用手机浏览器访问 [chls.pro/ssl](https://github.com/onntztzf/blog/tree/322c1a6adda8dd6be880c9622823871046e6654b/mac/chls.pro/ssl/README.md)，按照提示安装证书
 
-      ![Charles](http://file.zhangpeng.site/2019/01/02/6.jpg)
+      ![图片](https://file.zhangpeng.site/2019/01/02/6.jpg)
 
 2. **信任证书**
 
-   > 设置 -&gt; 通用 -&gt; 关于本机 -&gt; 证书信任设置
+   > 设置 -> 通用 -> 关于本机 -> 证书信任设置
 
-   打开刚刚安装的证书的信任选项 ![Charles](http://file.zhangpeng.site/2019/01/02/7.jpg)
+   打开刚刚安装的证书的信任选项 ![图片](https://file.zhangpeng.site/2019/01/02/7.jpg)
 
 > Title: Charles 安装证书
 >
@@ -70,4 +76,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

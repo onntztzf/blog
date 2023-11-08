@@ -25,13 +25,13 @@
 
 处理无法调用的**类方法**
 
-```text
+```objc
 + (BOOL)resolveClassMethod:(SEL)sel;
 ```
 
 处理无法调用的**实例方法**
 
-```text
+```objc
 + (BOOL)resolveInstanceMethod:(SEL)sel;
 ```
 
@@ -39,7 +39,7 @@
 
 **e.g.**
 
-```text
+```objc
 /**
  没有找到 SEL 的实现时会执行下方的方法
  @param sel 当前对象调用并且找不到 IML 的 SEL
@@ -64,7 +64,7 @@
 在方法 `- (id)forwardingTargetForSelector:(SEL)aSelector` 中返回可以处理该消息的对象，交由该对象去处理这个消息。
 如果此处返回 nil，则表示没有其他对象可以处理这个消息，然后通过完整的消息转发机制来处理。
 
-```text
+```objc
 /**
  将当前对象不存在的 SEL 传给其他存在该 SEL 的对象
  @param aSelector 当前类中不存在的 SEL
@@ -89,7 +89,7 @@
 
 通过 NSInvocation 包装方法的目标、参数等，然后通过 `- (void)forwardInvocation:(NSInvocation *)invocation` 将消息指派给目标对象。
 
-```text
+```objc
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
     SecondClass * forwardClass = [SecondClass new];
@@ -108,4 +108,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

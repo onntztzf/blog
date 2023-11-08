@@ -2,7 +2,7 @@
 
 ## -fobjv-weak is not supported on the current deloyment target
 
-![&#x56FE;1](http://file.zhangpeng.site/2018/02/09/1.jpg)
+![图片](https://file.zhangpeng.site/2018/02/09/1.jpg)
 
 **解决方案：**
 更新 `xcodeproj` 版本。
@@ -40,4 +40,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

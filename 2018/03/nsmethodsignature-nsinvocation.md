@@ -22,7 +22,7 @@
 
 通过 `NSMethodSignature` 可以获取方法的参数类型和返回值类型。常用方法有：
 
-```text
+```objc
 //从实例中获取实例方法签名，或者从类中获取类方法签名
 + (NSMethodSignature *)instanceMethodSignatureForSelector:(SEL)aSelector
 
@@ -32,7 +32,7 @@
 
 可以通过下面的代码，更好的理解该怎么获取方法签名：
 
-```text
+```objc
 SEL initSEL = @selector(init);
 SEL allocSEL = @selector(alloc);
 
@@ -50,7 +50,7 @@ NSMethodSignature *allocSig = [NSString methodSignatureForSelector:allocSEL];
 
 ### NSMethodSignature 和 NSInvocation 搭配的使用方法
 
-```text
+```objc
 NSString *str = @"Test";
 str = [str stringByAppendingString:@" AppendingString"];
 NSLog(@"str: %@", str);
@@ -96,4 +96,4 @@ NSLog(@"returnValue: %@", returnValue);
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

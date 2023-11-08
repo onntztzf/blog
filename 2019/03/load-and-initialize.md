@@ -1,9 +1,9 @@
 # +load 与 +initialize
 
-|  | +load | +initialize |
-| :--- | :--- | :--- |
-| 调用方式 | 根据函数地址直接调用 | 通过 objc_msgSend 调用 |
-| 调用时刻 | 类、分类加载时调用 | 类第一次接收到消息的时候调用 |
+|          | +load                | +initialize                  |
+| :------- | :------------------- | :--------------------------- |
+| 调用方式 | 根据函数地址直接调用 | 通过 objc_msgSend 调用       |
+| 调用时刻 | 类、分类加载时调用   | 类第一次接收到消息的时候调用 |
 
 ## +load
 
@@ -26,4 +26,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

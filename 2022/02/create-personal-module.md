@@ -40,13 +40,13 @@
     使用我们在第一步中创建的仓库，生成我们 `mymodule` 的 `go.mod`
 
     ```shell
-    go mod init github.com/2hangpeng/mymodule
+    go mod init github.com/onntztzf/mymodule
     ```
 
     生成后的文件内容如下：
 
     ```shell
-    module github.com/2hangpeng/mymodule
+    module github.com/onntztzf/mymodule
 
     go 1.16
     ```
@@ -66,14 +66,14 @@
 1. 在项目中添加 `mymodule` 的依赖
 
     ```shell
-    $ go get github.com/2hangpeng/mymodule
-    go: downloading github.com/2hangpeng/mymodule v0.0.0-20211019160614-87837bdd5f7a
+    $ go get github.com/onntztzf/mymodule
+    go: downloading github.com/onntztzf/mymodule v0.0.0-20211019160614-87837bdd5f7a
     ```
 
     此时查看 `go.mod` 文件，可以看到文件内多了一行 `mymodule` 的依赖。表示当前项目依赖 `mymodule` 的 `v0.0.0-20211019160614-87837bdd5f7a` 版本
 
     ```go
-    require github.com/2hangpeng/mymodule v0.0.0-20211019160614-87837bdd5f7a // indirect
+    require github.com/onntztzf/mymodule v0.0.0-20211019160614-87837bdd5f7a // indirect
     ```
 
 2. 使用 `mymodule` 中的方法
@@ -84,7 +84,7 @@
     import (
      "fmt"
 
-     "github.com/2hangpeng/mymodule"
+     "github.com/onntztzf/mymodule"
     )
 
     func main() {
@@ -104,7 +104,7 @@ git push --tags
 现在我们将 `go.mod` 中依赖的 `mymodule` 的版本改为 `v1.0.0`。然后执行下面的代码，这样就将项目中依赖的 `mymodule` 版本设置为 `v1.0.0` 了。
 
 ```shell
-go get github.com/2hangpeng/mymodule
+go get github.com/onntztzf/mymodule
 ```
 
 `go module` 的版本号规范可以参考 [Module version numbering](https://golang.org/doc/modules/version-numbers#pre-release-version) 这篇文章，在此就不多做赘述了。
@@ -113,4 +113,8 @@ go get github.com/2hangpeng/mymodule
 
 看到文章这个位置，您应该已经使用上了自己创建的 `module` 了。如果还没有，欢迎留言~
 
-![图片](https://file.zhangpeng.site/wechat/qrcode.jpg)
+######
+
+如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
+
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

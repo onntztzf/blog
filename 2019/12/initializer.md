@@ -22,7 +22,7 @@
 
 如果文字不好理解，可以根据下面的图，进行理解：
 
-![&#x6838;&#x5FC3;&#x539F;&#x5219;&#x56FE;&#x89E3;](https://docs.swift.org/swift-book/_images/initializerDelegation02_2x.png)
+![图片](https://docs.swift.org/swift-book/_images/initializerDelegation02_2x.png)
 
 ## Objective-C 和 Swift 的差异
 
@@ -32,7 +32,7 @@
 
 `Objective-C` 中的指定初始化器会在后面被 `NS_DESIGNATED_INITIALIZER` 修饰，以下为 `NSObject` 和 `UIView` 的指定初始化器：
 
-```text
+```objc
 // NSObject
 @interface NSObject <NSObject>
 - (instancetype)init
@@ -149,4 +149,4 @@ class Dog: Animal {
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

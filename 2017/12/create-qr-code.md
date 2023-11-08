@@ -3,7 +3,7 @@
 目前比较常见的二维码库有[ZXing](https://github.com/zxing/zxing)，[ZBar](https://github.com/ZBar/ZBar)等，网上对于这些知名库的使用及分析已经很多了，在这就不做赘述了。
 我们本篇文章的目标是采用 **CIQRCodeGenerator** 来完成二维码的生成及定制化。 `CIQRCodeGenerator` 在 iOS7 之后，苹果自身提供的 `API`，用于方便快捷的集成二维码的生成和读取功能。使用苹果提供的方法好处就在于不用额外引入其他的第三方库，可以减少打包后的 `App` 大小。
 
-写博客不给[Demo](https://github.com/2hangpeng/QRCodeDemo)的博主都不是好博主，没[Demo](https://github.com/2hangpeng/QRCodeDemo)没 XX。授人予鱼，不如授人与渔。鱼在上面的 Demo 中，渔在下面的文章中。下面开始我的表演。&lt;(￣ ﹌ ￣)&gt;
+写博客不给[Demo](https://github.com/onntztzf/QRCodeDemo)的博主都不是好博主，没[Demo](https://github.com/onntztzf/QRCodeDemo)没 XX。授人予鱼，不如授人与渔。鱼在上面的 Demo 中，渔在下面的文章中。下面开始我的表演。<(￣ ﹌ ￣)>
 
 ## 需求
 
@@ -23,13 +23,13 @@
 
 引入头文件 `CoreImage.h`
 
-```text
+```objc
 #import <CoreImage/CoreImage.h>
 ```
 
 通过 `CIFilter` 创建一个二维码图片
 
-```text
+```objc
 //创建名为"CIQRCodeGenerator"的 CIFilter
 CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
 //将 filter 所有属性设置为默认值
@@ -56,7 +56,7 @@ CIImage *outPutImage = [filter outputImage];
 
 方法一
 
-```text
+```objc
 /**
 调整二维码清晰度
 
@@ -101,7 +101,7 @@ CIImage *outPutImage = [filter outputImage];
 
 相对于方法一，这个方法可以更方便的修改二维码的颜色
 
-```text
+```objc
 /**
 调整二维码清晰度
 
@@ -141,7 +141,7 @@ CIImage *outPutImage = [filter outputImage];
 
 > 通过上面两部，就可以得到一张清晰的二维码图片了。
 
-![qrCode.png](http://file.zhangpeng.site/2017/12/15/1.jpeg)
+![图片](https://file.zhangpeng.site/2017/12/15/1.jpeg)
 
 ## 定制二维码
 
@@ -151,7 +151,7 @@ CIImage *outPutImage = [filter outputImage];
 
 修改二维码的原理是改变每个像素点的颜色，具体代码如下：
 
-```text
+```objc
 /**
  修改二维码颜色
 
@@ -211,11 +211,11 @@ CIImage *outPutImage = [filter outputImage];
 }
 ```
 
-![qrCode_pink.png](http://file.zhangpeng.site/2017/12/15/2.jpeg)
+![图片](https://file.zhangpeng.site/2017/12/15/2.jpeg)
 
 ### 添加水印图片（Logo）
 
-```text
+```objc
 /**
  调整二维码清晰度，添加水印图片
 
@@ -267,7 +267,7 @@ CIImage *outPutImage = [filter outputImage];
 
 ### 拼接图片
 
-```text
+```objc
 /**
  拼接图片
 
@@ -293,7 +293,7 @@ CIImage *outPutImage = [filter outputImage];
 }
 ```
 
-![qrCode_splice.png](http://file.zhangpeng.site/2017/12/15/3.jpeg)
+![图片](https://file.zhangpeng.site/2017/12/15/3.jpeg)
 
 ## 附
 
@@ -305,4 +305,4 @@ CIImage *outPutImage = [filter outputImage];
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

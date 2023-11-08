@@ -2,7 +2,7 @@
 
 通过使用 `const` 修饰，可以限定一个变量不允许被改变（只读），产生静态作用。
 
-```text
+```c
 int *ptr; // *ptr is an int value
 int const *ptrToConst; // *ptrToConst is a constant (int: integer value)
 int * const constPtr; // constPtr is a constant (int *: integer pointer)

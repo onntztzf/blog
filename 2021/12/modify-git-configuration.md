@@ -1,6 +1,6 @@
 # 如何修改 git 配置
 
-![git config](https://file.zhangpeng.site/2021/12/06/1.png)
+![图片](https://file.zhangpeng.site/2021/12/06/1.png)
 
 在开始修改配置前，我们需要明确修改配置的目的是什么？是需要当前电脑的全部 `git` 仓库生效？还是只对某个 `git` 仓库生效？不同的目的需要修改的配置文件不一样。
 

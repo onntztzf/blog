@@ -158,7 +158,7 @@ func buildTree(bookmarks []Bookmark) Bookmark {
 }
 ```
 
-完整实现代码已经提交到 `GitHub`，[点此查看](https://github.com/2hangpeng/parse-bookmarks/blob/main/parse-bookmarks.go)。
+完整实现代码已经提交到 `GitHub`，[点此查看](https://github.com/onntztzf/parse-bookmarks/blob/main/parse-bookmarks.go)。
 
 ## 解析后的书签数据能做什么
 

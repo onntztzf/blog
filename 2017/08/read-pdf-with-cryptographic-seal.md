@@ -4,7 +4,7 @@
 
 通过不断的调研及尝试，最终成功展示出了 `PDF` 中的加密印章。现在把方法分享给大家～
 
-本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/2hangpeng/ShowPDFDemo.git)~
+本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onntztzf/ShowPDFDemo.git)~
 
 ## 实现步骤
 
@@ -12,7 +12,7 @@
 
 为了方便我进行代码编写，我们提前设置几个宏：
 
-```text
+```objc
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 
@@ -27,7 +27,7 @@
 
    ```objc
 
-   **import &lt;WebKit/WebKit.h&gt;**
+   **import <WebKit/WebKit.h>**
 
    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 
@@ -41,20 +41,18 @@
 
    WKUserScript *wkUserScript = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES]; [wkUController addUserScript:wkUserScript];
 
-```text
-WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - 64)
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH - 64)
                                         configuration:config];
-webView.backgroundColor = [UIColor whiteColor];
-webView.UIDelegate = self;
-webView.navigationDelegate = self;
-[self.view addSubview:webView];
-```
+    webView.backgroundColor = [UIColor whiteColor];
+    webView.UIDelegate = self;
+    webView.navigationDelegate = self;
+    [self.view addSubview:webView];
+    ```
 
-```text
 1. 下载PDF
 
-   ```text
-    NSString *urlStr = @"http://file.zhangpeng.site/jianLi_zhangpeng.pdf";
+   ```objc
+    NSString *urlStr = @"https://file.zhangpeng.site/jianLi_zhangpeng.pdf";
 
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -80,68 +78,68 @@ webView.navigationDelegate = self;
         });
     }];
     [sessionDataTask resume];
-```
+    ```
 
-1. 打开 `PDF`
+2. 打开 `PDF`
 
-   ```text
-    - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-        [self loadPDF];
-    }
+   ```objc
+   - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+       [self loadPDF];
+   }
 
-    - (void)loadPDF {
-      NSString *path = [DOCUMENTS_DIRECTORY stringByAppendingPathComponent:@"contract.pdf"];
-      NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedAlways error:nil];
+   - (void)loadPDF {
+       NSString *path = [DOCUMENTS_DIRECTORY stringByAppendingPathComponent:@"contract.pdf"];
+       NSData *data = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedAlways error:nil];
 
-      NSString *paraStr = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
-      NSString *js = [NSString stringWithFormat:@"loadMyJS('%@')",paraStr];
-      //NSLOG(@"%@",method);
+       NSString *paraStr = [data base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];
+       NSString *js = [NSString stringWithFormat:@"loadMyJS('%@')",paraStr];
+       //NSLOG(@"%@",method);
 
-      [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable response, NSError * _Nullable error) {
-          if (error) {
-              NSLog(@"%@", error);
-              NSLog(@"当前手机系统版本较低，不支持查看，请升级系统或者到 PC 端查看。");
-          }
-      }];
-    }
+       [self.webView evaluateJavaScript:js completionHandler:^(id _Nullable response, NSError * _Nullable error) {
+           if (error) {
+               NSLog(@"%@", error);
+               NSLog(@"当前手机系统版本较低，不支持查看，请升级系统或者到 PC 端查看。");
+           }
+       }];
+   }
    ```
 
-2. 在 `WKWebView` 的代理中，我们可以知道 `PDF` 是否成功打开，
+3. 在 `WKWebView` 的代理中，我们可以知道 `PDF` 是否成功打开，
 
-   ```text
-    - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-        if ([message.name isEqualToString:@"AppModel"]) {
-            //和 customview.js 文件交互，js 调 oc 的代码
-            // 打印所传过来的参数，只支持 NSNumber, NSString, NSDate, NSArray, NSDictionary, and NSNull 类型
-            if ([message.body[@"code"] isEqualToString:@"00000"]) {
-                NSLog(@"%@", message.body[@"msg"]);
-            }
+   ```objc
+   - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+       if ([message.name isEqualToString:@"AppModel"]) {
+           //和 customview.js 文件交互，js 调 oc 的代码
+           // 打印所传过来的参数，只支持 NSNumber, NSString, NSDate, NSArray, NSDictionary, and NSNull 类型
+           if ([message.body[@"code"] isEqualToString:@"00000"]) {
+               NSLog(@"%@", message.body[@"msg"]);
+           }
        }
    }
    ```
 
-3. `PDF` 是否读取成功是在 `customview.js` 中通知控制器的，具体可以查看下面的代码。
+4. `PDF` 是否读取成功是在 `customview.js` 中通知控制器的，具体可以查看下面的代码。
 
    ```javascript
     function handlePages(page)
     {
-    //create new canvas
-    var viewport = page.getViewport(1);
-    var canvas = document.createElement( "canvas" );
-    canvas.style.display="block";
+        //create new canvas
+        var viewport = page.getViewport(1);
+        var canvas = document.createElement( "canvas" );
+        canvas.style.display="block";
 
-    var context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
+        var context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
 
-    //render page
-    page.render({canvasContext: context, viewport: viewport});
+        //render page
+        page.render({canvasContext: context, viewport: viewport});
 
-    //add canvas to body
-    document.body.appendChild(canvas);
+        //add canvas to body
+        document.body.appendChild(canvas);
 
-    //render new page
-    pageNum++;
+        //render new page
+        pageNum++;
         if(pdfDoc!=null && pageNum<=numPages){
             pdfDoc.getPage(pageNum).then(handlePages);
             // PDF 加载失败
@@ -150,7 +148,6 @@ webView.navigationDelegate = self;
             // PDF 加载完毕，body的内容可以根据具体的业务需求进行修改
             window.webkit.messageHandlers.AppModel.postMessage({ code: "00000", msg: "pdf load complete" });//和wkWebView交互
         }
-
     }
    ```
 
@@ -160,7 +157,7 @@ webView.navigationDelegate = self;
 
 解决方案：
 
-```text
+```objc
 - (NSString*)getHtmlBasePath {
     NSString *basePath = @"";
     if ([[[UIDevice currentDevice]systemVersion]floatValue]<9.0) {
@@ -230,4 +227,4 @@ webView.navigationDelegate = self;
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

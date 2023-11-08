@@ -25,25 +25,25 @@
    * 删除文件
 
      ```text
-        git filter-branch --force --index-filter \
-        'git rm --cached --ignore-unmatch 文件名' \
-        --prune-empty -- --all
+     git filter-branch --force --index-filter \
+     'git rm --cached --ignore-unmatch 文件名' \
+     --prune-empty -- --all
      ```
 
    * 删除文件夹
 
      ```text
-        git filter-branch --force --index-filter \
-        'git rm -r --cached --ignore-unmatch 文件夹名' \
-        --prune-empty -- --all
+     git filter-branch --force --index-filter \
+     'git rm -r --cached --ignore-unmatch 文件夹名' \
+     --prune-empty -- --all
      ```
 
 3. 删除缓存对象
 
    ```text
-    git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
-    git reflog expire --expire=now --all
-    git gc --prune=now
+   git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+   git reflog expire --expire=now --all
+   git gc --prune=now
    ```
 
 4. 推送至远程仓库
@@ -51,7 +51,7 @@
    当你确认你的操作都没有问题后，就可以强制推送到远程了。
 
    ```text
-    git push --force
+   git push --force
    ```
 
 ### 方法二
@@ -61,21 +61,21 @@
 1. 删除所有的远程分支
 
    ```text
-    git branch -r | grep origin | grep -v '>' | grep -v master | xargs -L1 | awk '{sub(/origin\//,"");print}'| xargs git push origin --delete
+   git branch -r | grep origin | grep -v '>' | grep -v master | xargs -L1 | awk '{sub(/origin\//,"");print}'| xargs git push origin --delete
    ```
 
 2. 删除本地的.git 文件夹
 
    ```text
-    rm -rf .git
+   rm -rf .git
    ```
 
 3. 初始化本地的 git 仓库
 
    ```text
-    git init
-    git add .
-    git commit -m "init"
+   git init
+   git add .
+   git commit -m "init"
    ```
 
 4. 将本地的 git 仓库与已有的远程仓库进行关联
@@ -104,4 +104,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

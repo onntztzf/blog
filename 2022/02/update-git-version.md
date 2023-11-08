@@ -57,6 +57,8 @@
 
    可以看到，我们的 `git` 版本已经升级到最新版了。
 
-##
+######
 
-![图片](https://file.zhangpeng.site/wechat/qrcode.jpg)
+如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
+
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)
