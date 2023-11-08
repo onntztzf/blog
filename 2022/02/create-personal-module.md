@@ -113,4 +113,8 @@ go get github.com/onntztzf/mymodule
 
 看到文章这个位置，您应该已经使用上了自己创建的 `module` 了。如果还没有，欢迎留言~
 
-![图片](https://file.zhangpeng.site/wechat/qrcode.jpg)
+######
+
+如果觉得本篇文章不错，麻烦给个**点赞👍、收藏🌟、分享👊、在看👀**四连！
+
+![干货输出机](https://file.zhangpeng.site/wechat/qrcode.jpg)

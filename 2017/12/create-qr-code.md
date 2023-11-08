@@ -23,13 +23,13 @@
 
 引入头文件 `CoreImage.h`
 
-```text
+```objc
 #import <CoreImage/CoreImage.h>
 ```
 
 通过 `CIFilter` 创建一个二维码图片
 
-```text
+```objc
 //创建名为"CIQRCodeGenerator"的 CIFilter
 CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
 //将 filter 所有属性设置为默认值
@@ -56,7 +56,7 @@ CIImage *outPutImage = [filter outputImage];
 
 方法一
 
-```text
+```objc
 /**
 调整二维码清晰度
 
@@ -101,7 +101,7 @@ CIImage *outPutImage = [filter outputImage];
 
 相对于方法一，这个方法可以更方便的修改二维码的颜色
 
-```text
+```objc
 /**
 调整二维码清晰度
 
@@ -141,7 +141,7 @@ CIImage *outPutImage = [filter outputImage];
 
 > 通过上面两部，就可以得到一张清晰的二维码图片了。
 
-![qrCode.png](http://file.zhangpeng.site/2017/12/15/1.jpeg)
+![图片](https://file.zhangpeng.site/2017/12/15/1.jpeg)
 
 ## 定制二维码
 
@@ -151,7 +151,7 @@ CIImage *outPutImage = [filter outputImage];
 
 修改二维码的原理是改变每个像素点的颜色，具体代码如下：
 
-```text
+```objc
 /**
  修改二维码颜色
 
@@ -211,11 +211,11 @@ CIImage *outPutImage = [filter outputImage];
 }
 ```
 
-![qrCode_pink.png](http://file.zhangpeng.site/2017/12/15/2.jpeg)
+![图片](https://file.zhangpeng.site/2017/12/15/2.jpeg)
 
 ### 添加水印图片（Logo）
 
-```text
+```objc
 /**
  调整二维码清晰度，添加水印图片
 
@@ -267,7 +267,7 @@ CIImage *outPutImage = [filter outputImage];
 
 ### 拼接图片
 
-```text
+```objc
 /**
  拼接图片
 
@@ -293,7 +293,7 @@ CIImage *outPutImage = [filter outputImage];
 }
 ```
 
-![qrCode_splice.png](http://file.zhangpeng.site/2017/12/15/3.jpeg)
+![图片](https://file.zhangpeng.site/2017/12/15/3.jpeg)
 
 ## 附
 

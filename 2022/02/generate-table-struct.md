@@ -8,7 +8,7 @@
 
 在 [GitHub](https://github.com/search?l=Go&o=desc&q=orm&s=stars&type=Repositories) 搜索 `Go` 语言的 `orm` 框架。可以看到 `gorm` 的 `star` 远超其他同类框架。因此我们跟随大流，选用 [gorm](https://gorm.io/zh_CN/) 框架。
 
-![orm+go](https://file.zhangpeng.site/2022/02/18/2.jpeg)
+![图片](https://file.zhangpeng.site/2022/02/18/2.jpeg)
 
 ## 依赖安装
 

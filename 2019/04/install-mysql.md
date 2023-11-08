@@ -17,25 +17,25 @@
   **在阅读下面的内容前，请先登录您的服务器。**
 
   ```text
-    #1.下载 mysql-apt-config
-    sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-    #2. 安装 mysql-apt-config
-    sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+  #1.下载 mysql-apt-config
+  sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+  #2. 安装 mysql-apt-config
+  sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
   ```
 
   这时会有一个可视化界面出现，如下图所示。
 
-  ![1](http://file.zhangpeng.site/2019/04/03/1.jpg)
+  ![图片](https://file.zhangpeng.site/2019/04/03/1.jpg)
 
   选择第一项，可以看到让我们选择 `MySQL` 的版本，我这边选择的是 5.7 版本。然后一路 `Ok` 下去就可以了。
 
 * 安装其他 mysql 相关服务
 
   ```text
-    #1.升级列表中的软件包
-    sudo apt-get update
-    #2.安装 mysql-server mysql-common mysql-client
-    sudo apt-get install mysql-server mysql-common mysql-client
+  #1.升级列表中的软件包
+  sudo apt-get update
+  #2.安装 mysql-server mysql-common mysql-client
+  sudo apt-get install mysql-server mysql-common mysql-client
   ```
 
   如果出现一个要求输入数据库密码的界面的话，那么按着提示进行操作（输入密码，再次输入密码，确认）。如果没有看到这个界面，也不必惊慌（反正我也没有看到这个界面…🙄️），下一小节会讲解如何设置密码。

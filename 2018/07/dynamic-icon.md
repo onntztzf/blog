@@ -16,7 +16,7 @@
 
 将我们需要更换的图标放到我们的**项目目录**中（因为放到.xcassets 中不管用），图片的命名建议以下面的方式命名，例如：<xx20x20@2x.png>，<xx20x20@3x.png>…这样在填写`Info.plist`时也会省事很多。
 
-![icon&#x547D;&#x540D;](http://file.zhangpeng.site/2018/07/10/1.jpg)
+![图片](https://file.zhangpeng.site/2018/07/10/1.jpg)
 
 > **PS：** 其实对于更换的图标，我们也可以只提供一张，但命名时，我们就不要填写具体的尺寸了，只保留图片名字即可，例如：<xx@2x.png>，<xx@3x.png>，但是效果上可能不如准备一整套的效果好。毕竟把一张桌面图标大小的图片塞到通知图标那么小的框里，图片会压缩。
 
@@ -24,7 +24,7 @@
 
 想要实现换图标的功能，Info.plist 文件的修改是很重要的一步。
 
-![&#x7F16;&#x8F91;Info.plist](http://file.zhangpeng.site/2018/07/10/2.jpg)
+![图片](https://file.zhangpeng.site/2018/07/10/2.jpg)
 
 > * `CFBundleIcons`:
 >
@@ -52,7 +52,7 @@
 
 通过查看文档，我们可以看到下面几个属性和方法。
 
-```text
+```objc
 // If false, alternate icons are not supported for the current process.
 // 检查是否支持更换图标
 @property (readonly, nonatomic) BOOL supportsAlternateIcons NS_EXTENSION_UNAVAILABLE("Extensions may not have alternate icons") API_AVAILABLE(ios(10.3), tvos(10.2));
@@ -68,7 +68,7 @@
 
 系统提供的 API 简单明了，唯一要注意的是下面这个方法。
 
-```text
+```objc
 - (void)setAlternateIconName:(nullable NSString *)alternateIconName completionHandler:(nullable void (^)(NSError *_Nullable error))completionHandler
 ```
 
@@ -78,7 +78,7 @@
 
 为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。也可以访问 [DynamicAppIconDemo](https://github.com/onntztzf/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
 
-```text
+```objc
 + (NSString *)getCurrentAppIconName {
     if (@available(iOS 10.3, *)) {
         return ([UIApplication sharedApplication].alternateIconName.length == 0) ? @"" : [UIApplication sharedApplication].alternateIconName;

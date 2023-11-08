@@ -12,12 +12,12 @@
 
 上面是服务端给我们返回的 `response`，我们将它转为字典。
 
-```text
+```objc
 NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 [NSString stringWithFormat:@"转换错误的结果为%@", dic[@"double"]];
 ```
 
-![image](http://file.zhangpeng.site/2017/09/08/1.jpeg)
+![图片](https://file.zhangpeng.site/2017/09/08/1.jpeg)
 
 到这，也许有人会说：在转字符串时，加上保留的位数就可以了。但其实这样做并不是太合理。因为我们根本不服务端后台会给我们返回什么数据，所以我们不知道该保留几位小数。同理，我们也不能采取切割字符串的方式去保留小数位数。
 
@@ -25,14 +25,14 @@ NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error
 
 采用苹果提供的 `NSDecimalNumber` 解决此问题。
 
-```text
+```objc
 double d = [dic[@"double"] doubleValue];
 NSString *dStr = [NSString stringWithFormat:@"%f", d];
 NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
 [NSString stringWithFormat:@"转换成功的结果为%@", dn.stringValue];
 ```
 
-![image](http://file.zhangpeng.site/2017/09/08/1.jpeg)
+![图片](https://file.zhangpeng.site/2017/09/08/1.jpeg)
 
 本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onntztzf/P_App_OC.git)~
 
