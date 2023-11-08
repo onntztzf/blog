@@ -278,7 +278,7 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 
 1.[WKWebView 那些坑](https://www.cnblogs.com/NSong/p/6489802.html)
 
-本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/2hangpeng/P_App_OC.git)～
+本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onntztzf/P_App_OC.git)～
 
 > Title: WKWebView 使用及注意事项
 >
@@ -286,4 +286,4 @@ window.webkit.messageHandlers.test1.postMessage({msg: "test1"});
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

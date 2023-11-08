@@ -39,12 +39,12 @@
 
 目前常用的 `NodeJS` 版本以及脚本下载地址如下：
 
-| 版本 | 脚本下载地址 |
-| :--- | :--- |
+| 版本           | 脚本下载地址                            |
+| :------------- | :-------------------------------------- |
 | Node.js 10 LTS | `https://deb.nodesource.com/setup_10.x` |
 | Node.js 12 LTS | `https://deb.nodesource.com/setup_12.x` |
 | Node.js 14 LTS | `https://deb.nodesource.com/setup_14.x` |
-| Node.js 15 | `https://deb.nodesource.com/setup_15.x` |
+| Node.js 15     | `https://deb.nodesource.com/setup_15.x` |
 
 > Title: Ubuntu 安装 NodeJS
 >
@@ -52,4 +52,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

@@ -4,7 +4,7 @@
 
 通过不断的调研及尝试，最终成功展示出了 `PDF` 中的加密印章。现在把方法分享给大家～
 
-本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/2hangpeng/ShowPDFDemo.git)~
+本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onntztzf/ShowPDFDemo.git)~
 
 ## 实现步骤
 
@@ -230,4 +230,4 @@ webView.navigationDelegate = self;
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

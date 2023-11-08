@@ -76,7 +76,7 @@
 
 ## 代码示例
 
-为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。也可以访问 [DynamicAppIconDemo](https://github.com/2hangpeng/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
+为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。也可以访问 [DynamicAppIconDemo](https://github.com/onntztzf/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
 
 ```text
 + (NSString *)getCurrentAppIconName {
@@ -125,31 +125,31 @@
 
 ### App Icon Attributes
 
-| Attribute | Value |
-| :--- | :--- |
-| Format | PNG |
-| Color space | sRGB or P3 (see [Color Management](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#color-management)) |
-| Layers | Flattened with no transparency |
-| Resolution | Varies. See [Image Size and Resolution](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/) |
-| Shape | Square with no rounded corners |
+| Attribute   | Value                                                                                                                                                  |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Format      | PNG                                                                                                                                                    |
+| Color space | sRGB or P3 (see [Color Management](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#color-management))           |
+| Layers      | Flattened with no transparency                                                                                                                         |
+| Resolution  | Varies. See [Image Size and Resolution](https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/) |
+| Shape       | Square with no rounded corners                                                                                                                         |
 
 ### App Icon Sizes
 
-| Device or context | Icon size |
-| :--- | :--- |
-| iPhone | 180px × 180px (60pt × 60pt @3x) |
-|  | 120px × 120px (60pt × 60pt @2x) |
-| iPad Pro | 167px × 167px (83.5pt × 83.5pt @2x) |
-| iPad, iPad mini | 152px × 152px (76pt × 76pt @2x) |
-| App Store | 1024px × 1024px (1024pt × 1024pt @1x) |
+| Device or context | Icon size                             |
+| :---------------- | :------------------------------------ |
+| iPhone            | 180px × 180px (60pt × 60pt @3x)       |
+|                   | 120px × 120px (60pt × 60pt @2x)       |
+| iPad Pro          | 167px × 167px (83.5pt × 83.5pt @2x)   |
+| iPad, iPad mini   | 152px × 152px (76pt × 76pt @2x)       |
+| App Store         | 1024px × 1024px (1024pt × 1024pt @1x) |
 
 ### Spotlight, Settings, and Notification Icons
 
-| Device or context | Spotlight icon size | Settings icon size | Notification icon size |
-| :--- | :--- | :--- | :--- |
-| iPhone | 120px × 120px (40pt × 40pt @3x) | 87px × 87px (29pt × 29pt @3x) | 60px × 60px (20pt × 20pt @3x) |
-|  | 80px × 80px (40pt × 40pt @2x) | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
-| iPad Pro, iPad, iPad mini | 80px × 80px (40pt × 40pt @2x) | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
+| Device or context         | Spotlight icon size             | Settings icon size            | Notification icon size        |
+| :------------------------ | :------------------------------ | :---------------------------- | :---------------------------- |
+| iPhone                    | 120px × 120px (40pt × 40pt @3x) | 87px × 87px (29pt × 29pt @3x) | 60px × 60px (20pt × 20pt @3x) |
+|                           | 80px × 80px (40pt × 40pt @2x)   | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
+| iPad Pro, iPad, iPad mini | 80px × 80px (40pt × 40pt @2x)   | 58px × 58px (29pt × 29pt @2x) | 40px × 40px (20pt × 20pt @2x) |
 
 ### Notice
 
@@ -166,4 +166,4 @@ Don’t add an overlay or border to your Settings icon. iOS automatically adds a
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

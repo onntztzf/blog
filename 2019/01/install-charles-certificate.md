@@ -54,7 +54,7 @@
 
    1. 将手机和电脑都连接到同一无线局域网，进入无线局域网设置，手动设置代理
    2. 按照提示框中的提示，在无线网设置中，将代理改为手动设置，按图中所示填写 `xxx.xx.xxx.xxx:xxxx`
-   3. 使用手机浏览器访问 [chls.pro/ssl](https://github.com/2hangpeng/blog/tree/322c1a6adda8dd6be880c9622823871046e6654b/mac/chls.pro/ssl/README.md)，按照提示安装证书
+   3. 使用手机浏览器访问 [chls.pro/ssl](https://github.com/onntztzf/blog/tree/322c1a6adda8dd6be880c9622823871046e6654b/mac/chls.pro/ssl/README.md)，按照提示安装证书
 
       ![Charles](http://file.zhangpeng.site/2019/01/02/6.jpg)
 
@@ -70,4 +70,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

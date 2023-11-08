@@ -42,10 +42,10 @@
 1. 进入 `macOS` 恢复模式。
     根据不同的目标，我们可以按不同的组合键。
 
-    | 组合键                                                       | 目标                                                        |
-    | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | Command + R                                                  | 安装您在 Mac 上安装过的最新 macOS，但不会升级到更高的版本。 |
-    | Option + Command + R                                         | 升级到与您的 Mac 兼容的最新 macOS                           |
+    | 组合键                                                             | 目标                                                        |
+    | :----------------------------------------------------------------- | :---------------------------------------------------------- |
+    | Command + R                                                        | 安装您在 Mac 上安装过的最新 macOS，但不会升级到更高的版本。 |
+    | Option + Command + R                                               | 升级到与您的 Mac 兼容的最新 macOS                           |
     | Shift-Option-Command-R（需要安装 macOS Sierra 10.12.4 或更高版本） | 安装 Mac 附带的 macOS 或最接近的仍可用版本。                |
 
 2. 进入恢复模式后，我们可以看到下面四个功能：
@@ -96,4 +96,4 @@
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

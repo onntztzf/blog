@@ -43,7 +43,7 @@
 
 ## Rac 的使用
 
-[Rac 的简单使用](https://github.com/2hangpeng/RacDemo)
+[Rac 的简单使用](https://github.com/onntztzf/RacDemo)
 
 ## 对比 EventBus RxJava
 
@@ -193,4 +193,4 @@ EventBus 是一款针对 Android 设计的发布/订阅事件总线，使用订�
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

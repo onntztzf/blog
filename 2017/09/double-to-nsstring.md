@@ -34,7 +34,7 @@ NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
 
 ![image](http://file.zhangpeng.site/2017/09/08/1.jpeg)
 
-本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/2hangpeng/P_App_OC.git)~
+本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onntztzf/P_App_OC.git)~
 
 > Title: double 转 NSString 出现精度异常
 >
@@ -42,4 +42,4 @@ NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dStr];
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

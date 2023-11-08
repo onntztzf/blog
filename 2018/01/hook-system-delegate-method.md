@@ -97,7 +97,7 @@ tracking:1,dragging:0,decelerating:0
 }
 ```
 
-**上面的代码具体请看** [**监听 UIScrollView 停止滚动的 Demo**](https://github.com/2hangpeng/P_App_OC) **中的`Demo6-UIScrollView停止滚动`**
+**上面的代码具体请看** [**监听 UIScrollView 停止滚动的 Demo**](https://github.com/onntztzf/P_App_OC) **中的`Demo6-UIScrollView停止滚动`**
 
 ### 添加停止滚动的回调
 
@@ -280,4 +280,4 @@ scrollView.stopScrollBlock = ^(UIScrollView *scrollView) {
 >
 > Author: zhangpeng
 >
-> Github: [https://github.com/2hangpeng](https://github.com/2hangpeng)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)
