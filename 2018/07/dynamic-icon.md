@@ -76,7 +76,7 @@
 
 ## 代码示例
 
-为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。也可以访问 [DynamicAppIconDemo](https://github.com/onntztzf/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
+为了方便大家使用，我将更换图标相关的代码已经写好在下面，如需自取。也可以访问 [DynamicAppIconDemo](https://github.com/onnttf/DynamicAppIconDemo)，查看 `FSAppIconManager` 类
 
 ```objc
 + (NSString *)getCurrentAppIconName {
@@ -166,4 +166,4 @@ Don’t add an overlay or border to your Settings icon. iOS automatically adds a
 >
 > Author: zhangpeng
 >
-> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)
+> GitHub: [https://github.com/onnttf](https://github.com/onnttf)
