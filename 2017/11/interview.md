@@ -15,7 +15,7 @@
    打印 false
    ![图片](https://file.zhangpeng.site/2017/11/09/1.jpeg) **分析：**
    因为 `NSArray` 运用了类蔟 `(Class clusters)` 的设计模式，类簇其实是对现实的一种抽象和封装，基于抽象工厂模式 `(Abstract Factory Pattern)`。`NSNumber`、`NSString`、`NSArray`等均是如此。
-   如想更深入的了解相关概念，可以查阅下面两篇文章：1. Sunny 大神写的[《从 NSArray 看类簇》](http://blog.sunnyxx.com/2014/12/18/class-cluster/) 2. [《Objective-C 类族和工厂模式》](http://www.cocoachina.com/cms/wap.php?action=article&id=10296) 代码在请见[Demo](https://github.com/onnttf/P_App_OC.git)中的 `Demo2`
+   如想更深入的了解相关概念，可以查阅下面两篇文章：1. Sunny 大神写的[《从 NSArray 看类簇》](http://blog.sunnyxx.com/2014/12/18/class-cluster/) 2. [《Objective-C 类族和工厂模式》](http://www.cocoachina.com/cms/wap.php?action=article&id=10296) 代码在请见[Demo](https://github.com/onntztzf/P_App_OC.git)中的 `Demo2`
 
 2. 下面代码打印什么内容？
 
@@ -51,7 +51,7 @@
 
     第四次输出时，由于集合内已经存在相同的 `@[@1, @2]`，而 `mSet` 中的元素是不能重复的，所以没有成功添加
 
-    代码在请见[Demo](https://github.com/onnttf/P_App_OC.git)中的 Demo3
+    代码在请见[Demo](https://github.com/onntztzf/P_App_OC.git)中的 Demo3
 
 > Title: 面试啊面试~
 >
@@ -59,4 +59,4 @@
 >
 > Author: zhangpeng
 >
-> GitHub: [https://github.com/onnttf](https://github.com/onnttf)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

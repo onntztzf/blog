@@ -3,7 +3,7 @@
 目前比较常见的二维码库有[ZXing](https://github.com/zxing/zxing)，[ZBar](https://github.com/ZBar/ZBar)等，网上对于这些知名库的使用及分析已经很多了，在这就不做赘述了。
 我们本篇文章的目标是采用 **CIQRCodeGenerator** 来完成二维码的生成及定制化。 `CIQRCodeGenerator` 在 iOS7 之后，苹果自身提供的 `API`，用于方便快捷的集成二维码的生成和读取功能。使用苹果提供的方法好处就在于不用额外引入其他的第三方库，可以减少打包后的 `App` 大小。
 
-写博客不给[Demo](https://github.com/onnttf/QRCodeDemo)的博主都不是好博主，没[Demo](https://github.com/onnttf/QRCodeDemo)没 XX。授人予鱼，不如授人与渔。鱼在上面的 Demo 中，渔在下面的文章中。下面开始我的表演。<(￣ ﹌ ￣)>
+写博客不给[Demo](https://github.com/onntztzf/QRCodeDemo)的博主都不是好博主，没[Demo](https://github.com/onntztzf/QRCodeDemo)没 XX。授人予鱼，不如授人与渔。鱼在上面的 Demo 中，渔在下面的文章中。下面开始我的表演。<(￣ ﹌ ￣)>
 
 ## 需求
 
@@ -305,4 +305,4 @@ CIImage *outPutImage = [filter outputImage];
 >
 > Author: zhangpeng
 >
-> GitHub: [https://github.com/onnttf](https://github.com/onnttf)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)

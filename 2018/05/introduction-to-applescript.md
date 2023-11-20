@@ -13,7 +13,7 @@
 1. 发送邮件：sendMail.scpt
 2. 发送 iMessage：sendMessage.scpt
 
-本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onnttf/AppleScript)~
+本文的所有代码均以上传至 `GitHub`，如需[自取](https://github.com/onntztzf/AppleScript)~
 
 > Title: AppleScript 入门与实践
 >
@@ -21,4 +21,4 @@
 >
 > Author: zhangpeng
 >
-> GitHub: [https://github.com/onnttf](https://github.com/onnttf)
+> GitHub: [https://github.com/onntztzf](https://github.com/onntztzf)
