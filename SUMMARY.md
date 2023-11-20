@@ -1,15 +1,15 @@
 # SUMMARY
 
-- [关于我](about.md)
-
 - [README](README.md)
+
+- [关于我](about.md)
 
 - [draft](draft)
   - [HTTP 状态码](draft/http-status-code.md)
   - [常用的日期格式化格式](draft/date-formatter.md)
   - [小 z，帮我导个数据吧](draft/txt-to-csv.md)
-  - [MySQL 8.0 笔记](draft/tips-for-mysql.md)
   - [快速删除重复行](draft/delete-duplicate-rows.md)
+  - [MySQL 8.0 笔记](draft/tips-for-mysql.md)
 
 - [2023/09](2023/09)
   - [Excel 教程：如何使用公式取两列的交集](2023/09/find-intersection-of-two-columns.md)
@@ -21,8 +21,8 @@
   - [如何构建 docker 镜像](2023/03/shebang.md)
 
 - [2023/02](2023/02)
-  - [Shell 入门教程](2023/02/introduction-to-shell.md)
   - [变更住房公积金提取周期](2023/02/housing-provident-fund.md)
+  - [Shell 入门教程](2023/02/introduction-to-shell.md)
   - [如何构建 docker 镜像](2023/02/how-to-create-image.md)
   - [Solidity 从入门到放弃](2023/02/solidity.md)
 
@@ -45,8 +45,8 @@
 
 - [2022/02](2022/02)
   - [快速生成表结构的结构体](2022/02/generate-table-struct.md)
-  - [如何创建自己 module](2022/02/create-personal-module.md)
   - [macOS 升级 Git 版本](2022/02/update-git-version.md)
+  - [如何创建自己 module](2022/02/create-personal-module.md)
 
 - [2022/01](2022/01)
   - [搞懂 Linux 的文件权限](2022/01/linux-file-permissions.md)
@@ -75,12 +75,12 @@
   - [Flutter 安装和环境配置](2020/08/install-flutter.md)
 
 - [2020/07](2020/07)
-  - [如何评判算法好坏](2020/07/judge-algorithm-quality.md)
   - [如何清理 Git 仓库](2020/07/clean-up-git-repository.md)
+  - [如何评判算法好坏](2020/07/judge-algorithm-quality.md)
 
 - [2020/05](2020/05)
-  - [Go 1.13 中 Go command 修改](2020/05/go-command.md)
   - [上传应用时，卡在 Authenticating with the App Store](2020/05/authenticating-with-the-app-store.md)
+  - [Go 1.13 中 Go command 修改](2020/05/go-command.md)
 
 - [2019/12](2019/12)
   - [类的初始化方法](2019/12/initializer.md)
@@ -92,20 +92,20 @@
   - [如何创建一个公有 Pod 库](2019/06/create-pod.md)
 
 - [2019/04](2019/04)
-  - [App 沙盒](2019/04/sandbox.md)
   - [Ubuntu 安装 MySQL](2019/04/install-mysql.md)
+  - [App 沙盒](2019/04/sandbox.md)
 
 - [2019/03](2019/03)
   - [RESTful 笔记](2019/03/introduction-to-restful.md)
-  - [+load 与 +initialize](2019/03/load-and-initialize.md)
   - [Block 的声明方式](2019/03/block-statement.md)
+  - [+load 与 +initialize](2019/03/load-and-initialize.md)
 
 - [2019/01](2019/01)
   - [Charles 安装证书](2019/01/install-charles-certificate.md)
 
 - [2018/12](2018/12)
-  - [Rac EventBus RxJava](2018/12/rac-eventbus-rxjava.md)
   - [iTerm2 一个更好用的终端](2018/12/a-better-terminal.md)
+  - [Rac EventBus RxJava](2018/12/rac-eventbus-rxjava.md)
 
 - [2018/07](2018/07)
   - [SiriKit 人机界面指南](2018/07/sirikit.md)
@@ -115,8 +115,8 @@
   - [macOS 系统重装](2018/06/reinstall-mac-system.md)
 
 - [2018/05](2018/05)
-  - [CocoaPods 安装及错误处理](2018/05/cocoapods.md)
   - [GCD 同步异步与串行并行](2018/05/gcd.md)
+  - [CocoaPods 安装及错误处理](2018/05/cocoapods.md)
   - [AppleScript 入门与实践](2018/05/introduction-to-applescript.md)
 
 - [2018/04](2018/04)
@@ -126,24 +126,24 @@
   - [NSMethodSignature 和 NSInvocation](2018/03/nsmethodsignature-nsinvocation.md)
 
 - [2018/02](2018/02)
-  - [URI、URL、URN 的差异与联系](2018/02/uri-url-urn.md)
   - [常见的编译失败](2018/02/build-failed.md)
+  - [URI、URL、URN 的差异与联系](2018/02/uri-url-urn.md)
 
 - [2018/01](2018/01)
   - [Hook 系统代理方法](2018/01/hook-system-delegate-method.md)
 
 - [2017/12](2017/12)
-  - [二维码生成及定制](2017/12/create-qr-code.md)
   - [WKWebView 使用及注意事项](2017/12/wkwebview.md)
+  - [二维码生成及定制](2017/12/create-qr-code.md)
 
 - [2017/11](2017/11)
   - [面试啊面试~](2017/11/interview.md)
   - [搭建 Hexo Blog](2017/11/set-up-hexo-blog.md)
 
 - [2017/09](2017/09)
-  - [Widget 开发 - 开发篇](2017/09/widget-development.md)
   - [double 转 NSString 出现精度异常](2017/09/double-to-nsstring.md)
+  - [Widget 开发 - 开发篇](2017/09/widget-development.md)
 
 - [2017/08](2017/08)
-  - [读取一个带有加密印章的 PDF](2017/08/read-pdf-with-cryptographic-seal.md)
   - [Widget 开发 - 配置篇](2017/08/widget-configuration.md)
+  - [读取一个带有加密印章的 PDF](2017/08/read-pdf-with-cryptographic-seal.md)
